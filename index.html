@@ -3,134 +3,1686 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta name="description" content="Eclipse Sex Shop | Compra discreta, empaque privado y atención por WhatsApp.">
+
 <title>Eclipse | Sex Shop</title>
+
 <style>
-:root{--gold:#e4ae32;--gold2:#ffd86a;--black:#030303;--panel:#0b0b0b;--line:#2b2110;--muted:#aaa}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;background:var(--black);color:#fff}
-a{text-decoration:none;color:inherit}
-.top{border-bottom:1px solid #1d1609;background:#050505;color:var(--gold2);padding:9px 15px;font-size:13px;text-align:center;letter-spacing:.3px}
-.top span{margin:0 28px}
-header{position:sticky;top:0;z-index:50;background:rgba(3,3,3,.94);backdrop-filter:blur(12px);border-bottom:1px solid #2b2110}
-.nav{max-width:1200px;margin:auto;min-height:82px;padding:10px 22px;display:flex;align-items:center;gap:28px}
-.logo{width:205px;display:block}
-.logo img{width:100%;display:block;mix-blend-mode:screen}
-nav{display:flex;align-items:center;gap:32px;margin-left:auto}
-nav a{font-size:14px;color:#eee;padding:31px 0;border-bottom:2px solid transparent}
-nav a:hover{color:var(--gold2);border-color:var(--gold)}
-.wa{border:1px solid var(--gold);border-radius:7px;padding:12px 19px;color:var(--gold2);font-weight:700;white-space:nowrap}
-.wa:hover{background:var(--gold);color:#080808}
-.hero{position:relative;overflow:hidden;min-height:515px;border-bottom:1px solid #2b2110;background:
-radial-gradient(circle at 75% 50%,rgba(228,174,50,.18),transparent 16%),
-radial-gradient(circle at 78% 50%,rgba(255,216,106,.08),transparent 34%),
-linear-gradient(115deg,#020202 0%,#060606 48%,#020202 100%)}
-.hero:before{content:"";position:absolute;width:480px;height:480px;border-radius:50%;right:9%;top:20px;border:3px solid var(--gold);box-shadow:0 0 35px rgba(228,174,50,.45),inset 0 0 35px rgba(228,174,50,.08)}
-.hero:after{content:"";position:absolute;width:650px;height:220px;right:-50px;bottom:-50px;border-radius:50%;border-top:2px solid rgba(228,174,50,.5);box-shadow:0 -15px 35px rgba(228,174,50,.12);transform:rotate(-7deg)}
-.hero-inner{position:relative;z-index:2;max-width:1200px;margin:auto;padding:78px 22px}
-.kicker{color:var(--gold2);font-size:13px;letter-spacing:4px;text-transform:uppercase;margin-bottom:15px}
-h1{font-family:Georgia,serif;font-size:clamp(48px,7vw,82px);font-weight:400;letter-spacing:7px;line-height:.95}
-.hero-title{color:#fff}
-.hero-sub{font-size:21px;letter-spacing:5px;color:var(--gold2);margin-top:18px}
-.hero p{max-width:530px;color:#bbb;margin:20px 0 28px;font-size:16px;line-height:1.7}
-.btn{display:inline-flex;padding:14px 25px;border:1px solid var(--gold);border-radius:7px;font-weight:700;color:var(--gold2);margin-right:8px}
-.btn.primary{background:var(--gold);color:#080808}
-.btn:hover{filter:brightness(1.12)}
-section{max-width:1200px;margin:auto;padding:65px 22px}
-.title{text-align:center;margin-bottom:35px}
-.title small{display:block;color:var(--gold2);letter-spacing:4px;font-size:12px;margin-bottom:8px}
-h2{font-family:Georgia,serif;font-weight:400;font-size:34px;letter-spacing:1px}
-.categories{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.cat{min-height:125px;border:1px solid #4a3613;border-radius:10px;background:linear-gradient(145deg,#111,#070707);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;transition:.2s}
-.cat:hover{transform:translateY(-3px);border-color:var(--gold)}
-.cat .ico{font-size:34px;color:var(--gold2)}
-.cat b{font-size:14px;letter-spacing:1px}
-.products{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.product{background:#090909;border:1px solid #332610;border-radius:10px;overflow:hidden}
-.pic{height:215px;background:radial-gradient(circle at 50% 45%,#252525,#090909 62%);display:flex;align-items:center;justify-content:center;color:#777;font-size:12px}
-.info{padding:15px}
-.info h3{font-size:15px;font-weight:500;min-height:38px}
-.price{color:var(--gold2);font-size:18px;font-weight:700;margin:10px 0 12px}
-.buy{display:block;text-align:center;border:1px solid #8a641c;color:var(--gold2);padding:9px 7px;border-radius:6px;font-size:12px;font-weight:700}
-.buy:hover{background:var(--gold);color:#080808}
-.benefits{max-width:none;border-top:1px solid #2b2110;border-bottom:1px solid #2b2110;background:#070707}
-.benefit-grid{max-width:1200px;margin:auto;padding:30px 22px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.benefit{text-align:center;border-right:1px solid #332714}
-.benefit:last-child{border:0}.benefit .ico{font-size:28px;color:var(--gold2);margin-bottom:7px}.benefit b{display:block;color:var(--gold2);font-size:14px}.benefit span{display:block;color:#aaa;font-size:12px;margin-top:4px}
-.contact{text-align:center;background:radial-gradient(circle at 50% 0,rgba(228,174,50,.12),transparent 42%)}
-.contact p{color:#aaa;margin:12px auto 24px;max-width:600px}
-footer{border-top:1px solid #2b2110;padding:35px 22px;color:#888;text-align:center;font-size:12px}
-footer .footer-logo{width:170px;margin:0 auto 15px;mix-blend-mode:screen}
-footer b{color:var(--gold2)}
-@media(max-width:900px){
-nav{display:none}.nav{justify-content:space-between}.logo{width:175px}
-.hero:before{width:330px;height:330px;right:-80px;opacity:.65}.hero-inner{padding:75px 22px}
-.products{grid-template-columns:repeat(2,1fr)}.categories{grid-template-columns:repeat(3,1fr)}
-.benefit-grid{grid-template-columns:repeat(2,1fr)}.benefit:nth-child(2){border:0}
+:root{
+  --gold:#e4ae32;
+  --gold2:#ffd86a;
+  --black:#030303;
+  --panel:#0b0b0b;
+  --line:#2b2110;
+  --muted:#aaa;
 }
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--black);
+  color:#fff;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* TOP */
+
+.top{
+  border-bottom:1px solid #1d1609;
+  background:#050505;
+  color:var(--gold2);
+  padding:9px 15px;
+  font-size:13px;
+  text-align:center;
+  letter-spacing:.3px;
+}
+
+.top span{
+  margin:0 28px;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(3,3,3,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #2b2110;
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  min-height:82px;
+  padding:10px 22px;
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.logo{
+  width:205px;
+  display:block;
+}
+
+.logo img{
+  width:100%;
+  display:block;
+  mix-blend-mode:screen;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  margin-left:auto;
+}
+
+nav a{
+  font-size:14px;
+  color:#eee;
+  padding:31px 0;
+  border-bottom:2px solid transparent;
+}
+
+nav a:hover{
+  color:var(--gold2);
+  border-color:var(--gold);
+}
+
+.wa{
+  border:1px solid var(--gold);
+  border-radius:7px;
+  padding:12px 19px;
+  color:var(--gold2);
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.wa:hover{
+  background:var(--gold);
+  color:#080808;
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  min-height:515px;
+  border-bottom:1px solid #2b2110;
+  background:
+  radial-gradient(circle at 75% 50%,rgba(228,174,50,.18),transparent 16%),
+  radial-gradient(circle at 78% 50%,rgba(255,216,106,.08),transparent 34%),
+  linear-gradient(115deg,#020202 0%,#060606 48%,#020202 100%);
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:480px;
+  height:480px;
+  border-radius:50%;
+  right:9%;
+  top:20px;
+  border:3px solid var(--gold);
+  box-shadow:
+  0 0 35px rgba(228,174,50,.45),
+  inset 0 0 35px rgba(228,174,50,.08);
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:650px;
+  height:220px;
+  right:-50px;
+  bottom:-50px;
+  border-radius:50%;
+  border-top:2px solid rgba(228,174,50,.5);
+  box-shadow:0 -15px 35px rgba(228,174,50,.12);
+  transform:rotate(-7deg);
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+  max-width:1200px;
+  margin:auto;
+  padding:78px 22px;
+}
+
+.kicker{
+  color:var(--gold2);
+  font-size:13px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:15px;
+}
+
+h1{
+  font-family:Georgia,serif;
+  font-size:clamp(48px,7vw,82px);
+  font-weight:400;
+  letter-spacing:7px;
+  line-height:.95;
+}
+
+.hero-sub{
+  font-size:21px;
+  letter-spacing:5px;
+  color:var(--gold2);
+  margin-top:18px;
+}
+
+.hero p{
+  max-width:530px;
+  color:#bbb;
+  margin:20px 0 28px;
+  font-size:16px;
+  line-height:1.7;
+}
+
+.btn{
+  display:inline-flex;
+  padding:14px 25px;
+  border:1px solid var(--gold);
+  border-radius:7px;
+  font-weight:700;
+  color:var(--gold2);
+  margin-right:8px;
+}
+
+.btn.primary{
+  background:var(--gold);
+  color:#080808;
+}
+
+.btn:hover{
+  filter:brightness(1.12);
+}
+
+/* GENERAL */
+
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:65px 22px;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.title small{
+  display:block;
+  color:var(--gold2);
+  letter-spacing:4px;
+  font-size:12px;
+  margin-bottom:8px;
+}
+
+h2{
+  font-family:Georgia,serif;
+  font-weight:400;
+  font-size:34px;
+  letter-spacing:1px;
+}
+
+/* CATEGORIES */
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+}
+
+.cat{
+  min-height:125px;
+  border:1px solid #4a3613;
+  border-radius:10px;
+  background:linear-gradient(145deg,#111,#070707);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  transition:.2s;
+  cursor:pointer;
+}
+
+.cat:hover,
+.cat.active{
+  transform:translateY(-3px);
+  border-color:var(--gold);
+  box-shadow:0 0 20px rgba(228,174,50,.12);
+}
+
+.cat .ico{
+  font-size:34px;
+  color:var(--gold2);
+}
+
+.cat b{
+  font-size:13px;
+  letter-spacing:1px;
+  text-align:center;
+}
+
+/* SEARCH */
+
+.catalog-tools{
+  display:flex;
+  gap:12px;
+  max-width:850px;
+  margin:0 auto 30px;
+}
+
+.search{
+  flex:1;
+  background:#090909;
+  border:1px solid #4a3613;
+  color:white;
+  border-radius:8px;
+  padding:14px 16px;
+  outline:none;
+}
+
+.search:focus{
+  border-color:var(--gold);
+}
+
+.filter{
+  background:#090909;
+  color:white;
+  border:1px solid #4a3613;
+  border-radius:8px;
+  padding:0 14px;
+}
+
+/* PRODUCTS */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.product{
+  background:#090909;
+  border:1px solid #332610;
+  border-radius:10px;
+  overflow:hidden;
+  transition:.2s;
+}
+
+.product:hover{
+  transform:translateY(-3px);
+  border-color:#71551b;
+}
+
+.pic{
+  height:230px;
+  background:
+  radial-gradient(circle at 50% 45%,#292929,#090909 65%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#777;
+  font-size:12px;
+  text-align:center;
+  overflow:hidden;
+}
+
+.pic img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+.info{
+  padding:15px;
+}
+
+.category-label{
+  color:var(--gold2);
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:7px;
+}
+
+.info h3{
+  font-size:15px;
+  font-weight:500;
+  min-height:40px;
+  line-height:1.35;
+}
+
+.code{
+  color:#777;
+  font-size:11px;
+  margin-top:6px;
+}
+
+.price{
+  color:var(--gold2);
+  font-size:18px;
+  font-weight:700;
+  margin:10px 0 12px;
+}
+
+.status{
+  display:inline-block;
+  font-size:10px;
+  padding:4px 7px;
+  border-radius:4px;
+  margin-bottom:10px;
+  font-weight:bold;
+}
+
+.available{
+  color:#9bea9b;
+  border:1px solid #315d31;
+  background:#0b180b;
+}
+
+.out{
+  color:#ff8e8e;
+  border:1px solid #633030;
+  background:#190909;
+}
+
+.buy{
+  display:block;
+  text-align:center;
+  border:1px solid #8a641c;
+  color:var(--gold2);
+  padding:10px 7px;
+  border-radius:6px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.buy:hover{
+  background:var(--gold);
+  color:#080808;
+}
+
+.no-products{
+  grid-column:1/-1;
+  text-align:center;
+  padding:40px;
+  color:#888;
+}
+
+/* BENEFITS */
+
+.benefits{
+  max-width:none;
+  border-top:1px solid #2b2110;
+  border-bottom:1px solid #2b2110;
+  background:#070707;
+}
+
+.benefit-grid{
+  max-width:1200px;
+  margin:auto;
+  padding:30px 22px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.benefit{
+  text-align:center;
+  border-right:1px solid #332714;
+}
+
+.benefit:last-child{
+  border:0;
+}
+
+.benefit .ico{
+  font-size:28px;
+  color:var(--gold2);
+  margin-bottom:7px;
+}
+
+.benefit b{
+  display:block;
+  color:var(--gold2);
+  font-size:14px;
+}
+
+.benefit span{
+  display:block;
+  color:#aaa;
+  font-size:12px;
+  margin-top:4px;
+}
+
+/* PROMOS */
+
+.contact{
+  text-align:center;
+  background:
+  radial-gradient(circle at 50% 0,rgba(228,174,50,.12),transparent 42%);
+}
+
+.contact p{
+  color:#aaa;
+  margin:12px auto 24px;
+  max-width:600px;
+}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid #2b2110;
+  padding:35px 22px;
+  color:#888;
+  text-align:center;
+  font-size:12px;
+}
+
+footer .footer-logo{
+  width:170px;
+  margin:0 auto 15px;
+  mix-blend-mode:screen;
+}
+
+footer b{
+  color:var(--gold2);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  nav{
+    display:none;
+  }
+
+  .nav{
+    justify-content:space-between;
+  }
+
+  .logo{
+    width:175px;
+  }
+
+  .hero:before{
+    width:330px;
+    height:330px;
+    right:-80px;
+    opacity:.65;
+  }
+
+  .hero-inner{
+    padding:75px 22px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .categories{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .benefit-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .benefit:nth-child(2){
+    border:0;
+  }
+}
+
 @media(max-width:560px){
-.top span{margin:0 5px;font-size:11px}.top span:nth-child(2){display:none}
-.nav{min-height:68px;padding:8px 15px}.logo{width:145px}.wa{padding:9px 12px;font-size:12px}
-.hero{min-height:560px}.hero:before{width:260px;height:260px;right:-90px;top:35px;opacity:.4}.hero-inner{padding:65px 18px}
-h1{font-size:49px;letter-spacing:4px}.hero-sub{font-size:16px;letter-spacing:3px}
-.hero p{font-size:14px;max-width:380px}.btn{padding:12px 17px;margin-bottom:8px}
-section{padding:50px 15px}.categories{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:1fr 1fr}.pic{height:165px}
-.benefit-grid{grid-template-columns:1fr 1fr;padding:25px 15px}.benefit{border:0!important}
+
+  .top span{
+    margin:0 5px;
+    font-size:11px;
+  }
+
+  .top span:nth-child(2){
+    display:none;
+  }
+
+  .nav{
+    min-height:68px;
+    padding:8px 15px;
+  }
+
+  .logo{
+    width:145px;
+  }
+
+  .wa{
+    padding:9px 12px;
+    font-size:12px;
+  }
+
+  .hero{
+    min-height:560px;
+  }
+
+  .hero:before{
+    width:260px;
+    height:260px;
+    right:-90px;
+    top:35px;
+    opacity:.4;
+  }
+
+  .hero-inner{
+    padding:65px 18px;
+  }
+
+  h1{
+    font-size:49px;
+    letter-spacing:4px;
+  }
+
+  .hero-sub{
+    font-size:16px;
+    letter-spacing:3px;
+  }
+
+  .hero p{
+    font-size:14px;
+    max-width:380px;
+  }
+
+  .btn{
+    padding:12px 17px;
+    margin-bottom:8px;
+  }
+
+  section{
+    padding:50px 15px;
+  }
+
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .products{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .pic{
+    height:165px;
+  }
+
+  .catalog-tools{
+    flex-direction:column;
+  }
+
+  .filter{
+    padding:13px;
+  }
+
+  .benefit-grid{
+    grid-template-columns:1fr 1fr;
+    padding:25px 15px;
+  }
+
+  .benefit{
+    border:0!important;
+  }
 }
 </style>
 </head>
+
 <body>
-<div class="top"><span>🔒 Atención discreta</span><span>📦 Empaque privado</span><span>🚚 Pedidos por WhatsApp</span></div>
-<header><div class="nav">
-<a class="logo" href="#inicio"><img src="logo-eclipse.jpg" alt="Eclipse Sex Shop"></a>
-<nav><a href="#inicio">INICIO</a><a href="#categorias">CATEGORÍAS</a><a href="#productos">PRODUCTOS</a><a href="#promos">PROMOCIONES</a><a href="#contacto">CONTACTO</a></nav>
-<a class="wa" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20informaci%C3%B3n." target="_blank">◉ WhatsApp</a>
-</div></header>
+
+<div class="top">
+  <span>🔒 Atención discreta</span>
+  <span>📦 Empaque privado</span>
+  <span>🚚 Pedidos por WhatsApp</span>
+</div>
+
+<header>
+  <div class="nav">
+
+    <a class="logo" href="#inicio">
+      <img src="logo-eclipse.jpg" alt="Eclipse Sex Shop">
+    </a>
+
+    <nav>
+      <a href="#inicio">INICIO</a>
+      <a href="#categorias">CATEGORÍAS</a>
+      <a href="#productos">PRODUCTOS</a>
+      <a href="#promos">PROMOCIONES</a>
+      <a href="#contacto">CONTACTO</a>
+    </nav>
+
+    <a class="wa"
+       href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20informaci%C3%B3n"
+       target="_blank">
+       ◉ WhatsApp
+    </a>
+
+  </div>
+</header>
 
 <main id="inicio">
-<section class="hero"><div class="hero-inner">
-<div class="kicker">Bienvenido a Eclipse</div>
-<h1>ECLIPSE</h1><div class="hero-sub">SEX SHOP</div>
-<p>Descubre una nueva forma de disfrutar. Explora nuestra selección de productos para adultos con atención personalizada, compra discreta y pedidos fáciles por WhatsApp.</p>
-<a class="btn primary" href="#productos">VER CATÁLOGO&nbsp; ›</a>
-<a class="btn" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20hacer%20un%20pedido." target="_blank">COMPRAR POR WHATSAPP</a>
-</div></section>
 
-<section id="categorias"><div class="title"><small>EXPLORA</small><h2>Categorías</h2></div>
-<div class="categories">
-<a class="cat" href="#productos"><div class="ico">♢</div><b>LENCERÍA</b></a>
-<a class="cat" href="#productos"><div class="ico">◈</div><b>JUGUETES</b></a>
-<a class="cat" href="#productos"><div class="ico">◉</div><b>LUBRICANTES</b></a>
-<a class="cat" href="#productos"><div class="ico">♧</div><b>ACCESORIOS</b></a>
-<a class="cat" href="#promos"><div class="ico">◇</div><b>PROMOCIONES</b></a>
-</div></section>
+<section class="hero">
 
-<section id="productos"><div class="title"><small>ECLIPSE</small><h2>Productos destacados</h2></div>
-<div class="products">
-<div class="product"><div class="pic">Foto del producto</div><div class="info"><h3>Producto destacado 01</h3><div class="price">$0</div><a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20Producto%2001." target="_blank">◉ Comprar por WhatsApp</a></div></div>
-<div class="product"><div class="pic">Foto del producto</div><div class="info"><h3>Producto destacado 02</h3><div class="price">$0</div><a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20Producto%2002." target="_blank">◉ Comprar por WhatsApp</a></div></div>
-<div class="product"><div class="pic">Foto del producto</div><div class="info"><h3>Producto destacado 03</h3><div class="price">$0</div><a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20Producto%2003." target="_blank">◉ Comprar por WhatsApp</a></div></div>
-<div class="product"><div class="pic">Foto del producto</div><div class="info"><h3>Producto destacado 04</h3><div class="price">$0</div><a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20Producto%2004." target="_blank">◉ Comprar por WhatsApp</a></div></div>
-<div class="product"><div class="pic">Foto del producto</div><div class="info"><h3>Producto destacado 05</h3><div class="price">$0</div><a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20Producto%2005." target="_blank">◉ Comprar por WhatsApp</a></div></div>
-</div></section>
+  <div class="hero-inner">
 
-<div class="benefits"><div class="benefit-grid">
-<div class="benefit"><div class="ico">🔒</div><b>COMPRA DISCRETA</b><span>Tu privacidad es nuestra prioridad.</span></div>
-<div class="benefit"><div class="ico">📦</div><b>EMPAQUE PRIVADO</b><span>Empaque discreto y protegido.</span></div>
-<div class="benefit"><div class="ico">🚚</div><b>ENVÍOS</b><span>Consulta cobertura y tiempos.</span></div>
-<div class="benefit"><div class="ico">◉</div><b>ATENCIÓN POR WHATSAPP</b><span>Atención personalizada.</span></div>
-</div></div>
+    <div class="kicker">Bienvenido a Eclipse</div>
 
-<section id="promos"><div class="title"><small>NO TE LO PIERDAS</small><h2>Promociones Eclipse</h2></div>
-<div style="text-align:center;color:#aaa">Aquí podremos publicar tus ofertas, combos y descuentos.</div></section>
+    <h1>ECLIPSE</h1>
 
-<section class="contact" id="contacto"><div class="title"><small>ESTAMOS PARA AYUDARTE</small><h2>Hablemos por WhatsApp</h2></div>
-<p>Consulta disponibilidad, precios, envíos o realiza tu pedido directamente.</p>
-<a class="btn primary" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20necesito%20ayuda%20con%20un%20pedido." target="_blank">💬 312 369 0775</a>
-<a class="btn" href="https://instagram.com/eclipse_oficial69" target="_blank">◎ @eclipse_oficial69</a>
+    <div class="hero-sub">SEX SHOP</div>
+
+    <p>
+      Descubre una nueva forma de disfrutar.
+      Explora nuestra selección de productos para adultos
+      con atención personalizada, compra discreta y pedidos
+      fáciles por WhatsApp.
+    </p>
+
+    <a class="btn primary" href="#productos">
+      VER CATÁLOGO&nbsp; ›
+    </a>
+
+    <a class="btn"
+       href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20hacer%20un%20pedido"
+       target="_blank">
+       COMPRAR POR WHATSAPP
+    </a>
+
+  </div>
+
 </section>
+
+
+<!-- CATEGORÍAS -->
+
+<section id="categorias">
+
+  <div class="title">
+    <small>EXPLORA</small>
+    <h2>Categorías</h2>
+  </div>
+
+  <div class="categories">
+
+    <div class="cat active" onclick="filterCategory('Todos',this)">
+      <div class="ico">✦</div>
+      <b>TODOS</b>
+    </div>
+
+    <div class="cat" onclick="filterCategory('Lubricantes y estimulantes',this)">
+      <div class="ico">💧</div>
+      <b>LUBRICANTES</b>
+    </div>
+
+    <div class="cat" onclick="filterCategory('Energizantes',this)">
+      <div class="ico">⚡</div>
+      <b>ENERGIZANTES</b>
+    </div>
+
+    <div class="cat" onclick="filterCategory('Vibradores',this)">
+      <div class="ico">💜</div>
+      <b>VIBRADORES</b>
+    </div>
+
+    <div class="cat" onclick="filterCategory('Dildos',this)">
+      <div class="ico">🍑</div>
+      <b>DILDOS</b>
+    </div>
+
+    <div class="cat" onclick="filterCategory('Anillos y estimuladores',this)">
+      <div class="ico">🔥</div>
+      <b>ANILLOS</b>
+    </div>
+
+    <div class="cat" onclick="filterCategory('Juegos',this)">
+      <div class="ico">🎲</div>
+      <b>JUEGOS</b>
+    </div>
+
+    <div class="cat" onclick="filterCategory('Kits',this)">
+      <div class="ico">🎁</div>
+      <b>KITS</b>
+    </div>
+
+    <div class="cat" onclick="filterCategory('Perfumes y feromonas',this)">
+      <div class="ico">🌹</div>
+      <b>PERFUMES</b>
+    </div>
+
+    <div class="cat" onclick="filterCategory('Cuidado íntimo',this)">
+      <div class="ico">🧴</div>
+      <b>CUIDADO ÍNTIMO</b>
+    </div>
+
+    <div class="cat" onclick="filterCategory('Línea Gay',this)">
+      <div class="ico">🏳️‍🌈</div>
+      <b>LÍNEA GAY</b>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PRODUCTOS -->
+
+<section id="productos">
+
+  <div class="title">
+    <small>CATÁLOGO ECLIPSE</small>
+    <h2>Nuestros productos</h2>
+  </div>
+
+  <div class="catalog-tools">
+
+    <input
+      id="search"
+      class="search"
+      type="search"
+      placeholder="🔎 Buscar producto..."
+      oninput="searchProducts()"
+    >
+
+    <select
+      id="filter"
+      class="filter"
+      onchange="filterFromSelect()"
+    >
+      <option value="Todos">Todas las categorías</option>
+      <option value="Lubricantes y estimulantes">Lubricantes</option>
+      <option value="Energizantes">Energizantes</option>
+      <option value="Vibradores">Vibradores</option>
+      <option value="Dildos">Dildos</option>
+      <option value="Anillos y estimuladores">Anillos</option>
+      <option value="Juegos">Juegos</option>
+      <option value="Kits">Kits</option>
+      <option value="Perfumes y feromonas">Perfumes</option>
+      <option value="Cuidado íntimo">Cuidado íntimo</option>
+      <option value="Línea Gay">Línea Gay</option>
+    </select>
+
+  </div>
+
+  <div id="productGrid" class="products"></div>
+
+</section>
+
+
+<!-- BENEFICIOS -->
+
+<div class="benefits">
+
+  <div class="benefit-grid">
+
+    <div class="benefit">
+      <div class="ico">🔒</div>
+      <b>COMPRA DISCRETA</b>
+      <span>Tu privacidad es nuestra prioridad.</span>
+    </div>
+
+    <div class="benefit">
+      <div class="ico">📦</div>
+      <b>EMPAQUE PRIVADO</b>
+      <span>Empaque discreto y protegido.</span>
+    </div>
+
+    <div class="benefit">
+      <div class="ico">🚚</div>
+      <b>ENVÍOS</b>
+      <span>Consulta cobertura y tiempos.</span>
+    </div>
+
+    <div class="benefit">
+      <div class="ico">◉</div>
+      <b>ATENCIÓN POR WHATSAPP</b>
+      <span>Atención personalizada.</span>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- PROMOCIONES -->
+
+<section id="promos">
+
+  <div class="title">
+    <small>NO TE LO PIERDAS</small>
+    <h2>Promociones Eclipse</h2>
+  </div>
+
+  <div style="text-align:center;color:#aaa">
+    Próximamente encontrarás aquí nuestras ofertas,
+    combos y promociones especiales.
+  </div>
+
+</section>
+
+
+<!-- CONTACTO -->
+
+<section class="contact" id="contacto">
+
+  <div class="title">
+    <small>ESTAMOS PARA AYUDARTE</small>
+    <h2>Hablemos por WhatsApp</h2>
+  </div>
+
+  <p>
+    Consulta disponibilidad, precios, envíos o realiza
+    tu pedido directamente.
+  </p>
+
+  <a
+    class="btn primary"
+    href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20necesito%20ayuda%20con%20un%20pedido"
+    target="_blank">
+    💬 312 369 0775
+  </a>
+
+  <a
+    class="btn"
+    href="https://instagram.com/eclipse_oficial69"
+    target="_blank">
+    ◎ @eclipse_oficial69
+  </a>
+
+</section>
+
 </main>
-<footer><img class="footer-logo" src="logo-eclipse.jpg" alt="Eclipse"><div>© 2026 <b>Eclipse Sex Shop</b> · Todos los derechos reservados.</div><div style="margin-top:7px">Contenido dirigido exclusivamente a personas adultas.</div></footer>
+
+
+<footer>
+
+  <img
+    class="footer-logo"
+    src="logo-eclipse.jpg"
+    alt="Eclipse">
+
+  <div>
+    © 2026 <b>Eclipse Sex Shop</b> · Todos los derechos reservados.
+  </div>
+
+  <div style="margin-top:7px">
+    Contenido dirigido exclusivamente a personas adultas.
+  </div>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   CATÁLOGO ECLIPSE
+   ========================================================= */
+
+const products = [
+
+  /* LUBRICANTES */
+
+  {
+    name:"Lubricante Íntimo Multiorgasmos Friocalor 30 ml",
+    price:38900,
+    category:"Lubricantes y estimulantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Lubricante Íntimo Trío 30 ml",
+    price:30900,
+    category:"Lubricantes y estimulantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Lubricante Íntimo Anal Desensibilizante 10 ml",
+    price:25900,
+    category:"Lubricantes y estimulantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Lubricante Crema de Whisky Sensación Caliente 30 ml",
+    price:28900,
+    category:"Lubricantes y estimulantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Lubricante Mango Sensación Caliente Electrizante 30 ml",
+    price:38900,
+    category:"Lubricantes y estimulantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Lubricante Multiorgasmos 10 ml",
+    price:25900,
+    category:"Lubricantes y estimulantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Lubricante Lychee Sensación Caliente Electrizante 30 ml",
+    price:38900,
+    category:"Lubricantes y estimulantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Lubricante Chocolate Sensación Caliente 30 ml",
+    price:28900,
+    category:"Lubricantes y estimulantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Lubricante Menta Sensación Fría 30 ml",
+    price:28900,
+    category:"Lubricantes y estimulantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Lubricante Tequila Sensación Caliente Electrizante 30 ml",
+    price:38900,
+    category:"Lubricantes y estimulantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Vibrador Líquido Electrizante Frío 5 ml",
+    price:39900,
+    category:"Lubricantes y estimulantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Vibrador Líquido Electrizante 5 ml",
+    price:38900,
+    category:"Lubricantes y estimulantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Multiorgasmos Euforia con CBD 30 ml",
+    price:37900,
+    category:"Lubricantes y estimulantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+
+  /* CUIDADO ÍNTIMO */
+
+  {
+    name:"Radiant",
+    price:32900,
+    category:"Cuidado íntimo",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Crema Humectante 125 ml",
+    price:32900,
+    category:"Cuidado íntimo",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Brillo Labial Frutos Rojos 10 ml",
+    price:16000,
+    category:"Cuidado íntimo",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Brillo Labial Frutos Rojos 20 ml",
+    price:39500,
+    category:"Cuidado íntimo",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+
+  /* PERFUMES */
+
+  {
+    name:"Aceite Corporal Feromonas 250 ml",
+    price:54900,
+    category:"Perfumes y feromonas",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Perfume Feromona Dama Gotero 10 ml",
+    price:42900,
+    category:"Perfumes y feromonas",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Radiant",
+    price:35900,
+    category:"Perfumes y feromonas",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Forever",
+    price:35900,
+    category:"Perfumes y feromonas",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Sexy",
+    price:35900,
+    category:"Perfumes y feromonas",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Seduction",
+    price:35900,
+    category:"Perfumes y feromonas",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Seduction",
+    price:42900,
+    category:"Perfumes y feromonas",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Titanium",
+    price:42900,
+    category:"Perfumes y feromonas",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Vicious",
+    price:42900,
+    category:"Perfumes y feromonas",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Perfume Feromonas Dama Roll-On 10 ml",
+    price:42900,
+    category:"Perfumes y feromonas",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Perfume Feromonas Hombre Roll-On 10 ml",
+    price:42900,
+    category:"Perfumes y feromonas",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Radiant Feromonas 10 ml",
+    price:42900,
+    category:"Perfumes y feromonas",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+
+  /* VIBRADORES */
+
+  {
+    name:"Panty Vibrador",
+    price:103000,
+    category:"Vibradores",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Bunny Vibe",
+    price:128900,
+    category:"Vibradores",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Huevo Vibrador",
+    price:51000,
+    category:"Vibradores",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Clitoral Lover",
+    price:85000,
+    category:"Vibradores",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Pulsador de Succión Clitorial Kiss Love",
+    price:137000,
+    category:"Vibradores",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Hi Basic Sassy",
+    price:30000,
+    category:"Vibradores",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Jumping Rabbit",
+    price:38000,
+    category:"Vibradores",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Hidden Love",
+    price:24000,
+    category:"Vibradores",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+
+  /* DILDOS */
+
+  {
+    name:"Sweet Littlet Bear",
+    price:73000,
+    category:"Dildos",
+    code:"GCJ4110",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Griffin",
+    price:146000,
+    category:"Dildos",
+    code:"GCJ4177",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Jewelry Skin",
+    price:43000,
+    category:"Dildos",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+
+  /* ANILLOS */
+
+  {
+    name:"Anillo Vibrador Double Ring Black Power",
+    price:33000,
+    category:"Anillos y estimuladores",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Anillo Vibrador Sen Íntimo",
+    price:21000,
+    category:"Anillos y estimuladores",
+    code:"Pendiente",
+    status:"Agotado",
+    image:""
+  },
+
+
+  /* JUEGOS */
+
+  {
+    name:"Dados Penitencia Luminosos x3",
+    price:19000,
+    category:"Juegos",
+    code:"GCJ298",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Dados Penitencia x3",
+    price:18000,
+    category:"Juegos",
+    code:"GCJ299",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Dados Eróticos x2",
+    price:16000,
+    category:"Línea Gay",
+    code:"GCJ383",
+    status:"Disponible",
+    image:""
+  },
+
+
+  /* KITS */
+
+  {
+    name:"Kit Enciende Llama",
+    price:48000,
+    category:"Kits",
+    code:"GCKIT041",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Kit de Lubricantes Salva Vidas",
+    price:45000,
+    category:"Kits",
+    code:"GCC992",
+    status:"Disponible",
+    image:""
+  },
+
+
+  /* LÍNEA GAY */
+
+  {
+    name:"Dados Eróticos para Parejas Masculinas x2",
+    price:16000,
+    category:"Línea Gay",
+    code:"GCJ383",
+    status:"Disponible",
+    image:""
+  },
+
+
+  /* ENERGIZANTES */
+
+  {
+    name:"Energizante Black PW 500 ml",
+    price:58000,
+    category:"Energizantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Energizante Black PW Sachet 15 ml",
+    price:12000,
+    category:"Energizantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Energizante Black Power Pills x2 + 1 Gratis",
+    price:16000,
+    category:"Energizantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Energizante Black PW 30 ml",
+    price:17000,
+    category:"Energizantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Energizante Black Power Pills x5 + 1 Gratis",
+    price:27000,
+    category:"Energizantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Energizante Black PW 60 ml",
+    price:25000,
+    category:"Energizantes",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+
+  /* OTROS */
+
+  {
+    name:"Candy Hollow Dildo Harness",
+    price:53000,
+    category:"Anillos y estimuladores",
+    code:"GCJ4268",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Cherry Pepper Extreme",
+    price:35000,
+    category:"Anillos y estimuladores",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  },
+
+  {
+    name:"Honeymoon",
+    price:64000,
+    category:"Juegos",
+    code:"Pendiente",
+    status:"Disponible",
+    image:""
+  }
+
+];
+
+
+/* =========================================================
+   FUNCIONES
+   ========================================================= */
+
+let currentCategory = "Todos";
+
+
+function money(value){
+
+  return "$" + value.toLocaleString("es-CO");
+
+}
+
+
+function whatsapp(product){
+
+  const message =
+    "Hola Eclipse 🌑, quiero comprar: " +
+    product.name +
+    " por $" +
+    product.price.toLocaleString("es-CO") +
+    ". ¿Está disponible?";
+
+  return "https://wa.me/573123690775?text=" +
+    encodeURIComponent(message);
+
+}
+
+
+function renderProducts(){
+
+  const grid = document.getElementById("productGrid");
+
+  const search =
+    document.getElementById("search").value
+    .toLowerCase()
+    .trim();
+
+  let filtered = products.filter(product => {
+
+    const categoryMatch =
+      currentCategory === "Todos" ||
+      product.category === currentCategory;
+
+    const searchMatch =
+      product.name.toLowerCase().includes(search) ||
+      product.category.toLowerCase().includes(search);
+
+    return categoryMatch && searchMatch;
+
+  });
+
+
+  if(filtered.length === 0){
+
+    grid.innerHTML =
+      '<div class="no-products">' +
+      'No encontramos productos con esa búsqueda.' +
+      '</div>';
+
+    return;
+
+  }
+
+
+  grid.innerHTML = filtered.map(product => {
+
+    const isAvailable =
+      product.status === "Disponible";
+
+    const statusClass =
+      isAvailable ? "available" : "out";
+
+    const imageHTML =
+      product.image
+      ? `<img src="${product.image}" alt="${product.name}">`
+      : `<span>📷<br>Imagen próximamente</span>`;
+
+
+    return `
+
+      <article class="product">
+
+        <div class="pic">
+          ${imageHTML}
+        </div>
+
+        <div class="info">
+
+          <div class="category-label">
+            ${product.category}
+          </div>
+
+          <h3>
+            ${product.name}
+          </h3>
+
+          <div class="code">
+            Código: ${product.code}
+          </div>
+
+          <div class="price">
+            ${money(product.price)}
+          </div>
+
+          <span class="status ${statusClass}">
+            ${isAvailable ? "● DISPONIBLE" : "● AGOTADO"}
+          </span>
+
+          ${
+            isAvailable
+            ?
+            `<a
+              class="buy"
+              href="${whatsapp(product)}"
+              target="_blank">
+              ◉ COMPRAR POR WHATSAPP
+            </a>`
+            :
+            `<div
+              class="buy"
+              style="opacity:.5;cursor:not-allowed;">
+              AGOTADO
+            </div>`
+          }
+
+        </div>
+
+      </article>
+
+    `;
+
+  }).join("");
+
+}
+
+
+function filterCategory(category, element){
+
+  currentCategory = category;
+
+  document
+    .querySelectorAll(".cat")
+    .forEach(cat => cat.classList.remove("active"));
+
+  if(element){
+    element.classList.add("active");
+  }
+
+  document.getElementById("filter").value = category;
+
+  renderProducts();
+
+  document
+    .getElementById("productos")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+function filterFromSelect(){
+
+  currentCategory =
+    document.getElementById("filter").value;
+
+  document
+    .querySelectorAll(".cat")
+    .forEach(cat => cat.classList.remove("active"));
+
+  renderProducts();
+
+}
+
+
+function searchProducts(){
+
+  renderProducts();
+
+}
+
+
+/* INICIAR CATÁLOGO */
+
+renderProducts();
+
+</script>
+
 </body>
 </html>
