@@ -1,2449 +1,608 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="description" content="Eclipse Sex Shop | Productos para adultos, compra discreta, empaque privado y atención por WhatsApp.">
-
 <title>Eclipse | Sex Shop</title>
 
 <style>
-:root{
-  --gold:#e4ae32;
-  --gold2:#ffd86a;
-  --black:#030303;
-  --panel:#0b0b0b;
-  --panel2:#111;
-  --line:#332610;
-  --muted:#aaa;
-  --green:#25D366;
+:root{--gold:#e4ae32;--gold2:#ffd86a;--black:#030303;--panel:#0b0b0b;--line:#332610;--muted:#aaa;--green:#25D366}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--black);color:#fff}
+a{text-decoration:none;color:inherit}
+
+.top{border-bottom:1px solid #1d1609;background:#050505;color:var(--gold2);padding:9px 15px;font-size:13px;text-align:center;letter-spacing:.3px}
+.top span{margin:0 28px}
+
+header{position:sticky;top:0;z-index:50;background:rgba(3,3,3,.96);backdrop-filter:blur(12px);border-bottom:1px solid #2b2110}
+.nav{max-width:1200px;margin:auto;min-height:82px;padding:10px 22px;display:flex;align-items:center;gap:28px}
+.logo{width:205px;display:block}
+.logo img{width:100%;display:block;mix-blend-mode:screen}
+nav{display:flex;align-items:center;gap:28px;margin-left:auto}
+nav a{font-size:13px;color:#eee;padding:31px 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--gold2);border-color:var(--gold)}
+.wa{border:1px solid var(--gold);border-radius:7px;padding:12px 19px;color:var(--gold2);font-weight:700;white-space:nowrap}
+.wa:hover{background:var(--gold);color:#080808}
+
+.hero{position:relative;overflow:hidden;min-height:515px;border-bottom:1px solid #2b2110;background:
+radial-gradient(circle at 75% 50%,rgba(228,174,50,.18),transparent 16%),
+radial-gradient(circle at 78% 50%,rgba(255,216,106,.08),transparent 34%),
+linear-gradient(115deg,#020202 0%,#060606 48%,#020202 100%)}
+.hero:before{content:"";position:absolute;width:480px;height:480px;border-radius:50%;right:9%;top:20px;border:3px solid var(--gold);box-shadow:0 0 35px rgba(228,174,50,.45),inset 0 0 35px rgba(228,174,50,.08)}
+.hero:after{content:"";position:absolute;width:650px;height:220px;right:-50px;bottom:-50px;border-radius:50%;border-top:2px solid rgba(228,174,50,.5);box-shadow:0 -15px 35px rgba(228,174,50,.12);transform:rotate(-7deg)}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:auto;padding:78px 22px}
+.kicker{color:var(--gold2);font-size:13px;letter-spacing:4px;text-transform:uppercase;margin-bottom:15px}
+h1{font-family:Georgia,serif;font-size:clamp(48px,7vw,82px);font-weight:400;letter-spacing:7px;line-height:.95}
+.hero-sub{font-size:21px;letter-spacing:5px;color:var(--gold2);margin-top:18px}
+.hero p{max-width:530px;color:#bbb;margin:20px 0 28px;font-size:16px;line-height:1.7}
+.btn{display:inline-flex;padding:14px 25px;border:1px solid var(--gold);border-radius:7px;font-weight:700;color:var(--gold2);margin-right:8px}
+.btn.primary{background:var(--gold);color:#080808}
+.btn:hover{filter:brightness(1.12)}
+
+section{max-width:1200px;margin:auto;padding:65px 22px}
+.title{text-align:center;margin-bottom:35px}
+.title small{display:block;color:var(--gold2);letter-spacing:4px;font-size:12px;margin-bottom:8px}
+h2{font-family:Georgia,serif;font-weight:400;font-size:34px;letter-spacing:1px}
+
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.cat{min-height:115px;border:1px solid #4a3613;border-radius:10px;background:linear-gradient(145deg,#111,#070707);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;transition:.2s;cursor:pointer}
+.cat:hover{transform:translateY(-3px);border-color:var(--gold)}
+.cat .ico{font-size:31px;color:var(--gold2)}
+.cat b{font-size:12px;letter-spacing:.8px;text-align:center}
+
+.catalog-tools{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+.search{width:min(520px,100%);background:#090909;border:1px solid #4a3613;color:#fff;padding:12px 14px;border-radius:8px;outline:none}
+.search:focus{border-color:var(--gold)}
+.result-count{text-align:center;color:#888;font-size:12px;margin-bottom:24px}
+
+.filters{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:22px}
+.filter{background:#0b0b0b;border:1px solid #4a3613;color:#ddd;padding:9px 15px;border-radius:20px;cursor:pointer}
+.filter:hover,.filter.active{background:var(--gold);color:#080808}
+
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.product{background:#090909;border:1px solid #332610;border-radius:10px;overflow:hidden;transition:.2s}
+.product:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 8px 30px rgba(228,174,50,.10)}
+.pic{height:230px;background:radial-gradient(circle at 50% 45%,#292929,#090909 68%);display:flex;align-items:center;justify-content:center;color:#777;font-size:12px;overflow:hidden;text-align:center;padding:10px}
+.pic img{width:100%;height:100%;object-fit:contain;display:block}
+.info{padding:15px}
+.meta{display:flex;justify-content:space-between;gap:8px;color:#777;font-size:10px;margin-bottom:7px}
+.supplier-code{color:#8d8d8d}
+.info h3{font-size:15px;font-weight:500;min-height:42px;line-height:1.35}
+.description{color:#999;font-size:12px;line-height:1.5;min-height:54px;margin-top:8px}
+.price{color:var(--gold2);font-size:19px;font-weight:700;margin:10px 0 12px}
+.status{color:#65d68b;font-size:11px;margin-bottom:10px;font-weight:700}
+.buy{display:block;text-align:center;border:1px solid #8a641c;color:var(--gold2);padding:10px 7px;border-radius:6px;font-size:12px;font-weight:700}
+.buy:hover{background:var(--gold);color:#080808}
+
+.benefits{max-width:none;border-top:1px solid #2b2110;border-bottom:1px solid #2b2110;background:#070707}
+.benefit-grid{max-width:1200px;margin:auto;padding:30px 22px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.benefit{text-align:center;border-right:1px solid #332714}
+.benefit:last-child{border:0}
+.benefit .ico{font-size:28px;color:var(--gold2);margin-bottom:7px}
+.benefit b{display:block;color:var(--gold2);font-size:14px}
+.benefit span{display:block;color:#aaa;font-size:12px;margin-top:4px}
+
+.promos{text-align:center;background:radial-gradient(circle at 50% 0,rgba(228,174,50,.12),transparent 42%)}
+.promo-box{border:1px solid #4a3613;border-radius:12px;padding:35px;background:linear-gradient(145deg,#111,#070707)}
+.promo-box h3{color:var(--gold2);font-family:Georgia,serif;font-size:25px;margin-bottom:10px}
+.promo-box p{color:#aaa}
+
+.contact{text-align:center;background:radial-gradient(circle at 50% 0,rgba(228,174,50,.12),transparent 42%)}
+.contact p{color:#aaa;margin:12px auto 24px;max-width:600px}
+
+footer{border-top:1px solid #2b2110;padding:35px 22px;color:#888;text-align:center;font-size:12px}
+footer .footer-logo{width:170px;margin:0 auto 15px;mix-blend-mode:screen}
+footer b{color:var(--gold2)}
+
+
+/* CARRITO */
+.cart-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:90;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  border:1px solid var(--gold);
+  background:var(--gold);
+  color:#080808;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  cursor:pointer;
+  box-shadow:0 8px 28px rgba(0,0,0,.45);
 }
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--black);
-  color:#fff;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-/* BARRA SUPERIOR */
-
-.top{
-  border-bottom:1px solid #1d1609;
-  background:#050505;
+.cart-float:hover{filter:brightness(1.08)}
+.cart-count{
+  position:absolute;
+  top:-6px;
+  right:-4px;
+  min-width:22px;
+  height:22px;
+  padding:0 6px;
+  border-radius:20px;
+  background:#111;
   color:var(--gold2);
-  padding:9px 15px;
-  font-size:13px;
-  text-align:center;
-  letter-spacing:.3px;
+  border:1px solid var(--gold);
+  font-size:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
 }
-
-.top span{
-  margin:0 28px;
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.72);
+  z-index:99;
+  display:none;
 }
-
-/* HEADER */
-
-header{
-  position:sticky;
+.cart-overlay.open{display:block}
+.cart-panel{
+  position:fixed;
+  right:0;
   top:0;
-  z-index:50;
-  background:rgba(3,3,3,.96);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid #2b2110;
-}
-
-.nav{
-  max-width:1200px;
-  margin:auto;
-  min-height:82px;
-  padding:10px 22px;
-  display:flex;
-  align-items:center;
-  gap:28px;
-}
-
-.logo{
-  width:205px;
-  display:block;
-}
-
-.logo img{
-  width:100%;
-  display:block;
-  mix-blend-mode:screen;
-}
-
-nav{
-  display:flex;
-  align-items:center;
-  gap:28px;
-  margin-left:auto;
-}
-
-nav a{
-  font-size:13px;
-  color:#eee;
-  padding:31px 0;
-  border-bottom:2px solid transparent;
-}
-
-nav a:hover{
-  color:var(--gold2);
-  border-color:var(--gold);
-}
-
-.wa{
-  border:1px solid var(--gold);
-  border-radius:7px;
-  padding:12px 19px;
-  color:var(--gold2);
-  font-weight:700;
-  white-space:nowrap;
-}
-
-.wa:hover{
-  background:var(--gold);
-  color:#080808;
-}
-
-/* HERO */
-
-.hero{
-  position:relative;
-  overflow:hidden;
-  min-height:515px;
-  border-bottom:1px solid #2b2110;
-  background:
-    radial-gradient(circle at 75% 50%,rgba(228,174,50,.18),transparent 16%),
-    radial-gradient(circle at 78% 50%,rgba(255,216,106,.08),transparent 34%),
-    linear-gradient(115deg,#020202 0%,#060606 48%,#020202 100%);
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  width:480px;
-  height:480px;
-  border-radius:50%;
-  right:9%;
-  top:20px;
-  border:3px solid var(--gold);
-  box-shadow:
-    0 0 35px rgba(228,174,50,.45),
-    inset 0 0 35px rgba(228,174,50,.08);
-}
-
-.hero:after{
-  content:"";
-  position:absolute;
-  width:650px;
-  height:220px;
-  right:-50px;
-  bottom:-50px;
-  border-radius:50%;
-  border-top:2px solid rgba(228,174,50,.5);
-  box-shadow:0 -15px 35px rgba(228,174,50,.12);
-  transform:rotate(-7deg);
-}
-
-.hero-inner{
-  position:relative;
-  z-index:2;
-  max-width:1200px;
-  margin:auto;
-  padding:78px 22px;
-}
-
-.kicker{
-  color:var(--gold2);
-  font-size:13px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  margin-bottom:15px;
-}
-
-h1{
-  font-family:Georgia,serif;
-  font-size:clamp(48px,7vw,82px);
-  font-weight:400;
-  letter-spacing:7px;
-  line-height:.95;
-}
-
-.hero-sub{
-  font-size:21px;
-  letter-spacing:5px;
-  color:var(--gold2);
-  margin-top:18px;
-}
-
-.hero p{
-  max-width:530px;
-  color:#bbb;
-  margin:20px 0 28px;
-  font-size:16px;
-  line-height:1.7;
-}
-
-.btn{
-  display:inline-flex;
-  padding:14px 25px;
-  border:1px solid var(--gold);
-  border-radius:7px;
-  font-weight:700;
-  color:var(--gold2);
-  margin-right:8px;
-}
-
-.btn.primary{
-  background:var(--gold);
-  color:#080808;
-}
-
-.btn:hover{
-  filter:brightness(1.12);
-}
-
-/* SECCIONES */
-
-section{
-  max-width:1200px;
-  margin:auto;
-  padding:65px 22px;
-}
-
-.title{
-  text-align:center;
-  margin-bottom:35px;
-}
-
-.title small{
-  display:block;
-  color:var(--gold2);
-  letter-spacing:4px;
-  font-size:12px;
-  margin-bottom:8px;
-}
-
-h2{
-  font-family:Georgia,serif;
-  font-weight:400;
-  font-size:34px;
-  letter-spacing:1px;
-}
-
-/* CATEGORIAS */
-
-.categories{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:14px;
-}
-
-.cat{
-  min-height:125px;
-  border:1px solid #4a3613;
-  border-radius:10px;
-  background:linear-gradient(145deg,#111,#070707);
+  width:min(430px,100%);
+  height:100vh;
+  z-index:100;
+  background:#070707;
+  border-left:1px solid #4a3613;
+  transform:translateX(100%);
+  transition:.25s ease;
   display:flex;
   flex-direction:column;
+}
+.cart-panel.open{transform:translateX(0)}
+.cart-head{
+  display:flex;
   align-items:center;
-  justify-content:center;
-  gap:10px;
-  transition:.2s;
+  justify-content:space-between;
+  padding:20px;
+  border-bottom:1px solid #2b2110;
 }
-
-.cat:hover{
-  transform:translateY(-3px);
-  border-color:var(--gold);
-}
-
-.cat .ico{
-  font-size:34px;
+.cart-head h3{
+  font-family:Georgia,serif;
   color:var(--gold2);
+  font-size:24px;
 }
-
-.cat b{
-  font-size:13px;
-  letter-spacing:1px;
-}
-
-/* FILTROS */
-
-.filters{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:8px;
-  margin-bottom:30px;
-}
-
-.filter{
-  background:#0b0b0b;
+.cart-close{
   border:1px solid #4a3613;
-  color:#ddd;
-  padding:9px 15px;
-  border-radius:20px;
+  background:#111;
+  color:#fff;
+  width:36px;
+  height:36px;
+  border-radius:50%;
   cursor:pointer;
+  font-size:18px;
 }
-
-.filter:hover,
-.filter.active{
-  background:var(--gold);
-  color:#080808;
+.cart-body{
+  flex:1;
+  overflow:auto;
+  padding:14px 20px;
 }
-
-/* PRODUCTOS */
-
-.products{
+.cart-empty{
+  color:#888;
+  text-align:center;
+  padding:45px 15px;
+  line-height:1.6;
+}
+.cart-item{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
+  grid-template-columns:64px 1fr;
+  gap:12px;
+  padding:14px 0;
+  border-bottom:1px solid #242424;
 }
-
-.product{
-  background:#090909;
-  border:1px solid #332610;
-  border-radius:10px;
-  overflow:hidden;
-  transition:.2s;
-}
-
-.product:hover{
-  transform:translateY(-4px);
-  border-color:var(--gold);
-  box-shadow:0 8px 30px rgba(228,174,50,.10);
-}
-
-.pic{
-  height:230px;
-  background:
-    radial-gradient(circle at 50% 45%,#292929,#090909 68%);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#777;
-  font-size:12px;
-  overflow:hidden;
-}
-
-.pic img{
-  width:100%;
-  height:100%;
+.cart-thumb{
+  width:64px;
+  height:64px;
+  border-radius:8px;
+  background:#111;
   object-fit:contain;
-  display:block;
 }
-
-.info{
-  padding:15px;
+.cart-item h4{
+  font-size:13px;
+  line-height:1.35;
+  margin-bottom:4px;
 }
-
-.code{
+.cart-item-code{
   color:#777;
   font-size:10px;
-  letter-spacing:1px;
-  margin-bottom:7px;
+  margin-bottom:8px;
 }
-
-.info h3{
-  font-size:15px;
-  font-weight:500;
-  min-height:38px;
-  line-height:1.35;
-}
-
-.description{
-  color:#999;
-  font-size:12px;
-  line-height:1.5;
-  min-height:54px;
-  margin-top:8px;
-}
-
-.price{
+.cart-item-price{
   color:var(--gold2);
-  font-size:19px;
   font-weight:700;
-  margin:10px 0 12px;
+  font-size:14px;
 }
-
-.status{
-  color:#65d68b;
-  font-size:11px;
-  margin-bottom:10px;
-  font-weight:700;
+.qty-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:9px;
 }
-
-.buy{
-  display:block;
+.qty-btn{
+  width:28px;
+  height:28px;
+  border:1px solid #5b4319;
+  background:#111;
+  color:var(--gold2);
+  border-radius:5px;
+  cursor:pointer;
+}
+.qty{
+  min-width:22px;
   text-align:center;
-  border:1px solid #8a641c;
+  font-size:13px;
+}
+.remove-item{
+  margin-left:auto;
+  background:none;
+  border:0;
+  color:#c77777;
+  cursor:pointer;
+  font-size:11px;
+}
+.cart-foot{
+  border-top:1px solid #2b2110;
+  padding:18px 20px 22px;
+  background:#090909;
+}
+.cart-summary{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:14px;
+  font-size:14px;
+}
+.cart-summary strong{
   color:var(--gold2);
+  font-size:21px;
+}
+.cart-whatsapp{
+  width:100%;
+  border:0;
+  border-radius:7px;
+  padding:14px 12px;
+  background:var(--green);
+  color:#061b0e;
+  font-weight:800;
+  cursor:pointer;
+  font-size:14px;
+}
+.cart-whatsapp:hover{filter:brightness(1.06)}
+.cart-clear{
+  width:100%;
+  margin-top:8px;
+  border:1px solid #4a3613;
+  border-radius:7px;
+  padding:10px 12px;
+  background:#101010;
+  color:#aaa;
+  cursor:pointer;
+}
+.add-cart{
+  display:block;
+  width:100%;
+  text-align:center;
+  border:1px solid var(--gold);
+  background:var(--gold);
+  color:#080808;
   padding:10px 7px;
   border-radius:6px;
   font-size:12px;
-  font-weight:700;
+  font-weight:800;
+  cursor:pointer;
+  margin-bottom:8px;
 }
-
-.buy:hover{
-  background:var(--gold);
-  color:#080808;
-}
-
-/* BENEFICIOS */
-
-.benefits{
-  max-width:none;
-  border-top:1px solid #2b2110;
-  border-bottom:1px solid #2b2110;
-  background:#070707;
-}
-
-.benefit-grid{
-  max-width:1200px;
-  margin:auto;
-  padding:30px 22px;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-
-.benefit{
-  text-align:center;
-  border-right:1px solid #332714;
-}
-
-.benefit:last-child{
-  border:0;
-}
-
-.benefit .ico{
-  font-size:28px;
-  color:var(--gold2);
-  margin-bottom:7px;
-}
-
-.benefit b{
-  display:block;
-  color:var(--gold2);
-  font-size:14px;
-}
-
-.benefit span{
-  display:block;
-  color:#aaa;
-  font-size:12px;
-  margin-top:4px;
-}
-
-/* PROMOCIONES */
-
-.promos{
-  text-align:center;
-  background:
-    radial-gradient(circle at 50% 0,rgba(228,174,50,.12),transparent 42%);
-}
-
-.promo-box{
-  border:1px solid #4a3613;
-  border-radius:12px;
-  padding:35px;
-  background:linear-gradient(145deg,#111,#070707);
-}
-
-.promo-box h3{
-  color:var(--gold2);
-  font-family:Georgia,serif;
-  font-size:25px;
-  margin-bottom:10px;
-}
-
-.promo-box p{
-  color:#aaa;
-}
-
-/* CONTACTO */
-
-.contact{
-  text-align:center;
-  background:
-    radial-gradient(circle at 50% 0,rgba(228,174,50,.12),transparent 42%);
-}
-
-.contact p{
-  color:#aaa;
-  margin:12px auto 24px;
-  max-width:600px;
-}
-
-/* FOOTER */
-
-footer{
-  border-top:1px solid #2b2110;
-  padding:35px 22px;
-  color:#888;
-  text-align:center;
-  font-size:12px;
-}
-
-footer .footer-logo{
-  width:170px;
-  margin:0 auto 15px;
-  mix-blend-mode:screen;
-}
-
-footer b{
-  color:var(--gold2);
-}
-
-/* RESPONSIVE */
+.add-cart:hover{filter:brightness(1.08)}
 
 @media(max-width:1000px){
-
-  nav{
-    display:none;
-  }
-
-  .nav{
-    justify-content:space-between;
-  }
-
-  .logo{
-    width:175px;
-  }
-
-  .products{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .categories{
-    grid-template-columns:repeat(3,1fr);
-  }
+nav{display:none}.nav{justify-content:space-between}.logo{width:175px}
+.products{grid-template-columns:repeat(3,1fr)}.categories{grid-template-columns:repeat(3,1fr)}
 }
-
 @media(max-width:700px){
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .benefit-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .benefit:nth-child(2){
-    border:0;
-  }
+.products{grid-template-columns:repeat(2,1fr)}.benefit-grid{grid-template-columns:repeat(2,1fr)}.benefit:nth-child(2){border:0}
 }
-
 @media(max-width:560px){
-
-  .top span{
-    margin:0 5px;
-    font-size:11px;
-  }
-
-  .top span:nth-child(2){
-    display:none;
-  }
-
-  .nav{
-    min-height:68px;
-    padding:8px 15px;
-  }
-
-  .logo{
-    width:145px;
-  }
-
-  .wa{
-    padding:9px 12px;
-    font-size:12px;
-  }
-
-  .hero{
-    min-height:560px;
-  }
-
-  .hero:before{
-    width:260px;
-    height:260px;
-    right:-90px;
-    top:35px;
-    opacity:.4;
-  }
-
-  .hero-inner{
-    padding:65px 18px;
-  }
-
-  h1{
-    font-size:49px;
-    letter-spacing:4px;
-  }
-
-  .hero-sub{
-    font-size:16px;
-    letter-spacing:3px;
-  }
-
-  .hero p{
-    font-size:14px;
-    max-width:380px;
-  }
-
-  .btn{
-    padding:12px 17px;
-    margin-bottom:8px;
-  }
-
-  section{
-    padding:50px 15px;
-  }
-
-  .categories{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .products{
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-  }
-
-  .pic{
-    height:165px;
-  }
-
-  .info{
-    padding:11px;
-  }
-
-  .info h3{
-    font-size:13px;
-  }
-
-  .description{
-    font-size:11px;
-  }
-
-  .price{
-    font-size:16px;
-  }
-
-  .benefit-grid{
-    grid-template-columns:1fr 1fr;
-    padding:25px 15px;
-  }
-
-  .benefit{
-    border:0!important;
-  }
+.top span{margin:0 5px;font-size:11px}.top span:nth-child(2){display:none}
+.nav{min-height:68px;padding:8px 15px}.logo{width:145px}.wa{padding:9px 12px;font-size:12px}
+.hero{min-height:560px}.hero:before{width:260px;height:260px;right:-90px;top:35px;opacity:.4}
+.hero-inner{padding:65px 18px}h1{font-size:49px;letter-spacing:4px}.hero-sub{font-size:16px;letter-spacing:3px}
+.hero p{font-size:14px;max-width:380px}.btn{padding:12px 17px;margin-bottom:8px}
+section{padding:50px 15px}.categories{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:1fr 1fr;gap:10px}
+.pic{height:165px}.info{padding:11px}.info h3{font-size:13px}.description{font-size:11px;min-height:58px}.price{font-size:16px}
+.benefit-grid{grid-template-columns:1fr 1fr;padding:25px 15px}.benefit{border:0!important}
 }
 </style>
 </head>
-
 <body>
 
-<div class="top">
-  <span>🔒 Atención discreta</span>
-  <span>📦 Empaque privado</span>
-  <span>🚚 Pedidos por WhatsApp</span>
-</div>
+<div class="top"><span>🔒 Atención discreta</span><span>📦 Empaque privado</span><span>🚚 Pedidos por WhatsApp</span></div>
 
-<header>
-  <div class="nav">
-
-    <a class="logo" href="#inicio">
-      <img src="logo-eclipse.jpg" alt="Eclipse Sex Shop">
-    </a>
-
-    <nav>
-      <a href="#inicio">INICIO</a>
-      <a href="#categorias">CATEGORÍAS</a>
-      <a href="#productos">PRODUCTOS</a>
-      <a href="#promos">PROMOCIONES</a>
-      <a href="#contacto">CONTACTO</a>
-    </nav>
-
-    <a
-      class="wa"
-      href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20informaci%C3%B3n"
-      target="_blank">
-      ◉ WhatsApp
-    </a>
-
-  </div>
-</header>
-
+<header><div class="nav">
+<a class="logo" href="#inicio"><img src="logo-eclipse.jpg" alt="Eclipse Sex Shop"></a>
+<nav><a href="#inicio">INICIO</a><a href="#categorias">CATEGORÍAS</a><a href="#productos">PRODUCTOS</a><a href="#promos">PROMOCIONES</a><a href="#contacto">CONTACTO</a></nav>
+<a class="wa" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener">◉ WhatsApp</a>
+</div></header>
 
 <main id="inicio">
-
-<!-- HERO -->
-
-<section class="hero">
-
-  <div class="hero-inner">
-
-    <div class="kicker">Bienvenido a Eclipse</div>
-
-    <h1>ECLIPSE</h1>
-
-    <div class="hero-sub">SEX SHOP</div>
-
-    <p>
-      Descubre una nueva forma de disfrutar.
-      Explora nuestra selección de productos para adultos
-      con atención personalizada, compra discreta y pedidos
-      fáciles por WhatsApp.
-    </p>
-
-    <a class="btn primary" href="#productos">
-      VER CATÁLOGO ›
-    </a>
-
-    <a
-      class="btn"
-      href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20hacer%20un%20pedido"
-      target="_blank">
-      COMPRAR POR WHATSAPP
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- CATEGORIAS -->
+<section class="hero"><div class="hero-inner">
+<div class="kicker">Bienvenido a Eclipse</div>
+<h1>ECLIPSE</h1><div class="hero-sub">SEX SHOP</div>
+<p>Descubre una nueva forma de disfrutar. Explora nuestra selección de productos para adultos con atención personalizada, compra discreta y pedidos fáciles por WhatsApp.</p>
+<a class="btn primary" href="#productos">VER CATÁLOGO ›</a>
+<a class="btn" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">COMPRAR POR WHATSAPP</a>
+</div></section>
 
 <section id="categorias">
-
-  <div class="title">
-    <small>EXPLORA</small>
-    <h2>Categorías</h2>
-  </div>
-
-  <div class="categories">
-
-    <a class="cat" href="#productos">
-      <div class="ico">♢</div>
-      <b>LENCERÍA</b>
-    </a>
-
-    <a class="cat" href="#productos">
-      <div class="ico">◈</div>
-      <b>JUGUETES</b>
-    </a>
-
-    <a class="cat" href="#productos">
-      <div class="ico">◉</div>
-      <b>ESTIMULANTES</b>
-    </a>
-
-    <a class="cat" href="#productos">
-      <div class="ico">♧</div>
-      <b>ACCESORIOS</b>
-    </a>
-
-    <a class="cat" href="#promos">
-      <div class="ico">◇</div>
-      <b>PROMOCIONES</b>
-    </a>
-
-  </div>
-
+<div class="title"><small>EXPLORA</small><h2>Categorías</h2></div>
+<div class="categories">
+<div class="cat" onclick="filterProducts('lubricantes',this)"><div class="ico">💧</div><b>LUBRICANTES</b></div>
+<div class="cat" onclick="filterProducts('juguetes',this)"><div class="ico">✨</div><b>JUGUETES</b></div>
+<div class="cat" onclick="filterProducts('perfumeria',this)"><div class="ico">🌹</div><b>PERFUMERÍA</b></div>
+<div class="cat" onclick="filterProducts('energizantes',this)"><div class="ico">⚡</div><b>ENERGIZANTES</b></div>
+<div class="cat" onclick="filterProducts('dildos',this)"><div class="ico">◆</div><b>DILDOS</b></div>
+<div class="cat" onclick="filterProducts('anal',this)"><div class="ico">●</div><b>ANAL</b></div>
+<div class="cat" onclick="filterProducts('anillos',this)"><div class="ico">◎</div><b>ANILLOS</b></div>
+<div class="cat" onclick="filterProducts('juegos',this)"><div class="ico">🎲</div><b>JUEGOS</b></div>
+<div class="cat" onclick="filterProducts('kits',this)"><div class="ico">🎁</div><b>KITS</b></div>
+<div class="cat" onclick="filterProducts('cuidado',this)"><div class="ico">♡</div><b>CUIDADO</b></div>
+<div class="cat" onclick="filterProducts('arneses',this)"><div class="ico">◇</div><b>ARNESES</b></div>
+<div class="cat" onclick="filterProducts('all',this)"><div class="ico">✦</div><b>VER TODO</b></div>
+</div>
 </section>
-
-
-<!-- PRODUCTOS -->
 
 <section id="productos">
+<div class="title"><small>ECLIPSE</small><h2>Nuestro catálogo</h2></div>
 
-  <div class="title">
-    <small>ECLIPSE</small>
-    <h2>Nuestro catálogo</h2>
-  </div>
-
-  <div class="filters">
-
-    <button class="filter active" onclick="filterProducts('all',this)">
-      TODOS
-    </button>
-
-    <button class="filter" onclick="filterProducts('perfumeria',this)">
-      PERFUMERÍA
-    </button>
-
-    <button class="filter" onclick="filterProducts('juguetes',this)">
-      JUGUETES
-    </button>
-
-    <button class="filter" onclick="filterProducts('estimulantes',this)">
-      ESTIMULANTES
-    </button>
-
-    <button class="filter" onclick="filterProducts('accesorios',this)">
-      ACCESORIOS
-    </button>
-
-    <button class="filter" onclick="filterProducts('parejas',this)">
-      PAREJAS
-    </button>
-
-  </div>
-
-
-  <div class="products">
-
-
-    <!-- 001 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/perfume-pheromona-dama-gotero.jpg"
-             alt="Perfume Pheromona Dama Gotero"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Perfume Pheromona Dama';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-001</div>
-
-        <h3>Perfume Pheromona Dama Gotero x 10 ml</h3>
-
-        <div class="description">
-          Perfume con feromonas en presentación de 10 ml,
-          práctico para llevar y aplicar.
-        </div>
-
-        <div class="price">$42.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy"
-           href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-001%20Perfume%20Pheromona%20Dama"
-           target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 002 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/radiant-2.jpg"
-             alt="Radiant"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Radiant';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-002</div>
-
-        <h3>Radiant</h3>
-
-        <div class="description">
-          Fragancia de presentación elegante para complementar
-          momentos especiales.
-        </div>
-
-        <div class="price">$32.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-002%20Radiant" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 003 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/forever.jpg"
-             alt="Forever"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Forever';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-003</div>
-
-        <h3>Forever</h3>
-
-        <div class="description">
-          Fragancia de estilo sensual y presentación práctica.
-        </div>
-
-        <div class="price">$32.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-003%20Forever" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 004 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/sexy-2.jpg"
-             alt="Sexy"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Sexy';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-004</div>
-
-        <h3>Sexy</h3>
-
-        <div class="description">
-          Fragancia sensual pensada para ocasiones especiales.
-        </div>
-
-        <div class="price">$32.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-004%20Sexy" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 005 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/forever-2.jpg"
-             alt="Forever 2"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Forever';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-005</div>
-
-        <h3>Forever 2</h3>
-
-        <div class="description">
-          Fragancia sensual de presentación práctica.
-        </div>
-
-        <div class="price">$32.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-005%20Forever%202" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 006 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/seduction-2.jpg"
-             alt="Seduction"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Seduction';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-006</div>
-
-        <h3>Seduction</h3>
-
-        <div class="description">
-          Fragancia sensual para complementar experiencias
-          especiales.
-        </div>
-
-        <div class="price">$32.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-006%20Seduction" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 007 -->
-
-    <div class="product" data-category="accesorios">
-
-      <div class="pic">
-        <img src="images/brillo-labial-frutos-rojos.jpg"
-             alt="Brillo Labial Frutos Rojos"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Brillo Labial';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-007</div>
-
-        <h3>Brillo Labial Frutos Rojos x 20 ml</h3>
-
-        <div class="description">
-          Brillo labial con presentación de frutos rojos.
-        </div>
-
-        <div class="price">$36.500</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-007%20Brillo%20Labial" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 008 -->
-
-    <div class="product" data-category="juguetes">
-
-      <div class="pic">
-        <img src="images/anillo-vibrador.jpg"
-             alt="Anillo Vibrador"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Anillo Vibrador';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-008</div>
-
-        <h3>Anillo Vibrador</h3>
-
-        <div class="description">
-          Anillo vibrador compacto para complementar
-          experiencias en pareja.
-        </div>
-
-        <div class="price">$18.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-008%20Anillo%20Vibrador" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 009 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/sexy-1.jpg"
-             alt="Sexy"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Sexy';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-009</div>
-
-        <h3>Sexy</h3>
-
-        <div class="description">
-          Fragancia sensual de presentación elegante.
-        </div>
-
-        <div class="price">$32.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-009%20Sexy" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 010 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/seduction-1.jpg"
-             alt="Seduction"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Seduction';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-010</div>
-
-        <h3>Seduction</h3>
-
-        <div class="description">
-          Fragancia sensual para momentos especiales.
-        </div>
-
-        <div class="price">$32.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-010%20Seduction" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 011 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/splash.jpg"
-             alt="Splash 125 ml"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Splash 125 ml';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-011</div>
-
-        <h3>Splash x 125 ml</h3>
-
-        <div class="description">
-          Splash de 125 ml con fragancia sensual.
-        </div>
-
-        <div class="price">$32.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-011%20Splash%20125%20ml" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 012 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/seduction.jpg"
-             alt="Seduction"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Seduction';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-012</div>
-
-        <h3>Seduction</h3>
-
-        <div class="description">
-          Perfume con feromonas de presentación especial.
-        </div>
-
-        <div class="price">$39.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-012%20Seduction" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 013 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/titanium-pheromone.jpg"
-             alt="Titanium Pheromone"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Titanium';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-013</div>
-
-        <h3>Pheromone Infused Parfum Titanium x 10 ml</h3>
-
-        <div class="description">
-          Perfume con feromonas en presentación de 10 ml.
-        </div>
-
-        <div class="price">$39.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-013%20Titanium" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 014 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/sexy.jpg"
-             alt="Sexy"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Sexy';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-014</div>
-
-        <h3>Sexy</h3>
-
-        <div class="description">
-          Perfume con feromonas de presentación sensual.
-        </div>
-
-        <div class="price">$39.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-014%20Sexy" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 015 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/radiant-1.jpg"
-             alt="Radiant"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Radiant';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-015</div>
-
-        <h3>Radiant</h3>
-
-        <div class="description">
-          Perfume con feromonas en presentación de 10 ml.
-        </div>
-
-        <div class="price">$39.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-015%20Radiant" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 016 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/perfume-dama-roll-on.jpg"
-             alt="Perfume Pheromona Dama Roll On"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Pheromona Dama';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-016</div>
-
-        <h3>Perfume con Feromonas Dama Roll-On x 10 ml</h3>
-
-        <div class="description">
-          Perfume con feromonas en formato roll-on de 10 ml.
-        </div>
-
-        <div class="price">$39.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-016%20Perfume%20Dama%20Roll-On" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 017 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/perfume-hombre-roll-on.jpg"
-             alt="Perfume Pheromona Hombre Roll On"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Pheromona Hombre';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-017</div>
-
-        <h3>Perfume Pheromona Hombre Roll-On x 10 ml</h3>
-
-        <div class="description">
-          Perfume con feromonas en formato roll-on de 10 ml.
-        </div>
-
-        <div class="price">$39.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-017%20Perfume%20Hombre%20Roll-On" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 018 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/vicious.jpg"
-             alt="Vicious"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Vicious';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-018</div>
-
-        <h3>Pheromone Infused Parfum Vicious x 10 ml</h3>
-
-        <div class="description">
-          Perfume con feromonas en presentación de 10 ml.
-        </div>
-
-        <div class="price">$39.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-018%20Vicious" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 019 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/titanium.jpg"
-             alt="Titanium"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Titanium';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-019</div>
-
-        <h3>Titanium</h3>
-
-        <div class="description">
-          Fragancia masculina con presentación compacta.
-        </div>
-
-        <div class="price">$39.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-019%20Titanium" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 020 -->
-
-    <div class="product" data-category="perfumeria">
-
-      <div class="pic">
-        <img src="images/pheromone-radiant.jpg"
-             alt="Pheromone Radiant"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Radiant';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-020</div>
-
-        <h3>Pheromone Infused Parfum Radiant x 10 ml</h3>
-
-        <div class="description">
-          Perfume con feromonas en presentación de 10 ml.
-        </div>
-
-        <div class="price">$39.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-020%20Radiant" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 021 -->
-
-    <div class="product" data-category="juguetes">
-
-      <div class="pic">
-        <img src="images/panty-vibrador.jpg"
-             alt="Panty Vibrador"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Panty Vibrador';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-021</div>
-
-        <h3>Panty Vibrador</h3>
-
-        <div class="description">
-          Accesorio vibrador diseñado para complementar
-          experiencias íntimas.
-        </div>
-
-        <div class="price">$100.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-021%20Panty%20Vibrador" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 022 -->
-
-    <div class="product" data-category="juguetes">
-
-      <div class="pic">
-        <img src="images/bunny-vibe.jpg"
-             alt="Bunny Vibe"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Bunny Vibe';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-022</div>
-
-        <h3>Bunny Vibe</h3>
-
-        <div class="description">
-          Vibrador tipo bunny con doble estimulación.
-        </div>
-
-        <div class="price">$125.900</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-022%20Bunny%20Vibe" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 023 -->
-
-    <div class="product" data-category="estimulantes">
-
-      <div class="pic">
-        <img src="images/cherry-pepper-extreme.jpg"
-             alt="Cherry Pepper Extreme"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Cherry Pepper Extreme';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-023</div>
-
-        <h3>Cherry Pepper Extreme</h3>
-
-        <div class="description">
-          Producto estimulante de efecto intenso.
-        </div>
-
-        <div class="price">$32.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-023%20Cherry%20Pepper%20Extreme" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 024 -->
-
-    <div class="product" data-category="juguetes">
-
-      <div class="pic">
-        <img src="images/huevo.jpg"
-             alt="Huevo"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Huevo';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-024</div>
-
-        <h3>Huevo</h3>
-
-        <div class="description">
-          Juguete compacto de diseño discreto.
-        </div>
-
-        <div class="price">$48.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-024%20Huevo" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 025 -->
-
-    <div class="product" data-category="juguetes">
-
-      <div class="pic">
-        <img src="images/clitoral-lover.jpg"
-             alt="Clitoral Lover"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Clitoral Lover';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-025</div>
-
-        <h3>Clitoral Lover</h3>
-
-        <div class="description">
-          Estimulador diseñado para estimulación externa.
-        </div>
-
-        <div class="price">$82.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-025%20Clitoral%20Lover" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 026 -->
-
-    <div class="product" data-category="juguetes">
-
-      <div class="pic">
-        <img src="images/clitoral-kiss-love.jpg"
-             alt="Clitorial Kiss Love"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Clitorial Kiss Love';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-026</div>
-
-        <h3>Pulsador de Succión Clitorial Kiss Love</h3>
-
-        <div class="description">
-          Estimulador de succión con diseño en forma de corazón.
-        </div>
-
-        <div class="price">$134.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-026%20Clitorial%20Kiss%20Love" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 027 -->
-
-    <div class="product" data-category="juguetes">
-
-      <div class="pic">
-        <img src="images/hi-basic-sassy.jpg"
-             alt="Hi Basic Sassy"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Hi Basic Sassy';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-027</div>
-
-        <h3>Hi Basic Sassy</h3>
-
-        <div class="description">
-          Juguete íntimo compacto y práctico.
-        </div>
-
-        <div class="price">$27.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-027%20Hi%20Basic%20Sassy" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 028 -->
-
-    <div class="product" data-category="juguetes">
-
-      <div class="pic">
-        <img src="images/jumping-rabbit.jpg"
-             alt="Jumping Rabbit"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Jumping Rabbit';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-028</div>
-
-        <h3>Jumping Rabbit</h3>
-
-        <div class="description">
-          Vibrador tipo rabbit para experiencias intensas.
-        </div>
-
-        <div class="price">$35.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-028%20Jumping%20Rabbit" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 029 -->
-
-    <div class="product" data-category="juguetes">
-
-      <div class="pic">
-        <img src="images/hidden-love.jpg"
-             alt="Hidden Love"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Hidden Love';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-029</div>
-
-        <h3>Hidden Love</h3>
-
-        <div class="description">
-          Juguete íntimo compacto y discreto.
-        </div>
-
-        <div class="price">$21.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-029%20Hidden%20Love" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 030 -->
-
-    <div class="product" data-category="accesorios">
-
-      <div class="pic">
-        <img src="images/jewelry-skin.jpg"
-             alt="Jewelry Skin"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Jewelry Skin';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-030</div>
-
-        <h3>Jewelry Skin</h3>
-
-        <div class="description">
-          Accesorio íntimo de diseño elegante.
-        </div>
-
-        <div class="price">$40.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-030%20Jewelry%20Skin" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 031 -->
-
-    <div class="product" data-category="estimulantes">
-
-      <div class="pic">
-        <img src="images/energizante-black-pw-500.jpg"
-             alt="Energizante Black PW 500 ml"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Black PW 500 ml';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-031</div>
-
-        <h3>Energizante Black PW x 500 ml</h3>
-
-        <div class="description">
-          Presentación de 500 ml de la línea Black Power.
-        </div>
-
-        <div class="price">$55.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-031%20Black%20PW%20500ml" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 032 -->
-
-    <div class="product" data-category="estimulantes">
-
-      <div class="pic">
-        <img src="images/black-pw-sachet.jpg"
-             alt="Black PW Sachet"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Black PW Sachet';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-032</div>
-
-        <h3>Energizante Black PW Sachet x 15 ml</h3>
-
-        <div class="description">
-          Presentación individual de 15 ml.
-        </div>
-
-        <div class="price">$9.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-032%20Black%20PW%20Sachet" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 033 -->
-
-    <div class="product" data-category="estimulantes">
-
-      <div class="pic">
-        <img src="images/black-power-pills-2.jpg"
-             alt="Black Power Pills x2"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Black Power Pills';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-033</div>
-
-        <h3>Black Power Pills x 2 + 1 Gratis</h3>
-
-        <div class="description">
-          Presentación promocional de cápsulas Black Power.
-        </div>
-
-        <div class="price">$13.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-033%20Black%20Power%20Pills" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 034 -->
-
-    <div class="product" data-category="estimulantes">
-
-      <div class="pic">
-        <img src="images/black-pw-30.jpg"
-             alt="Black PW 30 ml"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Black PW 30 ml';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-034</div>
-
-        <h3>Energizante Black PW x 30 ml</h3>
-
-        <div class="description">
-          Presentación de 30 ml de Black Power.
-        </div>
-
-        <div class="price">$14.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-034%20Black%20PW%2030ml" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 035 -->
-
-    <div class="product" data-category="estimulantes">
-
-      <div class="pic">
-        <img src="images/black-power-pills-5.jpg"
-             alt="Black Power Pills x5"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Black Power Pills';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-035</div>
-
-        <h3>Black Power Pills x 5 + 1 Gratis</h3>
-
-        <div class="description">
-          Presentación promocional de cápsulas Black Power.
-        </div>
-
-        <div class="price">$24.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-035%20Black%20Power%20Pills%20x5" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 036 -->
-
-    <div class="product" data-category="estimulantes">
-
-      <div class="pic">
-        <img src="images/black-pw-60.jpg"
-             alt="Black PW 60 ml"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Black PW 60 ml';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-036</div>
-
-        <h3>Energizante Black PW x 60 ml</h3>
-
-        <div class="description">
-          Presentación de 60 ml de Black Power.
-        </div>
-
-        <div class="price">$22.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-036%20Black%20PW%2060ml" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 037 -->
-
-    <div class="product" data-category="parejas">
-
-      <div class="pic">
-        <img src="images/honeymoon.jpg"
-             alt="Honeymoon"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Honeymoon';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-037</div>
-
-        <h3>Honeymoon</h3>
-
-        <div class="description">
-          Producto para complementar experiencias de pareja.
-        </div>
-
-        <div class="price">$61.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-037%20Honeymoon" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 038 -->
-
-    <div class="product" data-category="juguetes">
-
-      <div class="pic">
-        <img src="images/sweet-little-bear.jpg"
-             alt="Sweet Little Bear"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Sweet Little Bear';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-038</div>
-
-        <h3>Sweet Little Bear</h3>
-
-        <div class="description">
-          Juguete íntimo de diseño compacto.
-        </div>
-
-        <div class="price">$70.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-038%20Sweet%20Little%20Bear" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 039 -->
-
-    <div class="product" data-category="juguetes">
-
-      <div class="pic">
-        <img src="images/griffin.jpg"
-             alt="Griffin"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Griffin';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-039</div>
-
-        <h3>Griffin</h3>
-
-        <div class="description">
-          Juguete íntimo de diseño premium.
-        </div>
-
-        <div class="price">$143.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-039%20Griffin" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 040 -->
-
-    <div class="product" data-category="accesorios">
-
-      <div class="pic">
-        <img src="images/candy-hollow-dildo-harness.jpg"
-             alt="Candy Hollow Dildo Harness"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Candy Hollow Dildo Harness';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-040</div>
-
-        <h3>Candy Hollow Dildo Harness</h3>
-
-        <div class="description">
-          Arnés diseñado para utilizar con accesorios compatibles.
-        </div>
-
-        <div class="price">$50.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-040%20Candy%20Hollow%20Dildo%20Harness" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 041 -->
-
-    <div class="product" data-category="parejas">
-
-      <div class="pic">
-        <img src="images/dados.jpg"
-             alt="Dados"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Dados';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-041</div>
-
-        <h3>Dados</h3>
-
-        <div class="description">
-          Juego de dados para parejas y momentos de diversión.
-        </div>
-
-        <div class="price">$16.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-041%20Dados" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 042 -->
-
-    <div class="product" data-category="parejas">
-
-      <div class="pic">
-        <img src="images/dados-1.jpg"
-             alt="Dados"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Dados';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-042</div>
-
-        <h3>Dados</h3>
-
-        <div class="description">
-          Juego de dados para dinamizar momentos en pareja.
-        </div>
-
-        <div class="price">$15.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-042%20Dados" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 043 -->
-
-    <div class="product" data-category="parejas">
-
-      <div class="pic">
-        <img src="images/dados-2.jpg"
-             alt="Dados Gay"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Dados Gay';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-043</div>
-
-        <h3>Dados Gay</h3>
-
-        <div class="description">
-          Juego de dados pensado para parejas y público gay.
-        </div>
-
-        <div class="price">$13.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-043%20Dados%20Gay" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 044 -->
-
-    <div class="product" data-category="parejas">
-
-      <div class="pic">
-        <img src="images/kit-enciende-llama.jpg"
-             alt="Kit Enciende Llama"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Kit Enciende Llama';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-044</div>
-
-        <h3>Kit Enciende Llama</h3>
-
-        <div class="description">
-          Kit diseñado para complementar experiencias de pareja.
-        </div>
-
-        <div class="price">$45.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-044%20Kit%20Enciende%20Llama" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 045 -->
-
-    <div class="product" data-category="accesorios">
-
-      <div class="pic">
-        <img src="images/kit-lubricantes-salva-vidas.jpg"
-             alt="Kit de Lubricantes Salva Vidas"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Kit de Lubricantes';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-045</div>
-
-        <h3>Kit de Lubricantes Salva Vidas</h3>
-
-        <div class="description">
-          Kit con diferentes lubricantes para complementar
-          tus experiencias.
-        </div>
-
-        <div class="price">$42.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-045%20Kit%20de%20Lubricantes" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-    <!-- 046 -->
-
-    <div class="product" data-category="juguetes">
-
-      <div class="pic">
-        <img src="images/anillo-double-ring-black-power.jpg"
-             alt="Anillo Vibrador Double Ring Black Power"
-             onerror="this.style.display='none';this.parentElement.innerHTML='Double Ring Black Power';">
-      </div>
-
-      <div class="info">
-
-        <div class="code">ECL-046</div>
-
-        <h3>Anillo Vibrador Double Ring Black Power</h3>
-
-        <div class="description">
-          Anillo vibrador doble para complementar experiencias
-          en pareja.
-        </div>
-
-        <div class="price">$33.000</div>
-
-        <div class="status">● DISPONIBLE</div>
-
-        <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20el%20ECL-046%20Anillo%20Double%20Ring%20Black%20Power" target="_blank">
-          ◉ COMPRAR POR WHATSAPP
-        </a>
-
-      </div>
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- BENEFICIOS -->
-
-<div class="benefits">
-
-  <div class="benefit-grid">
-
-    <div class="benefit">
-      <div class="ico">🔒</div>
-      <b>COMPRA DISCRETA</b>
-      <span>Tu privacidad es nuestra prioridad.</span>
-    </div>
-
-    <div class="benefit">
-      <div class="ico">📦</div>
-      <b>EMPAQUE PRIVADO</b>
-      <span>Empaque discreto y protegido.</span>
-    </div>
-
-    <div class="benefit">
-      <div class="ico">🚚</div>
-      <b>ENVÍOS</b>
-      <span>Consulta cobertura y tiempos.</span>
-    </div>
-
-    <div class="benefit">
-      <div class="ico">◉</div>
-      <b>ATENCIÓN POR WHATSAPP</b>
-      <span>Atención personalizada.</span>
-    </div>
-
-  </div>
-
+<div class="catalog-tools">
+<input id="searchInput" class="search" type="search" placeholder="Buscar por nombre, código o categoría..." oninput="renderProducts()">
 </div>
 
+<div class="filters">
+<button class="filter active" data-filter="all" onclick="filterProducts('all',this)">TODOS</button>
+<button class="filter" data-filter="lubricantes" onclick="filterProducts('lubricantes',this)">LUBRICANTES</button>
+<button class="filter" data-filter="juguetes" onclick="filterProducts('juguetes',this)">JUGUETES</button>
+<button class="filter" data-filter="perfumeria" onclick="filterProducts('perfumeria',this)">PERFUMERÍA</button>
+<button class="filter" data-filter="energizantes" onclick="filterProducts('energizantes',this)">ENERGIZANTES</button>
+<button class="filter" data-filter="dildos" onclick="filterProducts('dildos',this)">DILDOS</button>
+<button class="filter" data-filter="anillos" onclick="filterProducts('anillos',this)">ANILLOS</button>
+<button class="filter" data-filter="arneses" onclick="filterProducts('arneses',this)">ARNESES</button>
+<button class="filter" data-filter="anal" onclick="filterProducts('anal',this)">ANAL</button>
+<button class="filter" data-filter="juegos" onclick="filterProducts('juegos',this)">JUEGOS</button>
+<button class="filter" data-filter="kits" onclick="filterProducts('kits',this)">KITS</button>
+<button class="filter" data-filter="cuidado" onclick="filterProducts('cuidado',this)">CUIDADO</button>
+</div>
 
-<!-- PROMOCIONES -->
+<div class="result-count" id="resultCount"></div>
+<div class="products" id="productGrid"></div>
+</section>
+
+<div class="benefits"><div class="benefit-grid">
+<div class="benefit"><div class="ico">🔒</div><b>COMPRA DISCRETA</b><span>Tu privacidad es nuestra prioridad.</span></div>
+<div class="benefit"><div class="ico">📦</div><b>EMPAQUE PRIVADO</b><span>Empaque discreto y protegido.</span></div>
+<div class="benefit"><div class="ico">🚚</div><b>ENVÍOS</b><span>Consulta cobertura y tiempos.</span></div>
+<div class="benefit"><div class="ico">◉</div><b>ATENCIÓN POR WHATSAPP</b><span>Atención personalizada.</span></div>
+</div></div>
 
 <section class="promos" id="promos">
-
-  <div class="title">
-    <small>NO TE LO PIERDAS</small>
-    <h2>Promociones Eclipse</h2>
-  </div>
-
-  <div class="promo-box">
-
-    <h3>🔥 Próximamente</h3>
-
-    <p>
-      Aquí publicaremos combos, descuentos y promociones
-      especiales de Eclipse.
-    </p>
-
-  </div>
-
+<div class="title"><small>NO TE LO PIERDAS</small><h2>Promociones Eclipse</h2></div>
+<div class="promo-box"><h3>🔥 Próximamente</h3><p>Aquí publicaremos combos, descuentos y promociones especiales de Eclipse.</p></div>
 </section>
-
-
-<!-- CONTACTO -->
 
 <section class="contact" id="contacto">
-
-  <div class="title">
-
-    <small>ESTAMOS PARA AYUDARTE</small>
-
-    <h2>Hablemos por WhatsApp</h2>
-
-  </div>
-
-  <p>
-    Consulta disponibilidad, precios, envíos o realiza
-    tu pedido directamente.
-  </p>
-
-  <a
-    class="btn primary"
-    href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20necesito%20ayuda%20con%20un%20pedido"
-    target="_blank">
-    💬 312 369 0775
-  </a>
-
-  <a
-    class="btn"
-    href="https://instagram.com/eclipse_oficial69"
-    target="_blank">
-    ◎ @eclipse_oficial69
-  </a>
-
+<div class="title"><small>ESTAMOS PARA AYUDARTE</small><h2>Hablemos por WhatsApp</h2></div>
+<p>Consulta disponibilidad, precios, envíos o realiza tu pedido directamente.</p>
+<a class="btn primary" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20necesito%20ayuda%20con%20un%20pedido" target="_blank" rel="noopener">💬 312 369 0775</a>
+<a class="btn" href="https://instagram.com/eclipse_oficial69" target="_blank" rel="noopener">◎ @eclipse_oficial69</a>
 </section>
-
 </main>
 
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 
-<!-- FOOTER -->
+<aside class="cart-panel" id="cartPanel" aria-label="Carrito de compras">
+  <div class="cart-head">
+    <h3>Tu carrito</h3>
+    <button class="cart-close" onclick="closeCart()" aria-label="Cerrar carrito">×</button>
+  </div>
+  <div class="cart-body" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-summary">
+      <span>Total</span>
+      <strong id="cartTotal">$0</strong>
+    </div>
+    <button class="cart-whatsapp" onclick="checkoutWhatsApp()">💬 FINALIZAR POR WHATSAPP</button>
+    <button class="cart-clear" onclick="clearCart()">Vaciar carrito</button>
+  </div>
+</aside>
+
+<button class="cart-float" onclick="openCart()" aria-label="Abrir carrito">
+  🛒
+  <span class="cart-count" id="cartCount">0</span>
+</button>
 
 <footer>
-
-  <img
-    class="footer-logo"
-    src="logo-eclipse.jpg"
-    alt="Eclipse">
-
-  <div>
-    © 2026 <b>Eclipse Sex Shop</b> · Todos los derechos reservados.
-  </div>
-
-  <div style="margin-top:7px">
-    Contenido dirigido exclusivamente a personas adultas.
-  </div>
-
+<img class="footer-logo" src="logo-eclipse.jpg" alt="Eclipse">
+<div>© 2026 <b>Eclipse Sex Shop</b> · Todos los derechos reservados.</div>
+<div style="margin-top:7px">Contenido dirigido exclusivamente a personas adultas.</div>
 </footer>
 
-
 <script>
+const products = [{"code": "ECL-001", "supplierCode": "GCC1174", "name": "Lubricante Íntimo Trío x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 33900, "image": "images/lubricante-intimo-trio-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-trio-x-30-ml-by-sen-intimo"}, {"code": "ECL-002", "supplierCode": "Pendiente", "name": "Lubricante Íntimo Anal Desensibilizante x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 41900, "image": "images/lubricante-intimo-anal-desensibilizante-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-anal-desensibilizante-x-30-ml-by-sen-intimo"}, {"code": "ECL-003", "supplierCode": "Pendiente", "name": "Lubricante Íntimo Caliente Tropical x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 31900, "image": "images/lubricante-intimo-caliente-tropical-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-caliente-tropical-x-30-ml-sen-intimo"}, {"code": "ECL-004", "supplierCode": "Pendiente", "name": "Lubricante Íntimo Anal Desensibilizante x 500 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 182900, "image": "images/lubricante-intimo-anal-desensibilizante-x-500-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-anal-desensibilizante-x-500-ml-by-sen-intimo"}, {"code": "ECL-005", "supplierCode": "Pendiente", "name": "Lubricante Íntimo Multiorgasmos x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 41900, "image": "images/lubricante-intimo-multiorgasmos-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-multiorgasmos-x-30-ml-by-sen-intimo"}, {"code": "ECL-006", "supplierCode": "Pendiente", "name": "Lubricante Íntimo Cappuccino Sensación Caliente x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 31900, "image": "images/lubricante-intimo-cappuccino-sensacion-caliente-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-cappuccino-sensacion-caliente-x-30-ml-by-sen-intimo"}, {"code": "ECL-007", "supplierCode": "Pendiente", "name": "Lubricante Íntimo Passion Fruit Sensación Caliente x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 31900, "image": "images/lubricante-intimo-passion-fruit-sensacion-caliente-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-caliente-passion-fruit-x-30-ml-sen-intimo"}, {"code": "ECL-008", "supplierCode": "Pendiente", "name": "Lubricante Íntimo Crema de Whisky Caliente Electrizante x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 41900, "image": "images/lubricante-intimo-crema-de-whisky-caliente-electrizante-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-crema-de-whisky-sensacion-caliente-electrizante-x-30-ml-by-sen-intimo"}, {"code": "ECL-009", "supplierCode": "Pendiente", "name": "Lubricante Íntimo Caramelo Sensación Caliente x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 31900, "image": "images/lubricante-intimo-caramelo-sensacion-caliente-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-caramelo-sensacion-caliente-x-30-ml-by-sen-intimo"}, {"code": "ECL-010", "supplierCode": "GCC1116", "name": "Lubricante Íntimo Multiorgasmos Frío/Calor x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 41900, "image": "images/lubricante-intimo-multiorgasmos-frio-calor-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-multiorgasmos-friocalor-x-30-ml-by-sen-intimo"}, {"code": "ECL-011", "supplierCode": "GCC176", "name": "Lubricante Íntimo Anal Desensibilizante x 10 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 28900, "image": "images/lubricante-intimo-anal-desensibilizante-x-10-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-anal-desensibilizante-x-10-ml-by-sen-intimo"}, {"code": "ECL-012", "supplierCode": "7708516916985", "name": "Lubricante Íntimo Crema de Whisky Sensación Caliente x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 31900, "image": "images/lubricante-intimo-crema-de-whisky-sensacion-caliente-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-crema-de-whisky-sensacion-caliente-x-30-ml-sen-intimo"}, {"code": "ECL-013", "supplierCode": "GCC1088", "name": "Lubricante Íntimo Mango Sensación Caliente Electrizante x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 41900, "image": "images/lubricante-intimo-mango-sensacion-caliente-electrizante-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-mango-sensacion-caliente-electrizante-x-30-ml-by-sen-intimo"}, {"code": "ECL-014", "supplierCode": "7708516916749", "name": "Lubricante Íntimo Multiorgasmos x 10 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 28900, "image": "images/lubricante-intimo-multiorgasmos-x-10-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-multiorgasmos-x-10-ml-by-sen-intimo"}, {"code": "ECL-015", "supplierCode": "GCC1087", "name": "Lubricante Íntimo Lychee Sensación Caliente Electrizante x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 41900, "image": "images/lubricante-intimo-lychee-sensacion-caliente-electrizante-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-lychee-sensacion-caliente-electrizante-x-30-ml-by-sen-intimo"}, {"code": "ECL-016", "supplierCode": "7708516916886", "name": "Lubricante Íntimo Chocolate Sensación Caliente x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 31900, "image": "images/lubricante-intimo-chocolate-sensacion-caliente-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-chocolate-sensacion-caliente-x-30-ml-by-sen-intimo"}, {"code": "ECL-017", "supplierCode": "GCC1126", "name": "Lubricante Íntimo Menta Sensación Fría x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 31900, "image": "images/lubricante-intimo-menta-sensacion-fria-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-menta-sensacion-fria-x-30-ml-by-sen-intimo"}, {"code": "ECL-018", "supplierCode": "GCC1155", "name": "Lubricante Íntimo Tequila Sensación Caliente Electrizante x 30 ml", "category": "lubricantes", "categoryLabel": "Lubricantes", "price": 41900, "image": "images/lubricante-intimo-tequila-sensacion-caliente-electrizante-x-30-ml.jpg", "description": "Lubricante íntimo para complementar tus momentos y explorar nuevas sensaciones.", "supplierLink": "https://cerezamayorista.com/products/lubricante-intimo-tequila-sensacion-caliente-electrizante-x-30-ml-by-sen-intimo"}, {"code": "ECL-019", "supplierCode": "GCC1226", "name": "Vibrador Líquido Electrizante Frío x 5 ml", "category": "juguetes", "categoryLabel": "Estimulantes", "price": 42900, "image": "images/vibrador-liquido-electrizante-frio-x-5-ml.jpg", "description": "Producto estimulante pensado para añadir intensidad a la experiencia.", "supplierLink": "https://cerezamayorista.com/products/vibrador-liquido-electrizante-frio-x-5-ml-by-sen-intimo"}, {"code": "ECL-020", "supplierCode": "GCC1225", "name": "Vibrador Líquido Electrizante x 5 ml", "category": "juguetes", "categoryLabel": "Estimulantes", "price": 41900, "image": "images/vibrador-liquido-electrizante-x-5-ml.jpg", "description": "Producto estimulante pensado para añadir intensidad a la experiencia.", "supplierLink": "https://cerezamayorista.com/products/vibrador-liquido-electrizante-x-5-ml-by-sen-intimo"}, {"code": "ECL-021", "supplierCode": "Pendiente", "name": "Multiorgasmos Euforia con CBD x 30 ml", "category": "juguetes", "categoryLabel": "Estimulantes", "price": 40900, "image": "images/multiorgasmos-euforia-con-cbd-x-30-ml.jpg", "description": "Producto estimulante pensado para añadir intensidad a la experiencia.", "supplierLink": "https://cerezamayorista.com/products/multiorgasmos-euforia-con-cbd-x-30-ml-by-sen-intimo"}, {"code": "ECL-022", "supplierCode": "GCC1289", "name": "Radiant Splash con Feromonas x 125 ml", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 35900, "image": "images/radiant-splash-con-feromonas-x-125-ml.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/radiant"}, {"code": "ECL-023", "supplierCode": "7709680536184", "name": "Crema Humectante x 125 ml", "category": "cuidado", "categoryLabel": "Cuidado corporal", "price": 35900, "image": "images/crema-humectante-x-125-ml.jpg", "description": "Producto de cuidado corporal para complementar tu rutina íntima.", "supplierLink": "https://cerezamayorista.com/products/crema-humectante-x-125-ml-sen-intimo"}, {"code": "ECL-024", "supplierCode": "GCC1205", "name": "Brillo Labial Frutos Rojos x 10 ml", "category": "cuidado", "categoryLabel": "Cuidado corporal", "price": 19000, "image": "images/brillo-labial-frutos-rojos-x-10-ml.jpg", "description": "Producto de cuidado corporal para complementar tu rutina íntima.", "supplierLink": "https://cerezamayorista.com/products/brillo-labial-x-10-ml-frutos-rojos-sen-intimo-1"}, {"code": "ECL-025", "supplierCode": "GCC373", "name": "Aceite Corporal Pheromonas x 250 ml", "category": "cuidado", "categoryLabel": "Masajes y feromonas", "price": 57900, "image": "images/aceite-corporal-pheromonas-x-250-ml.jpg", "description": "Producto corporal para masaje, aromaterapia y experiencias sensoriales.", "supplierLink": "https://cerezamayorista.com/products/aceite-corporal-pheromonas-para-masajes-y-aromaterapia-x-250-ml-by-sen-intimo"}, {"code": "ECL-026", "supplierCode": "GCC1148", "name": "Perfume Pheromona Dama Gotero x 10 ml", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 45900, "image": "images/perfume-pheromona-dama-gotero-x-10-ml.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/perfume-pheromona-dama-gotero-x-10-ml-sen-intimo"}, {"code": "ECL-027", "supplierCode": "GCC1313", "name": "Radiant Crema Humectante con Pheromonas x 125 ml", "category": "cuidado", "categoryLabel": "Cuidado corporal", "price": 35900, "image": "images/radiant-crema-humectante-con-pheromonas-x-125-ml.jpg", "description": "Producto de cuidado corporal para complementar tu rutina íntima.", "supplierLink": "https://cerezamayorista.com/products/radiant-2"}, {"code": "ECL-028", "supplierCode": "GCC1294", "name": "Forever Perfume con Pheromonas x 10 ml", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 35900, "image": "images/forever-perfume-con-pheromonas-x-10-ml.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/forever"}, {"code": "ECL-029", "supplierCode": "GCC1315", "name": "Sexy Crema Humectante con Pheromonas x 125 ml", "category": "cuidado", "categoryLabel": "Cuidado corporal", "price": 35900, "image": "images/sexy-crema-humectante-con-pheromonas-x-125-ml.jpg", "description": "Producto de cuidado corporal para complementar tu rutina íntima.", "supplierLink": "https://cerezamayorista.com/products/sexy-2"}, {"code": "ECL-030", "supplierCode": "GCC1314", "name": "Forever Crema Humectante con Pheromonas x 125 ml", "category": "cuidado", "categoryLabel": "Cuidado corporal", "price": 35900, "image": "images/forever-crema-humectante-con-pheromonas-x-125-ml.jpg", "description": "Producto de cuidado corporal para complementar tu rutina íntima.", "supplierLink": "https://cerezamayorista.com/products/forever-2"}, {"code": "ECL-031", "supplierCode": "GCC1316", "name": "Seduction Crema Humectante con Feromonas x 125 ml", "category": "cuidado", "categoryLabel": "Cuidado corporal", "price": 35900, "image": "images/seduction-crema-humectante-con-feromonas-x-125-ml.jpg", "description": "Producto de cuidado corporal para complementar tu rutina íntima.", "supplierLink": "https://cerezamayorista.com/products/seduction-2"}, {"code": "ECL-032", "supplierCode": "GCC1162", "name": "Brillo Labial Frutos Rojos x 20 ml", "category": "cuidado", "categoryLabel": "Cuidado corporal", "price": 29500, "image": "images/brillo-labial-frutos-rojos-x-20-ml.jpg", "description": "Producto de cuidado corporal para complementar tu rutina íntima.", "supplierLink": "https://cerezamayorista.com/products/brillo-labial-x-20-ml-frutos-rojos-sen-intimo"}, {"code": "ECL-033", "supplierCode": "Pendiente", "name": "Anillo Vibrador Sen Íntimo", "category": "anillos", "categoryLabel": "Anillos vibradores", "price": 21000, "image": "images/anillo-vibrador-sen-intimo.jpg", "description": "Accesorio vibrador para complementar experiencias en pareja.", "supplierLink": "https://cerezamayorista.com/products/anillo-vibrador-sen-intimo"}, {"code": "ECL-034", "supplierCode": "GCC1293", "name": "Sexy Perfume con Pheromonas x 10 ml", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 35900, "image": "images/sexy-perfume-con-pheromonas-x-10-ml.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/sexy-1"}, {"code": "ECL-035", "supplierCode": "GCC1295", "name": "Seduction Perfume con Pheromonas x 10 ml", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 35900, "image": "images/seduction-perfume-con-pheromonas-x-10-ml.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/seduction-1"}, {"code": "ECL-036", "supplierCode": "Pendiente", "name": "Splash x 125 ml Sen Íntimo", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 35900, "image": "images/splash-x-125-ml-sen-intimo.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/splash-x-125-ml-sen-intimo"}, {"code": "ECL-037", "supplierCode": "Pendiente", "name": "Seduction", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 42900, "image": "images/seduction.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/seduction"}, {"code": "ECL-038", "supplierCode": "Pendiente", "name": "Pheromone Infused Parfum Titanium x 10 ml", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 42900, "image": "images/pheromone-infused-parfum-titanium-x-10-ml.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/pheromone-infused-parfum-titanium-x-10-ml-sen-intimo-usa"}, {"code": "ECL-039", "supplierCode": "Pendiente", "name": "Sexy Perfume x 10 ml", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 42900, "image": "images/sexy-perfume-x-10-ml.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/sexy"}, {"code": "ECL-040", "supplierCode": "Pendiente", "name": "Radiant Perfume x 10 ml", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 42900, "image": "images/radiant-perfume-x-10-ml.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/radiant-1"}, {"code": "ECL-041", "supplierCode": "Pendiente", "name": "Perfume con Pheromonas Dama Roll-On x 10 ml", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 42900, "image": "images/perfume-con-pheromonas-dama-roll-on-x-10-ml.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/perfume-con-pheromonas-dama-roll-on-x-10ml-sen-intimo"}, {"code": "ECL-042", "supplierCode": "Pendiente", "name": "Perfume Pheromona Hombre Roll-On x 10 ml", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 42900, "image": "images/perfume-pheromona-hombre-roll-on-x-10-ml.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/perfume-pheromona-hombre-roll-on-x-10-ml-sen-intimo"}, {"code": "ECL-043", "supplierCode": "Pendiente", "name": "Pheromone Infused Parfum Vicious x 10 ml", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 42900, "image": "images/pheromone-infused-parfum-vicious-x-10-ml.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/pheromone-infused-parfum-vicious-x-10-ml-sen-intimo-usa"}, {"code": "ECL-044", "supplierCode": "Pendiente", "name": "Titanium Perfume con Feromonas x 10 ml", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 42900, "image": "images/titanium-perfume-con-feromonas-x-10-ml.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/titanium"}, {"code": "ECL-045", "supplierCode": "Pendiente", "name": "Pheromone Infused Parfum Radiant x 10 ml", "category": "perfumeria", "categoryLabel": "Perfumería", "price": 42900, "image": "images/pheromone-infused-parfum-radiant-x-10-ml.jpg", "description": "Fragancia íntima de presentación práctica y sensual.", "supplierLink": "https://cerezamayorista.com/products/pheromone-infused-parfum-radiant-x-10-ml-sen-intimo"}, {"code": "ECL-046", "supplierCode": "Pendiente", "name": "Panty Vibrador", "category": "juguetes", "categoryLabel": "Vibradores", "price": 103000, "image": "images/panty-vibrador.jpg", "description": "Juguete vibrador diseñado para estimulación íntima.", "supplierLink": "https://cerezamayorista.com/products/panty-vibrador"}, {"code": "ECL-047", "supplierCode": "Pendiente", "name": "Bunny Vibe", "category": "juguetes", "categoryLabel": "Vibradores", "price": 128900, "image": "images/bunny-vibe.jpg", "description": "Juguete vibrador diseñado para estimulación íntima.", "supplierLink": "https://cerezamayorista.com/products/bunny-vibe"}, {"code": "ECL-048", "supplierCode": "Pendiente", "name": "Cherry Pepper Extreme", "category": "juguetes", "categoryLabel": "Estimulantes", "price": 35000, "image": "images/cherry-pepper-extreme.jpg", "description": "Producto estimulante pensado para añadir intensidad a la experiencia.", "supplierLink": "https://cerezamayorista.com/products/cherry-pepper-extreme"}, {"code": "ECL-049", "supplierCode": "Pendiente", "name": "Huevo", "category": "juguetes", "categoryLabel": "Vibradores", "price": 51000, "image": "images/huevo.jpg", "description": "Juguete vibrador diseñado para estimulación íntima.", "supplierLink": "https://cerezamayorista.com/products/huevo"}, {"code": "ECL-050", "supplierCode": "Pendiente", "name": "Clitoral Lover", "category": "juguetes", "categoryLabel": "Estimuladores", "price": 85000, "image": "images/clitoral-lover.jpg", "description": "Estimulador íntimo diseñado para estimulación externa.", "supplierLink": "https://cerezamayorista.com/products/clitoral-lover"}, {"code": "ECL-051", "supplierCode": "Pendiente", "name": "Pulsador de Succión Clitorial Kiss Love", "category": "juguetes", "categoryLabel": "Estimuladores", "price": 137000, "image": "images/pulsador-de-succion-clitorial-kiss-love.jpg", "description": "Estimulador íntimo diseñado para estimulación externa.", "supplierLink": "Sin enlace actual en Cereza Mayorista"}, {"code": "ECL-052", "supplierCode": "GCJ4121", "name": "Hi Basic Sassy", "category": "anal", "categoryLabel": "Bolas anales", "price": 30000, "image": "images/hi-basic-sassy.jpg", "description": "Accesorio íntimo para exploración anal progresiva.", "supplierLink": "https://cerezamayorista.com/products/hi-basic-sassy"}, {"code": "ECL-053", "supplierCode": "GCJ4199", "name": "Jumping Rabbit", "category": "anal", "categoryLabel": "Plugs anales", "price": 38000, "image": "images/jumping-rabbit.jpg", "description": "Plug anal compacto para exploración íntima.", "supplierLink": "https://cerezamayorista.com/products/jumping-rabbit"}, {"code": "ECL-054", "supplierCode": "GCJ4195", "name": "Hidden Love", "category": "anal", "categoryLabel": "Plugs anales", "price": 24000, "image": "images/hidden-love.jpg", "description": "Plug anal compacto para exploración íntima.", "supplierLink": "https://cerezamayorista.com/products/hidden-love-1"}, {"code": "ECL-055", "supplierCode": "GCJ4220", "name": "Jewelry Skin", "category": "anal", "categoryLabel": "Plugs anales", "price": 43000, "image": "images/jewelry-skin.jpg", "description": "Plug anal compacto para exploración íntima.", "supplierLink": "https://cerezamayorista.com/products/jewelry-skin"}, {"code": "ECL-056", "supplierCode": "GCC967", "name": "Energizante Black PW x 500 ml", "category": "energizantes", "categoryLabel": "Energizantes", "price": 58000, "image": "images/energizante-black-pw-x-500-ml.jpg", "description": "Producto de la línea energizante Black Power.", "supplierLink": "https://cerezamayorista.com/products/energizante-black-pw-x-500-ml"}, {"code": "ECL-057", "supplierCode": "GCC1247", "name": "Energizante Black PW Sachet x 15 ml", "category": "energizantes", "categoryLabel": "Energizantes", "price": 12000, "image": "images/energizante-black-pw-sachet-x-15-ml.jpg", "description": "Producto de la línea energizante Black Power.", "supplierLink": "https://cerezamayorista.com/products/energizante-black-pw-sachet-x-15-ml"}, {"code": "ECL-058", "supplierCode": "GCC1144", "name": "Energizante Black Power Pills x 2 + 1 Gratis", "category": "energizantes", "categoryLabel": "Energizantes", "price": 16000, "image": "images/energizante-black-power-pills-x-2-1-gratis.jpg", "description": "Producto de la línea energizante Black Power.", "supplierLink": "https://cerezamayorista.com/products/energizante-black-power-pills-x-2-1-gratis"}, {"code": "ECL-059", "supplierCode": "GCC984", "name": "Energizante Black PW x 30 ml", "category": "energizantes", "categoryLabel": "Energizantes", "price": 17000, "image": "images/energizante-black-pw-x-30-ml.jpg", "description": "Producto de la línea energizante Black Power.", "supplierLink": "https://cerezamayorista.com/products/energizante-black-pw-x-30-ml"}, {"code": "ECL-060", "supplierCode": "GCC1145", "name": "Energizante Black Power Pills x 5 + 1 Gratis", "category": "energizantes", "categoryLabel": "Energizantes", "price": 27000, "image": "images/energizante-black-power-pills-x-5-1-gratis.jpg", "description": "Producto de la línea energizante Black Power.", "supplierLink": "https://cerezamayorista.com/products/energizante-black-power-pills-x-5-1-gratis"}, {"code": "ECL-061", "supplierCode": "GCC968", "name": "Energizante Black PW x 60 ml", "category": "energizantes", "categoryLabel": "Energizantes", "price": 25000, "image": "images/energizante-black-pw-x-60-ml.jpg", "description": "Producto de la línea energizante Black Power.", "supplierLink": "https://cerezamayorista.com/products/energizante-black-pw-x-60-ml"}, {"code": "ECL-062", "supplierCode": "GCJ4111", "name": "Honeymoon - Dildo de Vidrio 8.6\"", "category": "dildos", "categoryLabel": "Dildos", "price": 64000, "image": "images/honeymoon-dildo-de-vidrio-8-6.jpg", "description": "Juguete íntimo para estimulación y exploración.", "supplierLink": "https://cerezamayorista.com/products/honeymoon"}, {"code": "ECL-063", "supplierCode": "GCJ4110", "name": "Sweet Littlet Bear - Dildo de Vidrio", "category": "dildos", "categoryLabel": "Dildos", "price": 73000, "image": "images/sweet-littlet-bear-dildo-de-vidrio.jpg", "description": "Juguete íntimo para estimulación y exploración.", "supplierLink": "https://cerezamayorista.com/products/sweet-littlet-bear"}, {"code": "ECL-064", "supplierCode": "GCJ4177", "name": "Griffin - Dildo Realista 8.6\"", "category": "dildos", "categoryLabel": "Dildos", "price": 146000, "image": "images/griffin-dildo-realista-8-6.jpg", "description": "Juguete íntimo para estimulación y exploración.", "supplierLink": "https://cerezamayorista.com/products/griffin"}, {"code": "ECL-065", "supplierCode": "GCJ4268", "name": "Candy Hollow Dildo Harness", "category": "arneses", "categoryLabel": "Arneses", "price": 53000, "image": "images/candy-hollow-dildo-harness.jpg", "description": "Arnés íntimo ajustable para utilizar con accesorios compatibles.", "supplierLink": "https://cerezamayorista.com/products/candy-hollow-dildo-harness"}, {"code": "ECL-066", "supplierCode": "GCJ298", "name": "Dados Penitencia Luminosos x 3", "category": "juegos", "categoryLabel": "Juegos", "price": 19000, "image": "images/dados-penitencia-luminosos-x-3.jpg", "description": "Juego para parejas pensado para añadir variedad y diversión.", "supplierLink": "https://cerezamayorista.com/products/dados"}, {"code": "ECL-067", "supplierCode": "GCJ299", "name": "Dados Penitencia x 3", "category": "juegos", "categoryLabel": "Juegos", "price": 18000, "image": "images/dados-penitencia-x-3.jpg", "description": "Juego para parejas pensado para añadir variedad y diversión.", "supplierLink": "https://cerezamayorista.com/products/dados-1"}, {"code": "ECL-068", "supplierCode": "GCJ383", "name": "Dados Eróticos x 2 - Línea Gay", "category": "juegos", "categoryLabel": "Juegos", "price": 16000, "image": "images/dados-eroticos-x-2-linea-gay.jpg", "description": "Juego para parejas pensado para añadir variedad y diversión.", "supplierLink": "https://cerezamayorista.com/products/dados-2"}, {"code": "ECL-069", "supplierCode": "GCKIT041", "name": "Kit Enciende Llama", "category": "kits", "categoryLabel": "Kits", "price": 48000, "image": "images/kit-enciende-llama.jpg", "description": "Kit íntimo con varios productos para complementar la experiencia.", "supplierLink": "https://cerezamayorista.com/products/kit-enciende-llama"}, {"code": "ECL-070", "supplierCode": "GCC992", "name": "Kit de Lubricantes Salva Vidas", "category": "kits", "categoryLabel": "Kits", "price": 45000, "image": "images/kit-de-lubricantes-salva-vidas.jpg", "description": "Kit íntimo con varios productos para complementar la experiencia.", "supplierLink": "https://cerezamayorista.com/products/kit-de-lubricantes-salva-vidas-by-guiacerezacom"}, {"code": "ECL-071", "supplierCode": "Pendiente", "name": "Anillo Vibrador Double Ring Black Power", "category": "anillos", "categoryLabel": "Anillos vibradores", "price": 33000, "image": "images/anillo-vibrador-double-ring-black-power.jpg", "description": "Accesorio vibrador para complementar experiencias en pareja.", "supplierLink": "https://www.mercadolibre.com.co/anillo-vibrador-double-ring-black-power/up/MCOU3363492739"}];
+let currentCategory = "all";
 
-function filterProducts(category, button){
-
-  const products = document.querySelectorAll(".product");
-  const buttons = document.querySelectorAll(".filter");
-
-  buttons.forEach(btn => {
-    btn.classList.remove("active");
-  });
-
-  button.classList.add("active");
-
-  products.forEach(product => {
-
-    if(category === "all"){
-      product.style.display = "";
-      return;
-    }
-
-    if(product.dataset.category === category){
-      product.style.display = "";
-    }else{
-      product.style.display = "none";
-    }
-
-  });
-
+function money(n) {
+  return "$" + Number(n).toLocaleString("es-CO");
 }
 
-</script>
+function whatsappLink(p) {
+  const text = `Hola Eclipse 🌑, quiero información sobre ${p.name} (${p.code}). Precio: ${money(p.price)}.`;
+  return "https://wa.me/573123690775?text=" + encodeURIComponent(text);
+}
 
+function renderProducts() {
+  const search = (document.getElementById("searchInput").value || "").toLowerCase().trim();
+
+  const filtered = products.filter(p => {
+    const catMatch = currentCategory === "all" || p.category === currentCategory;
+    const text = `${p.name} ${p.code} ${p.supplierCode} ${p.categoryLabel}`.toLowerCase();
+    return catMatch && text.includes(search);
+  });
+
+  document.getElementById("resultCount").textContent =
+    `${filtered.length} producto${filtered.length === 1 ? "" : "s"} encontrados`;
+
+  document.getElementById("productGrid").innerHTML = filtered.map(p => `
+    <article class="product">
+      <div class="pic">
+        <img src="${p.image}" alt="${p.name}" loading="lazy"
+          onerror="this.style.display='none';this.parentElement.innerHTML='<span>📷<br>Imagen próximamente</span>';">
+      </div>
+      <div class="info">
+        <div class="meta">
+          <span>${p.code}</span>
+          <span class="supplier-code">${p.supplierCode && p.supplierCode !== "Pendiente" ? "Cereza: " + p.supplierCode : ""}</span>
+        </div>
+        <h3>${p.name}</h3>
+        <div class="description">${p.description}</div>
+        <div class="price">${money(p.price)}</div>
+        <div class="status">● DISPONIBLE</div>
+        <button class="add-cart" onclick="addToCart('${p.code}')">🛒 AGREGAR AL CARRITO</button>
+        <a class="buy" href="${whatsappLink(p)}" target="_blank" rel="noopener">◉ COMPRAR SOLO ESTE</a>
+      </div>
+    </article>
+  `).join("");
+}
+
+function filterProducts(category, button) {
+  currentCategory = category;
+  document.querySelectorAll(".filter").forEach(btn => btn.classList.toggle("active", btn.dataset.filter === category));
+  renderProducts();
+  document.getElementById("productos").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+
+const CART_KEY = "eclipse_cart_v1";
+let cart = JSON.parse(localStorage.getItem(CART_KEY) || "{}");
+
+function saveCart(){
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  updateCartUI();
+}
+
+function addToCart(code){
+  cart[code] = (cart[code] || 0) + 1;
+  saveCart();
+  openCart();
+}
+
+function changeQty(code, delta){
+  if(!cart[code]) return;
+  cart[code] += delta;
+  if(cart[code] <= 0) delete cart[code];
+  saveCart();
+}
+
+function removeFromCart(code){
+  delete cart[code];
+  saveCart();
+}
+
+function clearCart(){
+  cart = {};
+  saveCart();
+}
+
+function openCart(){
+  document.getElementById("cartPanel").classList.add("open");
+  document.getElementById("cartOverlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeCart(){
+  document.getElementById("cartPanel").classList.remove("open");
+  document.getElementById("cartOverlay").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function updateCartUI(){
+  const entries = Object.entries(cart).filter(([code, qty]) => qty > 0);
+  const count = entries.reduce((sum, [,qty]) => sum + qty, 0);
+  document.getElementById("cartCount").textContent = count;
+
+  const container = document.getElementById("cartItems");
+  if(entries.length === 0){
+    container.innerHTML = `<div class="cart-empty">Tu carrito está vacío.<br>Agrega los productos que quieras y luego finaliza el pedido por WhatsApp.</div>`;
+    document.getElementById("cartTotal").textContent = "$0";
+    return;
+  }
+
+  let total = 0;
+  container.innerHTML = entries.map(([code, qty]) => {
+    const p = products.find(x => x.code === code);
+    if(!p) return "";
+    const subtotal = p.price * qty;
+    total += subtotal;
+
+    return `
+      <div class="cart-item">
+        <img class="cart-thumb" src="${p.image}" alt="${p.name}"
+          onerror="this.style.visibility='hidden'">
+        <div>
+          <h4>${p.name}</h4>
+          <div class="cart-item-code">${p.code}${p.supplierCode && p.supplierCode !== "Pendiente" ? " · Cereza: " + p.supplierCode : ""}</div>
+          <div class="cart-item-price">${money(p.price)} c/u · Subtotal ${money(subtotal)}</div>
+          <div class="qty-row">
+            <button class="qty-btn" onclick="changeQty('${code}',-1)">−</button>
+            <span class="qty">${qty}</span>
+            <button class="qty-btn" onclick="changeQty('${code}',1)">+</button>
+            <button class="remove-item" onclick="removeFromCart('${code}')">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  document.getElementById("cartTotal").textContent = money(total);
+}
+
+function checkoutWhatsApp(){
+  const entries = Object.entries(cart).filter(([code, qty]) => qty > 0);
+  if(entries.length === 0){
+    alert("Tu carrito está vacío.");
+    return;
+  }
+
+  let total = 0;
+  const lines = entries.map(([code, qty]) => {
+    const p = products.find(x => x.code === code);
+    const subtotal = p.price * qty;
+    total += subtotal;
+    return `• ${qty} x ${p.name} (${p.code}) - ${money(subtotal)}`;
+  });
+
+  const text =
+`Hola Eclipse 🌑
+Quiero realizar este pedido:
+
+${lines.join("\n")}
+
+TOTAL: ${money(total)}
+
+Quedo pendiente para coordinar entrega y pago.`;
+
+  const url = "https://wa.me/573123690775?text=" + encodeURIComponent(text);
+  window.open(url, "_blank");
+}
+
+updateCartUI();
+
+renderProducts();
+</script>
 </body>
 </html>
-```
