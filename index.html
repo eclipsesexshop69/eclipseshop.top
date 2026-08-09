@@ -247,6 +247,37 @@ footer b{color:var(--gold2)}
   cursor:pointer;
   font-size:11px;
 }
+
+.checkout-form{
+  display:grid;
+  gap:9px;
+  margin-bottom:14px;
+}
+.checkout-form label{
+  color:#aaa;
+  font-size:11px;
+  font-weight:700;
+}
+.checkout-input,
+.checkout-select{
+  width:100%;
+  background:#101010;
+  border:1px solid #4a3613;
+  color:#fff;
+  padding:11px 12px;
+  border-radius:7px;
+  outline:none;
+}
+.checkout-input:focus,
+.checkout-select:focus{border-color:var(--gold)}
+.checkout-error{
+  display:none;
+  color:#e69b9b;
+  font-size:11px;
+  line-height:1.4;
+  margin-bottom:10px;
+}
+
 .cart-foot{
   border-top:1px solid #2b2110;
   padding:18px 20px 22px;
@@ -416,6 +447,25 @@ section{padding:50px 15px}.categories{grid-template-columns:repeat(2,1fr)}.produ
       <span>Total</span>
       <strong id="cartTotal">$0</strong>
     </div>
+
+    <div class="checkout-form">
+      <label for="customerPhone">NÚMERO DE TELÉFONO</label>
+      <input class="checkout-input" id="customerPhone" type="tel" inputmode="tel"
+        placeholder="Ej. 312 345 6789" autocomplete="tel">
+
+      <label for="customerLocation">UBICACIÓN</label>
+      <input class="checkout-input" id="customerLocation" type="text"
+        placeholder="Barrio, dirección o ubicación de entrega" autocomplete="street-address">
+
+      <label for="paymentMethod">FORMA DE PAGO</label>
+      <select class="checkout-select" id="paymentMethod">
+        <option value="">Selecciona una opción</option>
+        <option value="Efectivo">Efectivo</option>
+        <option value="Transferencia">Transferencia</option>
+      </select>
+    </div>
+
+    <div class="checkout-error" id="checkoutError"></div>
     <button class="cart-whatsapp" onclick="checkoutWhatsApp()">💬 FINALIZAR POR WHATSAPP</button>
     <button class="cart-clear" onclick="clearCart()">Vaciar carrito</button>
   </div>
@@ -573,10 +623,35 @@ function updateCartUI(){
 
 function checkoutWhatsApp(){
   const entries = Object.entries(cart).filter(([code, qty]) => qty > 0);
+  const phone = document.getElementById("customerPhone").value.trim();
+  const location = document.getElementById("customerLocation").value.trim();
+  const payment = document.getElementById("paymentMethod").value;
+  const errorBox = document.getElementById("checkoutError");
+
+  const phoneDigits = phone.replace(/\D/g, "");
+
   if(entries.length === 0){
-    alert("Tu carrito está vacío.");
+    errorBox.textContent = "Agrega al menos un producto al carrito.";
+    errorBox.style.display = "block";
     return;
   }
+  if(phoneDigits.length < 7){
+    errorBox.textContent = "Escribe un número de teléfono válido.";
+    errorBox.style.display = "block";
+    return;
+  }
+  if(!location){
+    errorBox.textContent = "Escribe la ubicación para la entrega.";
+    errorBox.style.display = "block";
+    return;
+  }
+  if(!payment){
+    errorBox.textContent = "Selecciona pago en efectivo o transferencia.";
+    errorBox.style.display = "block";
+    return;
+  }
+
+  errorBox.style.display = "none";
 
   let total = 0;
   const lines = entries.map(([code, qty]) => {
@@ -594,7 +669,12 @@ ${lines.join("\n")}
 
 TOTAL: ${money(total)}
 
-Quedo pendiente para coordinar entrega y pago.`;
+DATOS PARA FINALIZAR:
+📱 Teléfono: ${phone}
+📍 Ubicación: ${location}
+💳 Forma de pago: ${payment}
+
+Quedo pendiente para coordinar la entrega.`;
 
   const url = "https://wa.me/573123690775?text=" + encodeURIComponent(text);
   window.open(url, "_blank");
