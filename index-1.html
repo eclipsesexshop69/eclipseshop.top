@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eclipse Sex Shop. Productos para adultos, atención discreta y pedidos por WhatsApp.">
+  <title>Eclipse | Sex Shop</title>
+  <style>
+    :root{
+      --gold:#d9a52e;
+      --gold2:#f3cf70;
+      --black:#050505;
+      --card:#111111;
+      --text:#f7f7f7;
+      --muted:#b9b9b9;
+      --line:#282828;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--black);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{text-decoration:none;color:inherit}
+    .topbar{
+      background:#000;
+      border-bottom:1px solid var(--line);
+      text-align:center;
+      padding:8px 15px;
+      font-size:13px;
+      color:var(--gold2);
+    }
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(5,5,5,.96);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      max-width:1120px;
+      margin:auto;
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:10px 20px;
+    }
+    .brand img{height:58px;width:auto;display:block}
+    nav{display:flex;gap:24px;align-items:center}
+    nav a{font-size:14px;color:#ddd}
+    nav a:hover{color:var(--gold2)}
+    .wa{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      background:var(--gold);
+      color:#080808;
+      font-weight:700;
+      border-radius:999px;
+      padding:11px 17px;
+      transition:.2s;
+    }
+    .wa:hover{transform:translateY(-1px);background:var(--gold2)}
+    .hero{
+      min-height:570px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:80px 20px;
+      background:
+        radial-gradient(circle at 50% 20%,rgba(217,165,46,.16),transparent 34%),
+        linear-gradient(180deg,#080808 0%,#050505 100%);
+    }
+    .hero-inner{max-width:780px}
+    .hero-logo{width:min(360px,75vw);margin:0 auto 25px;filter:drop-shadow(0 0 22px rgba(217,165,46,.14))}
+    .eyebrow{letter-spacing:4px;text-transform:uppercase;color:var(--gold2);font-size:12px;margin-bottom:12px}
+    h1{font-family:Georgia,serif;font-size:clamp(40px,8vw,72px);font-weight:400;letter-spacing:2px}
+    .hero p{max-width:600px;margin:18px auto 28px;color:var(--muted);font-size:17px}
+    .buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;padding:13px 22px;border-radius:8px;border:1px solid var(--gold);
+      color:var(--gold2);font-weight:700
+    }
+    .btn.primary{background:var(--gold);color:#090909}
+    section{max-width:1120px;margin:auto;padding:75px 20px}
+    .section-title{text-align:center;margin-bottom:36px}
+    .section-title .eyebrow{margin-bottom:7px}
+    h2{font-family:Georgia,serif;font-size:34px;font-weight:400}
+    .categories{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .category{
+      background:linear-gradient(145deg,#151515,#0c0c0c);
+      border:1px solid var(--line);border-radius:14px;padding:30px 15px;text-align:center;
+      transition:.2s
+    }
+    .category:hover{border-color:#80621f;transform:translateY(-3px)}
+    .category .icon{font-size:30px;margin-bottom:12px}
+    .category strong{display:block;font-size:15px}
+    .category span{display:block;color:var(--muted);font-size:12px;margin-top:5px}
+    .products{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:18px
+    }
+    .product{
+      background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden
+    }
+    .product-img{
+      aspect-ratio:1/1;background:#171717;display:flex;align-items:center;justify-content:center;
+      color:#777;font-size:13px
+    }
+    .product-info{padding:18px}
+    .product-info h3{font-size:17px;margin-bottom:5px}
+    .product-info p{font-size:13px;color:var(--muted);min-height:40px}
+    .price{color:var(--gold2);font-size:18px;font-weight:700;margin:12px 0}
+    .buy{
+      display:block;text-align:center;background:#1d1d1d;border:1px solid #4c3a13;
+      padding:11px;border-radius:8px;color:var(--gold2);font-weight:700
+    }
+    .trust{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:15px
+    }
+    .trust-card{border:1px solid var(--line);border-radius:14px;padding:25px 18px;text-align:center;background:#0d0d0d}
+    .trust-card .icon{font-size:25px;margin-bottom:10px}
+    .trust-card strong{display:block;margin-bottom:5px}
+    .trust-card span{font-size:12px;color:var(--muted)}
+    .contact{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      text-align:center;
+      background:radial-gradient(circle at 50% 50%,rgba(217,165,46,.08),transparent 45%)
+    }
+    .contact p{color:var(--muted);margin:12px auto 22px;max-width:600px}
+    footer{padding:30px 20px;text-align:center;color:#888;font-size:12px}
+    footer b{color:var(--gold2)}
+    @media(max-width:800px){
+      nav{display:none}
+      .nav{justify-content:center}
+      .nav .wa{position:absolute;right:14px;font-size:12px;padding:9px 12px}
+      .brand img{height:50px}
+      .categories{grid-template-columns:repeat(2,1fr)}
+      .products{grid-template-columns:1fr}
+      .trust{grid-template-columns:repeat(2,1fr)}
+      section{padding:55px 16px}
+    }
+    @media(max-width:430px){
+      .nav .wa{font-size:0;width:40px;height:40px;padding:0}
+      .nav .wa:first-letter{font-size:16px}
+      .trust{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">🔒 Atención discreta · 📦 Empaque privado · 💬 Pedidos por WhatsApp</div>
+
+  <header>
+    <div class="nav">
+      <a class="brand" href="#inicio"><img src="logo-eclipse.jpg" alt="Eclipse Sex Shop"></a>
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a class="wa" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20productos." target="_blank">💬 WhatsApp</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero-inner">
+        <img class="hero-logo" src="logo-eclipse.jpg" alt="Eclipse">
+        <div class="eyebrow">Bienvenido a Eclipse</div>
+        <h1>Descubre tu lado Eclipse</h1>
+        <p>Productos para adultos, atención personalizada y compras con la discreción que mereces.</p>
+        <div class="buttons">
+          <a class="btn primary" href="#productos">Ver catálogo</a>
+          <a class="btn" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20hacer%20un%20pedido." target="_blank">Comprar por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="categorias">
+      <div class="section-title">
+        <div class="eyebrow">Explora</div>
+        <h2>Categorías</h2>
+      </div>
+      <div class="categories">
+        <a class="category" href="#productos"><div class="icon">💋</div><strong>Lencería</strong><span>Elegancia y confianza</span></a>
+        <a class="category" href="#productos"><div class="icon">✨</div><strong>Juguetes</strong><span>Para adultos</span></a>
+        <a class="category" href="#productos"><div class="icon">💧</div><strong>Lubricantes</strong><span>Bienestar y cuidado</span></a>
+        <a class="category" href="#productos"><div class="icon">🎁</div><strong>Promociones</strong><span>Descubre nuestras ofertas</span></a>
+      </div>
+    </section>
+
+    <section id="productos">
+      <div class="section-title">
+        <div class="eyebrow">Eclipse</div>
+        <h2>Productos destacados</h2>
+      </div>
+      <div class="products">
+        <article class="product">
+          <div class="product-img">Foto del producto</div>
+          <div class="product-info">
+            <h3>Producto destacado 01</h3>
+            <p>Agrega aquí la descripción corta del producto.</p>
+            <div class="price">$0</div>
+            <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Producto%20destacado%2001." target="_blank">Consultar por WhatsApp</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-img">Foto del producto</div>
+          <div class="product-info">
+            <h3>Producto destacado 02</h3>
+            <p>Agrega aquí la descripción corta del producto.</p>
+            <div class="price">$0</div>
+            <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Producto%20destacado%2002." target="_blank">Consultar por WhatsApp</a>
+          </div>
+        </article>
+        <article class="product">
+          <div class="product-img">Foto del producto</div>
+          <div class="product-info">
+            <h3>Producto destacado 03</h3>
+            <p>Agrega aquí la descripción corta del producto.</p>
+            <div class="price">$0</div>
+            <a class="buy" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Producto%20destacado%2003." target="_blank">Consultar por WhatsApp</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <div class="eyebrow">Compra con confianza</div>
+        <h2>La experiencia Eclipse</h2>
+      </div>
+      <div class="trust">
+        <div class="trust-card"><div class="icon">🔒</div><strong>Discreción</strong><span>Protegemos tu privacidad.</span></div>
+        <div class="trust-card"><div class="icon">📦</div><strong>Empaque privado</strong><span>Tu pedido llega de forma discreta.</span></div>
+        <div class="trust-card"><div class="icon">🚚</div><strong>Envíos</strong><span>Consulta cobertura y tiempos.</span></div>
+        <div class="trust-card"><div class="icon">💬</div><strong>Atención</strong><span>Estamos para ayudarte por WhatsApp.</span></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="section-title">
+        <div class="eyebrow">¿Tienes una pregunta?</div>
+        <h2>Hablemos por WhatsApp</h2>
+      </div>
+      <p>Escríbenos para consultar productos, disponibilidad, precios, envíos o realizar tu pedido.</p>
+      <div class="buttons">
+        <a class="btn primary" href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20necesito%20ayuda%20con%20un%20pedido." target="_blank">💬 312 369 0775</a>
+        <a class="btn" href="https://instagram.com/eclipse_oficial69" target="_blank">📸 @eclipse_oficial69</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 <b>Eclipse Sex Shop</b> · Todos los derechos reservados.</div>
+    <div style="margin-top:8px">Contenido dirigido exclusivamente a personas adultas.</div>
+  </footer>
+</body>
+</html>
