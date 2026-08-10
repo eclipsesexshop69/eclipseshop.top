@@ -2181,29 +2181,29 @@ description:"Anillo vibrador Double Ring Black Power."
 
 const exactDetails = {
 
-"ECL-001":{
-description:"Lubricante íntimo Trío 3 en 1, diseñado para utilizarse en masajes, lubricación íntima y juegos orales.",
-features:"Fórmula base agua, de fácil limpieza y presentación de 30 ml.",
-usage:"Aplicar una pequeña cantidad sobre la zona deseada y distribuir suavemente. Reaplicar cuando sea necesario.",
-recommendations:"Uso externo. Evitar contacto con ojos y piel irritada. Suspender si produce molestia o irritación."
-},
+  "ECL-001":{
+    description:"Lubricante íntimo Trío 3 en 1, diseñado para utilizarse en masajes, lubricación íntima y juegos orales.",
+    features:"Fórmula base agua, de fácil limpieza y presentación de 30 ml.",
+    usage:"Aplicar una pequeña cantidad sobre la zona deseada y distribuir suavemente. Reaplicar cuando sea necesario.",
+    recommendations:"Uso externo. Evitar contacto con ojos y piel irritada. Suspender si produce molestia o irritación."
+  },
 
-"ECL-004":{
-description:"Lubricante íntimo anal desensibilizante en presentación de 500 ml, diseñado para facilitar experiencias anales más cómodas.",
-features:"Presentación grande de 500 ml y fórmula diseñada para lubricación anal.",
-usage:"Aplicar una cantidad suficiente sobre la zona antes de la actividad. Reaplicar cuando sea necesario.",
-recommendations:"Usar de manera progresiva. Suspender ante irritación, dolor o incomodidad."
-}
+  "ECL-004":{
+    description:"Lubricante íntimo anal desensibilizante en presentación de 500 ml, diseñado para facilitar experiencias anales más cómodas.",
+    features:"Presentación grande de 500 ml y fórmula diseñada para lubricación anal.",
+    usage:"Aplicar una cantidad suficiente sobre la zona antes de la actividad. Reaplicar cuando sea necesario.",
+    recommendations:"Usar de manera progresiva. Suspender ante irritación, dolor o incomodidad."
+  }
 
 };
+  function productDetails(p){
 
-function productDetails(p){
+  if(exactDetails[p.code]){
+    return exactDetails[p.code];
+  }
 
-if(exactDetails[p.code]){
-return exactDetails[p.code];
-}
-
-const details={
+  const details={
+    
 
 lubricantes:{
 features:"Lubricante íntimo diseñado para complementar la experiencia y aportar diferentes sensaciones según la referencia.",
