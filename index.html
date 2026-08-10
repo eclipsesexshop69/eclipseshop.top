@@ -7,183 +7,958 @@
 <title>Eclipse | Sex Shop</title>
 
 <style>
-:root{--gold:#e4ae32;--gold2:#ffd86a;--black:#030303;--panel:#0b0b0b;--line:#332610;--muted:#aaa;--green:#25D366}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;background:var(--black);color:#fff}
-a{text-decoration:none;color:inherit}
+:root{
+  --gold:#e4ae32;
+  --gold2:#ffd86a;
+  --black:#030303;
+  --panel:#0b0b0b;
+  --line:#332610;
+  --muted:#aaa;
+  --green:#25D366;
+}
 
-.top{border-bottom:1px solid #1d1609;background:#050505;color:var(--gold2);padding:9px 15px;font-size:13px;text-align:center}
-.top span{margin:0 28px}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-header{position:sticky;top:0;z-index:50;background:rgba(3,3,3,.96);backdrop-filter:blur(12px);border-bottom:1px solid #2b2110}
-.nav{max-width:1200px;margin:auto;min-height:82px;padding:10px 22px;display:flex;align-items:center;gap:28px}
-.logo{width:205px}
-.logo img{width:100%;display:block;mix-blend-mode:screen}
-nav{display:flex;align-items:center;gap:28px;margin-left:auto}
-nav a{font-size:13px;padding:31px 0;border-bottom:2px solid transparent}
-nav a:hover{color:var(--gold2);border-color:var(--gold)}
-.wa{border:1px solid var(--gold);border-radius:7px;padding:12px 19px;color:var(--gold2);font-weight:700}
-.wa:hover{background:var(--gold);color:#080808}
+html{
+  scroll-behavior:smooth;
+}
 
-.hero{position:relative;overflow:hidden;min-height:515px;border-bottom:1px solid #2b2110;background:
-radial-gradient(circle at 75% 50%,rgba(228,174,50,.18),transparent 16%),
-radial-gradient(circle at 78% 50%,rgba(255,216,106,.08),transparent 34%),
-linear-gradient(115deg,#020202,#060606 48%,#020202)}
-.hero:before{content:"";position:absolute;width:480px;height:480px;border-radius:50%;right:9%;top:20px;border:3px solid var(--gold);box-shadow:0 0 35px rgba(228,174,50,.45)}
-.hero-inner{position:relative;z-index:2;max-width:1200px;margin:auto;padding:78px 22px}
-.kicker{color:var(--gold2);font-size:13px;letter-spacing:4px;margin-bottom:15px}
-h1{font-family:Georgia,serif;font-size:clamp(48px,7vw,82px);font-weight:400;letter-spacing:7px}
-.hero-sub{font-size:21px;letter-spacing:5px;color:var(--gold2);margin-top:18px}
-.hero p{max-width:530px;color:#bbb;margin:20px 0 28px;line-height:1.7}
-.btn{display:inline-flex;padding:14px 25px;border:1px solid var(--gold);border-radius:7px;font-weight:700;color:var(--gold2);margin-right:8px}
-.btn.primary{background:var(--gold);color:#080808}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--black);
+  color:#fff;
+}
 
-section{max-width:1200px;margin:auto;padding:65px 22px}
-.title{text-align:center;margin-bottom:35px}
-.title small{display:block;color:var(--gold2);letter-spacing:4px;font-size:12px;margin-bottom:8px}
-h2{font-family:Georgia,serif;font-weight:400;font-size:34px}
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
-.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.cat{min-height:115px;border:1px solid #4a3613;border-radius:10px;background:#0b0b0b;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;cursor:pointer}
-.cat:hover{border-color:var(--gold);transform:translateY(-3px)}
-.cat .ico{font-size:31px}
-.cat b{font-size:12px}
+/* BARRA SUPERIOR */
 
-.catalog-tools{display:flex;justify-content:center;margin-bottom:18px}
-.search{width:min(520px,100%);background:#090909;border:1px solid #4a3613;color:#fff;padding:12px 14px;border-radius:8px}
-.filters{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:22px}
-.filter{background:#0b0b0b;border:1px solid #4a3613;color:#ddd;padding:9px 15px;border-radius:20px;cursor:pointer}
-.filter.active,.filter:hover{background:var(--gold);color:#080808}
-.result-count{text-align:center;color:#888;font-size:12px;margin-bottom:24px}
+.top{
+  border-bottom:1px solid #1d1609;
+  background:#050505;
+  color:var(--gold2);
+  padding:9px 15px;
+  font-size:13px;
+  text-align:center;
+}
 
-.products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.product{background:#090909;border:1px solid #332610;border-radius:10px;overflow:hidden;cursor:pointer;transition:.2s}
-.product:hover{transform:translateY(-4px);border-color:var(--gold)}
-.pic{height:230px;background:#111;display:flex;align-items:center;justify-content:center;color:#777;text-align:center;padding:10px}
-.pic img{width:100%;height:100%;object-fit:contain}
-.info{padding:15px}
-.meta{display:flex;justify-content:space-between;color:#777;font-size:10px;margin-bottom:7px}
-.info h3{font-size:15px;min-height:42px}
-.description{color:#999;font-size:12px;line-height:1.5;min-height:54px;margin-top:8px}
-.price{color:var(--gold2);font-size:19px;font-weight:700;margin:10px 0}
-.status{color:#65d68b;font-size:11px;margin-bottom:10px;font-weight:700}
+.top span{
+  margin:0 28px;
+}
 
-.add-cart,.modal-add{display:block;width:100%;border:1px solid var(--gold);background:var(--gold);color:#080808;padding:11px;border-radius:6px;font-weight:800;cursor:pointer;margin-bottom:8px}
-.buy,.modal-buy{display:block;text-align:center;border:1px solid #8a641c;color:var(--gold2);padding:10px;border-radius:6px;font-size:12px;font-weight:700}
-.buy:hover,.modal-buy:hover{background:var(--gold);color:#080808}
+/* HEADER */
 
-.benefits{border-top:1px solid #2b2110;border-bottom:1px solid #2b2110;background:#070707}
-.benefit-grid{max-width:1200px;margin:auto;padding:30px 22px;display:grid;grid-template-columns:repeat(4,1fr)}
-.benefit{text-align:center}
-.benefit b{display:block;color:var(--gold2);font-size:14px}
-.benefit span{color:#aaa;font-size:12px}
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(3,3,3,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #2b2110;
+}
 
-.contact,.promos{text-align:center}
-.contact p{color:#aaa;margin:12px auto 24px}
+.nav{
+  max-width:1200px;
+  margin:auto;
+  min-height:82px;
+  padding:10px 22px;
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
 
-footer{border-top:1px solid #2b2110;padding:35px 22px;color:#888;text-align:center;font-size:12px}
-footer .footer-logo{width:170px;margin:0 auto 15px}
+.logo{
+  width:205px;
+}
 
-/* FICHA PRODUCTO */
+.logo img{
+  width:100%;
+  display:block;
+  mix-blend-mode:screen;
+}
 
-.product-modal-overlay{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.84);display:none;align-items:center;justify-content:center;padding:22px}
-.product-modal-overlay.open{display:flex}
-.product-modal{width:min(920px,100%);max-height:92vh;overflow:auto;background:#090909;border:1px solid #4a3613;border-radius:14px}
-.product-modal-head{display:flex;justify-content:flex-end;padding:12px}
-.product-modal-close{width:38px;height:38px;border-radius:50%;border:1px solid #4a3613;background:#111;color:#fff;font-size:20px;cursor:pointer}
-.product-modal-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:24px;padding:10px 24px 26px}
-.product-modal-image{min-height:390px;background:#111;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#777;text-align:center}
-.product-modal-image img{width:100%;max-height:470px;object-fit:contain}
-.modal-kicker{color:#777;font-size:11px;margin-bottom:8px}
-.product-modal-content h3{font-family:Georgia,serif;font-size:31px;font-weight:400;margin-bottom:10px}
-.modal-price{color:var(--gold2);font-size:25px;font-weight:800;margin-bottom:14px}
-.modal-status{color:#65d68b;font-size:11px;font-weight:700}
-.modal-section{border-top:1px solid #252525;padding-top:14px;margin-top:14px}
-.modal-section h4{color:var(--gold2);font-size:13px;margin-bottom:7px}
-.modal-section p{color:#bbb;font-size:13px;line-height:1.65}
-.modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+nav{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  margin-left:auto;
+}
+
+nav a{
+  font-size:13px;
+  padding:31px 0;
+  border-bottom:2px solid transparent;
+}
+
+nav a:hover{
+  color:var(--gold2);
+  border-color:var(--gold);
+}
+
+.wa{
+  border:1px solid var(--gold);
+  border-radius:7px;
+  padding:12px 19px;
+  color:var(--gold2);
+  font-weight:700;
+}
+
+.wa:hover{
+  background:var(--gold);
+  color:#080808;
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  min-height:515px;
+  border-bottom:1px solid #2b2110;
+  background:
+  radial-gradient(circle at 75% 50%,rgba(228,174,50,.18),transparent 16%),
+  radial-gradient(circle at 78% 50%,rgba(255,216,106,.08),transparent 34%),
+  linear-gradient(115deg,#020202,#060606 48%,#020202);
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:480px;
+  height:480px;
+  border-radius:50%;
+  right:9%;
+  top:20px;
+  border:3px solid var(--gold);
+  box-shadow:0 0 35px rgba(228,174,50,.45);
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+  max-width:1200px;
+  margin:auto;
+  padding:78px 22px;
+}
+
+.kicker{
+  color:var(--gold2);
+  font-size:13px;
+  letter-spacing:4px;
+  margin-bottom:15px;
+}
+
+h1{
+  font-family:Georgia,serif;
+  font-size:clamp(48px,7vw,82px);
+  font-weight:400;
+  letter-spacing:7px;
+}
+
+.hero-sub{
+  font-size:21px;
+  letter-spacing:5px;
+  color:var(--gold2);
+  margin-top:18px;
+}
+
+.hero p{
+  max-width:530px;
+  color:#bbb;
+  margin:20px 0 28px;
+  line-height:1.7;
+}
+
+.btn{
+  display:inline-flex;
+  padding:14px 25px;
+  border:1px solid var(--gold);
+  border-radius:7px;
+  font-weight:700;
+  color:var(--gold2);
+  margin-right:8px;
+}
+
+.btn.primary{
+  background:var(--gold);
+  color:#080808;
+}
+
+/* SECCIONES */
+
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:65px 22px;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.title small{
+  display:block;
+  color:var(--gold2);
+  letter-spacing:4px;
+  font-size:12px;
+  margin-bottom:8px;
+}
+
+h2{
+  font-family:Georgia,serif;
+  font-weight:400;
+  font-size:34px;
+}
+
+/* CATEGORÍAS */
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:12px;
+}
+
+.cat{
+  min-height:115px;
+  border:1px solid #4a3613;
+  border-radius:10px;
+  background:#0b0b0b;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.cat:hover{
+  border-color:var(--gold);
+  transform:translateY(-3px);
+}
+
+.cat .ico{
+  font-size:30px;
+}
+
+.cat b{
+  font-size:12px;
+}
+
+/* BUSCADOR Y FILTROS */
+
+.catalog-tools{
+  display:flex;
+  justify-content:center;
+  margin-bottom:18px;
+}
+
+.search{
+  width:min(520px,100%);
+  background:#090909;
+  border:1px solid #4a3613;
+  color:#fff;
+  padding:12px 14px;
+  border-radius:8px;
+  outline:none;
+}
+
+.search:focus{
+  border-color:var(--gold);
+}
+
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin-bottom:22px;
+}
+
+.filter{
+  background:#0b0b0b;
+  border:1px solid #4a3613;
+  color:#ddd;
+  padding:9px 15px;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.filter.active,
+.filter:hover{
+  background:var(--gold);
+  color:#080808;
+}
+
+.result-count{
+  text-align:center;
+  color:#888;
+  font-size:12px;
+  margin-bottom:24px;
+}
+
+/* PRODUCTOS */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.product{
+  background:#090909;
+  border:1px solid #332610;
+  border-radius:10px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.product:hover{
+  transform:translateY(-4px);
+  border-color:var(--gold);
+  box-shadow:0 8px 30px rgba(228,174,50,.10);
+}
+
+.pic{
+  height:230px;
+  background:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#777;
+  text-align:center;
+  padding:10px;
+}
+
+.pic img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.info{
+  padding:15px;
+}
+
+.meta{
+  display:flex;
+  justify-content:space-between;
+  color:#777;
+  font-size:10px;
+  margin-bottom:7px;
+}
+
+.info h3{
+  font-size:15px;
+  min-height:42px;
+  line-height:1.35;
+}
+
+.description{
+  color:#999;
+  font-size:12px;
+  line-height:1.5;
+  min-height:54px;
+  margin-top:8px;
+}
+
+.price{
+  color:var(--gold2);
+  font-size:19px;
+  font-weight:700;
+  margin:10px 0;
+}
+
+.status{
+  color:#65d68b;
+  font-size:11px;
+  margin-bottom:10px;
+  font-weight:700;
+}
+
+.add-cart{
+  display:block;
+  width:100%;
+  border:1px solid var(--gold);
+  background:var(--gold);
+  color:#080808;
+  padding:11px;
+  border-radius:6px;
+  font-weight:800;
+  cursor:pointer;
+  margin-bottom:8px;
+}
+
+.buy{
+  display:block;
+  text-align:center;
+  border:1px solid #8a641c;
+  color:var(--gold2);
+  padding:10px;
+  border-radius:6px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.buy:hover{
+  background:var(--gold);
+  color:#080808;
+}
+
+/* FICHA DETALLADA */
+
+.product-modal-overlay{
+  position:fixed;
+  inset:0;
+  z-index:120;
+  background:rgba(0,0,0,.84);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+}
+
+.product-modal-overlay.open{
+  display:flex;
+}
+
+.product-modal{
+  width:min(920px,100%);
+  max-height:92vh;
+  overflow:auto;
+  background:#090909;
+  border:1px solid #4a3613;
+  border-radius:14px;
+  box-shadow:0 20px 70px rgba(0,0,0,.65);
+}
+
+.product-modal-head{
+  display:flex;
+  justify-content:flex-end;
+  padding:12px;
+}
+
+.product-modal-close{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:1px solid #4a3613;
+  background:#111;
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.product-modal-grid{
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:24px;
+  padding:10px 24px 26px;
+}
+
+.product-modal-image{
+  min-height:390px;
+  background:#111;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#777;
+  text-align:center;
+}
+
+.product-modal-image img{
+  width:100%;
+  max-height:470px;
+  object-fit:contain;
+}
+
+.modal-kicker{
+  color:#777;
+  font-size:11px;
+  margin-bottom:8px;
+}
+
+.product-modal-content h3{
+  font-family:Georgia,serif;
+  font-size:31px;
+  font-weight:400;
+  margin-bottom:10px;
+}
+
+.modal-price{
+  color:var(--gold2);
+  font-size:25px;
+  font-weight:800;
+  margin-bottom:14px;
+}
+
+.modal-status{
+  color:#65d68b;
+  font-size:11px;
+  font-weight:700;
+}
+
+.modal-section{
+  border-top:1px solid #252525;
+  padding-top:14px;
+  margin-top:14px;
+}
+
+.modal-section h4{
+  color:var(--gold2);
+  font-size:13px;
+  margin-bottom:7px;
+}
+
+.modal-section p{
+  color:#bbb;
+  font-size:13px;
+  line-height:1.65;
+}
+
+.modal-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:22px;
+}
+
+.modal-add{
+  border:1px solid var(--gold);
+  background:var(--gold);
+  color:#080808;
+  padding:13px;
+  border-radius:7px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.modal-buy{
+  border:1px solid #8a641c;
+  color:var(--gold2);
+  padding:13px;
+  border-radius:7px;
+  font-weight:800;
+  text-align:center;
+}
 
 /* CARRITO */
 
-.cart-float{position:fixed;right:20px;bottom:20px;z-index:90;width:58px;height:58px;border-radius:50%;border:1px solid var(--gold);background:var(--gold);font-size:24px;cursor:pointer}
-.cart-count{position:absolute;top:-6px;right:-4px;min-width:22px;height:22px;border-radius:20px;background:#111;color:var(--gold2);border:1px solid var(--gold);font-size:11px;display:flex;align-items:center;justify-content:center}
-.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:99;display:none}
-.cart-overlay.open{display:block}
-.cart-panel{position:fixed;right:0;top:0;width:min(430px,100%);height:100vh;z-index:100;background:#070707;border-left:1px solid #4a3613;transform:translateX(100%);transition:.25s;display:flex;flex-direction:column}
-.cart-panel.open{transform:translateX(0)}
-.cart-head{display:flex;justify-content:space-between;padding:20px;border-bottom:1px solid #2b2110}
-.cart-head h3{color:var(--gold2);font-size:24px}
-.cart-close{background:#111;color:white;border:1px solid #4a3613;width:36px;height:36px;border-radius:50%}
-.cart-body{flex:1;overflow:auto;padding:14px 20px}
-.cart-empty{text-align:center;color:#888;padding:45px 15px}
-.cart-item{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid #242424}
-.cart-thumb{width:64px;height:64px;object-fit:contain;background:#111}
-.cart-item h4{font-size:13px}
-.cart-item-code{color:#777;font-size:10px;margin:5px 0}
-.cart-item-price{color:var(--gold2);font-size:13px}
-.qty-row{display:flex;align-items:center;gap:8px;margin-top:9px}
-.qty-btn{width:28px;height:28px;background:#111;color:var(--gold2);border:1px solid #5b4319}
-.remove-item{margin-left:auto;background:none;border:0;color:#c77777}
+.cart-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:90;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  border:1px solid var(--gold);
+  background:var(--gold);
+  color:#080808;
+  font-size:24px;
+  cursor:pointer;
+}
 
-.cart-foot{border-top:1px solid #2b2110;padding:18px 20px;background:#090909}
-.cart-summary{display:flex;justify-content:space-between;margin-bottom:14px}
-.cart-summary strong{color:var(--gold2);font-size:21px}
-.checkout-form{display:grid;gap:9px;margin-bottom:14px}
-.checkout-form label{color:#aaa;font-size:11px;font-weight:700}
-.checkout-input,.checkout-select{width:100%;background:#101010;border:1px solid #4a3613;color:white;padding:11px;border-radius:7px}
-.checkout-error{display:none;color:#e69b9b;font-size:11px;margin-bottom:10px}
-.cart-whatsapp{width:100%;border:0;border-radius:7px;padding:14px;background:var(--green);font-weight:800;cursor:pointer}
-.cart-clear{width:100%;margin-top:8px;border:1px solid #4a3613;padding:10px;background:#101010;color:#aaa;border-radius:7px}
+.cart-count{
+  position:absolute;
+  top:-6px;
+  right:-4px;
+  min-width:22px;
+  height:22px;
+  border-radius:20px;
+  background:#111;
+  color:var(--gold2);
+  border:1px solid var(--gold);
+  font-size:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.72);
+  z-index:99;
+  display:none;
+}
+
+.cart-overlay.open{
+  display:block;
+}
+
+.cart-panel{
+  position:fixed;
+  right:0;
+  top:0;
+  width:min(430px,100%);
+  height:100vh;
+  z-index:100;
+  background:#070707;
+  border-left:1px solid #4a3613;
+  transform:translateX(100%);
+  transition:.25s;
+  display:flex;
+  flex-direction:column;
+}
+
+.cart-panel.open{
+  transform:translateX(0);
+}
+
+.cart-head{
+  display:flex;
+  justify-content:space-between;
+  padding:20px;
+  border-bottom:1px solid #2b2110;
+}
+
+.cart-head h3{
+  color:var(--gold2);
+  font-size:24px;
+}
+
+.cart-close{
+  background:#111;
+  color:#fff;
+  border:1px solid #4a3613;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.cart-body{
+  flex:1;
+  overflow:auto;
+  padding:14px 20px;
+}
+
+.cart-empty{
+  text-align:center;
+  color:#888;
+  padding:45px 15px;
+}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:64px 1fr;
+  gap:12px;
+  padding:14px 0;
+  border-bottom:1px solid #242424;
+}
+
+.cart-thumb{
+  width:64px;
+  height:64px;
+  object-fit:contain;
+  background:#111;
+}
+
+.cart-item h4{
+  font-size:13px;
+}
+
+.cart-item-code{
+  color:#777;
+  font-size:10px;
+  margin:5px 0;
+}
+
+.cart-item-price{
+  color:var(--gold2);
+  font-size:13px;
+}
+
+.qty-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:9px;
+}
+
+.qty-btn{
+  width:28px;
+  height:28px;
+  background:#111;
+  color:var(--gold2);
+  border:1px solid #5b4319;
+  cursor:pointer;
+}
+
+.remove-item{
+  margin-left:auto;
+  background:none;
+  border:0;
+  color:#c77777;
+  cursor:pointer;
+}
+
+.cart-foot{
+  border-top:1px solid #2b2110;
+  padding:18px 20px;
+  background:#090909;
+}
+
+.cart-summary{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:14px;
+}
+
+.cart-summary strong{
+  color:var(--gold2);
+  font-size:21px;
+}
+
+.checkout-form{
+  display:grid;
+  gap:9px;
+  margin-bottom:14px;
+}
+
+.checkout-form label{
+  color:#aaa;
+  font-size:11px;
+  font-weight:700;
+}
+
+.checkout-input,
+.checkout-select{
+  width:100%;
+  background:#101010;
+  border:1px solid #4a3613;
+  color:#fff;
+  padding:11px;
+  border-radius:7px;
+}
+
+.checkout-error{
+  display:none;
+  color:#e69b9b;
+  font-size:11px;
+  margin-bottom:10px;
+}
+
+.cart-whatsapp{
+  width:100%;
+  border:0;
+  border-radius:7px;
+  padding:14px;
+  background:var(--green);
+  color:#061b0e;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.cart-clear{
+  width:100%;
+  margin-top:8px;
+  border:1px solid #4a3613;
+  padding:10px;
+  background:#101010;
+  color:#aaa;
+  border-radius:7px;
+  cursor:pointer;
+}
+
+/* BENEFICIOS */
+
+.benefits{
+  border-top:1px solid #2b2110;
+  border-bottom:1px solid #2b2110;
+  background:#070707;
+}
+
+.benefit-grid{
+  max-width:1200px;
+  margin:auto;
+  padding:30px 22px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.benefit{
+  text-align:center;
+}
+
+.benefit b{
+  display:block;
+  color:var(--gold2);
+  font-size:14px;
+}
+
+.benefit span{
+  color:#aaa;
+  font-size:12px;
+}
+
+.contact,
+.promos{
+  text-align:center;
+}
+
+.contact p{
+  color:#aaa;
+  margin:12px auto 24px;
+}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid #2b2110;
+  padding:35px 22px;
+  color:#888;
+  text-align:center;
+  font-size:12px;
+}
+
+footer .footer-logo{
+  width:170px;
+  margin:0 auto 15px;
+}
+
+/* RESPONSIVE */
 
 @media(max-width:1000px){
-nav{display:none}
-.products{grid-template-columns:repeat(3,1fr)}
-.categories{grid-template-columns:repeat(3,1fr)}
+
+  nav{
+    display:none;
+  }
+
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .categories{
+    grid-template-columns:repeat(3,1fr);
+  }
 }
 
 @media(max-width:700px){
-.products{grid-template-columns:repeat(2,1fr)}
-.product-modal-overlay{padding:0}
-.product-modal{width:100%;min-height:100vh;max-height:100vh;border-radius:0}
-.product-modal-grid{grid-template-columns:1fr;padding:8px 16px 24px}
-.product-modal-image{min-height:280px}
-.modal-actions{grid-template-columns:1fr}
-.benefit-grid{grid-template-columns:repeat(2,1fr)}
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .product-modal-overlay{
+    padding:0;
+  }
+
+  .product-modal{
+    width:100%;
+    min-height:100vh;
+    max-height:100vh;
+    border-radius:0;
+  }
+
+  .product-modal-grid{
+    grid-template-columns:1fr;
+    padding:8px 16px 24px;
+  }
+
+  .product-modal-image{
+    min-height:280px;
+  }
+
+  .modal-actions{
+    grid-template-columns:1fr;
+  }
+
+  .benefit-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
 }
 
 @media(max-width:560px){
-.top span{margin:0 5px;font-size:11px}
-.top span:nth-child(2){display:none}
-.nav{padding:8px 15px}
-.logo{width:145px}
-.wa{font-size:12px;padding:9px}
-.hero-inner{padding:65px 18px}
-h1{font-size:49px}
-section{padding:50px 15px}
-.categories{grid-template-columns:repeat(2,1fr)}
-.products{grid-template-columns:repeat(2,1fr);gap:10px}
-.pic{height:165px}
-.info{padding:11px}
-.info h3{font-size:13px}
-.description{font-size:11px}
+
+  .top span{
+    margin:0 5px;
+    font-size:11px;
+  }
+
+  .top span:nth-child(2){
+    display:none;
+  }
+
+  .nav{
+    padding:8px 15px;
+  }
+
+  .logo{
+    width:145px;
+  }
+
+  .wa{
+    font-size:12px;
+    padding:9px;
+  }
+
+  .hero-inner{
+    padding:65px 18px;
+  }
+
+  h1{
+    font-size:49px;
+  }
+
+  section{
+    padding:50px 15px;
+  }
+
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .pic{
+    height:165px;
+  }
+
+  .info{
+    padding:11px;
+  }
+
+  .info h3{
+    font-size:13px;
+  }
+
+  .description{
+    font-size:11px;
+  }
 }
+
 </style>
 </head>
 
 <body>
 
 <div class="top">
-<span>🔒 Atención discreta</span>
-<span>📦 Empaque privado</span>
-<span>🚚 Pedidos por WhatsApp</span>
+  <span>🔒 Atención discreta</span>
+  <span>📦 Empaque privado</span>
+  <span>🚚 Pedidos por WhatsApp</span>
 </div>
 
 <header>
 <div class="nav">
 
 <a class="logo" href="#inicio">
-<img src="logo-eclipse.jpg" alt="Eclipse">
+<img src="logo-eclipse.jpg" alt="Eclipse Sex Shop">
 </a>
 
 <nav>
@@ -194,9 +969,12 @@ section{padding:50px 15px}
 <a href="#contacto">CONTACTO</a>
 </nav>
 
-<a class="wa"
+<a
+class="wa"
 href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20informaci%C3%B3n"
-target="_blank">◉ WhatsApp</a>
+target="_blank">
+◉ WhatsApp
+</a>
 
 </div>
 </header>
@@ -206,19 +984,32 @@ target="_blank">◉ WhatsApp</a>
 <section class="hero">
 <div class="hero-inner">
 
-<div class="kicker">Bienvenido a Eclipse</div>
+<div class="kicker">
+Bienvenido a Eclipse
+</div>
+
 <h1>ECLIPSE</h1>
-<div class="hero-sub">SEX SHOP</div>
+
+<div class="hero-sub">
+SEX SHOP
+</div>
 
 <p>
 Descubre una nueva forma de disfrutar. Explora nuestra selección de productos para adultos con atención personalizada, compra discreta y pedidos fáciles por WhatsApp.
 </p>
 
-<a class="btn primary" href="#productos">VER CATÁLOGO ›</a>
+<a
+class="btn primary"
+href="#productos">
+VER CATÁLOGO ›
+</a>
 
-<a class="btn"
+<a
+class="btn"
 href="https://wa.me/573123690775?text=Hola%20Eclipse%2C%20quiero%20hacer%20un%20pedido"
-target="_blank">COMPRAR POR WHATSAPP</a>
+target="_blank">
+COMPRAR POR WHATSAPP
+</a>
 
 </div>
 </section>
@@ -232,18 +1023,65 @@ target="_blank">COMPRAR POR WHATSAPP</a>
 
 <div class="categories">
 
-<div class="cat" onclick="filterProducts('lubricantes',this)">💧<b>LUBRICANTES</b></div>
-<div class="cat" onclick="filterProducts('juguetes',this)">✨<b>JUGUETES</b></div>
-<div class="cat" onclick="filterProducts('perfumeria',this)">🌹<b>PERFUMERÍA</b></div>
-<div class="cat" onclick="filterProducts('energizantes',this)">⚡<b>ENERGIZANTES</b></div>
-<div class="cat" onclick="filterProducts('dildos',this)">◆<b>DILDOS</b></div>
-<div class="cat" onclick="filterProducts('anal',this)">●<b>ANAL</b></div>
-<div class="cat" onclick="filterProducts('anillos',this)">◎<b>ANILLOS</b></div>
-<div class="cat" onclick="filterProducts('juegos',this)">🎲<b>JUEGOS</b></div>
-<div class="cat" onclick="filterProducts('kits',this)">🎁<b>KITS</b></div>
-<div class="cat" onclick="filterProducts('cuidado',this)">♡<b>CUIDADO</b></div>
-<div class="cat" onclick="filterProducts('arneses',this)">◇<b>ARNESES</b></div>
-<div class="cat" onclick="filterProducts('all',this)">✦<b>VER TODO</b></div>
+<div class="cat" onclick="filterProducts('lubricantes')">
+<div class="ico">💧</div>
+<b>LUBRICANTES</b>
+</div>
+
+<div class="cat" onclick="filterProducts('juguetes')">
+<div class="ico">✨</div>
+<b>JUGUETES</b>
+</div>
+
+<div class="cat" onclick="filterProducts('perfumeria')">
+<div class="ico">🌹</div>
+<b>PERFUMERÍA</b>
+</div>
+
+<div class="cat" onclick="filterProducts('energizantes')">
+<div class="ico">⚡</div>
+<b>ENERGIZANTES</b>
+</div>
+
+<div class="cat" onclick="filterProducts('dildos')">
+<div class="ico">◆</div>
+<b>DILDOS</b>
+</div>
+
+<div class="cat" onclick="filterProducts('anal')">
+<div class="ico">●</div>
+<b>ANAL</b>
+</div>
+
+<div class="cat" onclick="filterProducts('anillos')">
+<div class="ico">◎</div>
+<b>ANILLOS</b>
+</div>
+
+<div class="cat" onclick="filterProducts('juegos')">
+<div class="ico">🎲</div>
+<b>JUEGOS</b>
+</div>
+
+<div class="cat" onclick="filterProducts('kits')">
+<div class="ico">🎁</div>
+<b>KITS</b>
+</div>
+
+<div class="cat" onclick="filterProducts('cuidado')">
+<div class="ico">♡</div>
+<b>CUIDADO</b>
+</div>
+
+<div class="cat" onclick="filterProducts('arneses')">
+<div class="ico">◇</div>
+<b>ARNESES</b>
+</div>
+
+<div class="cat" onclick="filterProducts('all')">
+<div class="ico">✦</div>
+<b>VER TODO</b>
+</div>
 
 </div>
 </section>
@@ -256,34 +1094,116 @@ target="_blank">COMPRAR POR WHATSAPP</a>
 </div>
 
 <div class="catalog-tools">
-<input id="searchInput"
+
+<input
+id="searchInput"
 class="search"
 type="search"
 placeholder="Buscar por nombre, código o categoría..."
 oninput="renderProducts()">
+
 </div>
 
 <div class="filters">
 
-<button class="filter active" data-filter="all" onclick="filterProducts('all',this)">TODOS</button>
-<button class="filter" data-filter="lubricantes" onclick="filterProducts('lubricantes',this)">LUBRICANTES</button>
-<button class="filter" data-filter="juguetes" onclick="filterProducts('juguetes',this)">JUGUETES</button>
-<button class="filter" data-filter="perfumeria" onclick="filterProducts('perfumeria',this)">PERFUMERÍA</button>
-<button class="filter" data-filter="energizantes" onclick="filterProducts('energizantes',this)">ENERGIZANTES</button>
-<button class="filter" data-filter="dildos" onclick="filterProducts('dildos',this)">DILDOS</button>
-<button class="filter" data-filter="anillos" onclick="filterProducts('anillos',this)">ANILLOS</button>
-<button class="filter" data-filter="arneses" onclick="filterProducts('arneses',this)">ARNESES</button>
-<button class="filter" data-filter="anal" onclick="filterProducts('anal',this)">ANAL</button>
-<button class="filter" data-filter="juegos" onclick="filterProducts('juegos',this)">JUEGOS</button>
-<button class="filter" data-filter="kits" onclick="filterProducts('kits',this)">KITS</button>
-<button class="filter" data-filter="cuidado" onclick="filterProducts('cuidado',this)">CUIDADO</button>
+<button
+class="filter active"
+data-filter="all"
+onclick="filterProducts('all')">
+TODOS
+</button>
+
+<button
+class="filter"
+data-filter="lubricantes"
+onclick="filterProducts('lubricantes')">
+LUBRICANTES
+</button>
+
+<button
+class="filter"
+data-filter="juguetes"
+onclick="filterProducts('juguetes')">
+JUGUETES
+</button>
+
+<button
+class="filter"
+data-filter="perfumeria"
+onclick="filterProducts('perfumeria')">
+PERFUMERÍA
+</button>
+
+<button
+class="filter"
+data-filter="energizantes"
+onclick="filterProducts('energizantes')">
+ENERGIZANTES
+</button>
+
+<button
+class="filter"
+data-filter="dildos"
+onclick="filterProducts('dildos')">
+DILDOS
+</button>
+
+<button
+class="filter"
+data-filter="anillos"
+onclick="filterProducts('anillos')">
+ANILLOS
+</button>
+
+<button
+class="filter"
+data-filter="arneses"
+onclick="filterProducts('arneses')">
+ARNESES
+</button>
+
+<button
+class="filter"
+data-filter="anal"
+onclick="filterProducts('anal')">
+ANAL
+</button>
+
+<button
+class="filter"
+data-filter="juegos"
+onclick="filterProducts('juegos')">
+JUEGOS
+</button>
+
+<button
+class="filter"
+data-filter="kits"
+onclick="filterProducts('kits')">
+KITS
+</button>
+
+<button
+class="filter"
+data-filter="cuidado"
+onclick="filterProducts('cuidado')">
+CUIDADO
+</button>
 
 </div>
 
-<div class="result-count" id="resultCount"></div>
-<div class="products" id="productGrid"></div>
+<div
+class="result-count"
+id="resultCount">
+</div>
+
+<div
+class="products"
+id="productGrid">
+</div>
 
 </section>
+<!-- BENEFICIOS -->
 
 <div class="benefits">
 <div class="benefit-grid">
@@ -329,15 +1249,19 @@ oninput="renderProducts()">
 <h2>Hablemos por WhatsApp</h2>
 </div>
 
-<p>Consulta disponibilidad, precios, envíos o realiza tu pedido.</p>
+<p>
+Consulta disponibilidad, precios, envíos o realiza tu pedido.
+</p>
 
-<a class="btn primary"
+<a
+class="btn primary"
 href="https://wa.me/573123690775"
 target="_blank">
 💬 312 369 0775
 </a>
 
-<a class="btn"
+<a
+class="btn"
 href="https://instagram.com/eclipse_oficial69"
 target="_blank">
 ◎ @eclipse_oficial69
@@ -347,65 +1271,103 @@ target="_blank">
 
 </main>
 
-<!-- FICHA PRODUCTO -->
+<!-- FICHA DETALLADA DEL PRODUCTO -->
 
-<div class="product-modal-overlay"
+<div
+class="product-modal-overlay"
 id="productModalOverlay"
 onclick="closeProductModal(event)">
 
-<div class="product-modal"
+<div
+class="product-modal"
 onclick="event.stopPropagation()">
 
 <div class="product-modal-head">
-<button class="product-modal-close"
-onclick="closeProductModal()">×</button>
+
+<button
+class="product-modal-close"
+onclick="closeProductModal()"
+aria-label="Cerrar">
+×
+</button>
+
 </div>
 
 <div class="product-modal-grid">
 
-<div class="product-modal-image"
-id="modalImageWrap"></div>
+<div
+class="product-modal-image"
+id="modalImageWrap">
+</div>
 
 <div class="product-modal-content">
 
-<div class="modal-kicker" id="modalCode"></div>
+<div
+class="modal-kicker"
+id="modalCode">
+</div>
+
 <h3 id="modalName"></h3>
 
-<div class="modal-price"
-id="modalPrice"></div>
+<div
+class="modal-price"
+id="modalPrice">
+</div>
 
 <div class="modal-status">
 ● DISPONIBLE
 </div>
 
 <div class="modal-section">
-<h4>DESCRIPCIÓN</h4>
+
+<h4>
+DESCRIPCIÓN
+</h4>
+
 <p id="modalDescription"></p>
+
 </div>
 
 <div class="modal-section">
-<h4>CARACTERÍSTICAS</h4>
+
+<h4>
+CARACTERÍSTICAS
+</h4>
+
 <p id="modalFeatures"></p>
+
 </div>
 
 <div class="modal-section">
-<h4>MODO DE USO</h4>
+
+<h4>
+MODO DE USO
+</h4>
+
 <p id="modalUsage"></p>
+
 </div>
 
 <div class="modal-section">
-<h4>RECOMENDACIONES Y CUIDADOS</h4>
+
+<h4>
+RECOMENDACIONES Y CUIDADOS
+</h4>
+
 <p id="modalRecommendations"></p>
+
 </div>
 
 <div class="modal-actions">
 
-<button class="modal-add"
+<button
+class="modal-add"
 id="modalAddBtn">
 🛒 AGREGAR AL CARRITO
 </button>
 
-<a class="modal-buy"
+<a
+class="modal-buy"
 id="modalBuyBtn"
 target="_blank">
 ◉ COMPRAR POR WHATSAPP
@@ -420,53 +1382,79 @@ target="_blank">
 
 <!-- CARRITO -->
 
-<div class="cart-overlay"
+<div
+class="cart-overlay"
 id="cartOverlay"
-onclick="closeCart()"></div>
+onclick="closeCart()">
+</div>
 
-<aside class="cart-panel"
+<aside
+class="cart-panel"
 id="cartPanel">
 
 <div class="cart-head">
 
-<h3>Tu carrito</h3>
+<h3>
+Tu carrito
+</h3>
 
-<button class="cart-close"
-onclick="closeCart()">
+<button
+class="cart-close"
+onclick="closeCart()"
+aria-label="Cerrar carrito">
 ×
 </button>
 
 </div>
 
-<div class="cart-body"
-id="cartItems"></div>
+<div
+class="cart-body"
+id="cartItems">
+</div>
 
 <div class="cart-foot">
 
 <div class="cart-summary">
-<span>Total</span>
-<strong id="cartTotal">$0</strong>
+
+<span>
+Total
+</span>
+
+<strong id="cartTotal">
+$0
+</strong>
+
 </div>
 
 <div class="checkout-form">
 
-<label>NÚMERO DE TELÉFONO</label>
+<label for="customerPhone">
+NÚMERO DE TELÉFONO
+</label>
 
-<input class="checkout-input"
+<input
+class="checkout-input"
 id="customerPhone"
 type="tel"
+inputmode="tel"
 placeholder="Ej. 312 345 6789">
 
-<label>UBICACIÓN</label>
+<label for="customerLocation">
+UBICACIÓN
+</label>
 
-<input class="checkout-input"
+<input
+class="checkout-input"
 id="customerLocation"
 type="text"
 placeholder="Barrio, dirección o ubicación">
 
-<label>FORMA DE PAGO</label>
+<label for="paymentMethod">
+FORMA DE PAGO
+</label>
 
-<select class="checkout-select"
+<select
+class="checkout-select"
 id="paymentMethod">
 
 <option value="">
@@ -485,15 +1473,19 @@ Transferencia
 
 </div>
 
-<div class="checkout-error"
-id="checkoutError"></div>
+<div
+class="checkout-error"
+id="checkoutError">
+</div>
 
-<button class="cart-whatsapp"
+<button
+class="cart-whatsapp"
 onclick="checkoutWhatsApp()">
 💬 FINALIZAR POR WHATSAPP
 </button>
 
-<button class="cart-clear"
+<button
+class="cart-clear"
 onclick="clearCart()">
 Vaciar carrito
 </button>
@@ -502,12 +1494,15 @@ Vaciar carrito
 
 </aside>
 
-<button class="cart-float"
-onclick="openCart()">
+<button
+class="cart-float"
+onclick="openCart()"
+aria-label="Abrir carrito">
 
 🛒
 
-<span class="cart-count"
+<span
+class="cart-count"
 id="cartCount">
 0
 </span>
@@ -516,14 +1511,16 @@ id="cartCount">
 
 <footer>
 
-<img class="footer-logo"
-src="logo-eclipse.jpg">
+<img
+class="footer-logo"
+src="logo-eclipse.jpg"
+alt="Eclipse">
 
 <div>
 © 2026 <b>Eclipse Sex Shop</b>
 </div>
 
-<div>
+<div style="margin-top:7px">
 Contenido dirigido exclusivamente a personas adultas.
 </div>
 
@@ -531,146 +1528,827 @@ Contenido dirigido exclusivamente a personas adultas.
 
 <script>
 
-/* =====================================================
-   PRODUCTOS
-===================================================== */
+/* ===========================================
+   PRODUCTOS ECLIPSE
+=========================================== */
 
 const products = [
-{code:"ECL-001",name:"Lubricante Íntimo Trío x 30 ml",category:"lubricantes",price:33900,image:"images/lubricante-intimo-trio-x-30-ml.jpg",description:"Lubricante íntimo Trío diseñado para complementar la experiencia y explorar nuevas sensaciones."},
-{code:"ECL-002",name:"Lubricante Íntimo Anal Desensibilizante x 30 ml",category:"lubricantes",price:41900,image:"images/lubricante-intimo-anal-desensibilizante-x-30-ml.jpg",description:"Lubricante íntimo anal con efecto desensibilizante."},
-{code:"ECL-003",name:"Lubricante Íntimo Caliente Tropical x 30 ml",category:"lubricantes",price:31900,image:"images/lubricante-intimo-caliente-tropical-x-30-ml.jpg",description:"Lubricante íntimo sabor tropical con sensación caliente."},
-{code:"ECL-004",name:"Lubricante Anal Desensibilizante x 500 ml",category:"lubricantes",price:182900,image:"images/lubricante-intimo-anal-desensibilizante-x-500-ml.jpg",description:"Presentación de 500 ml de lubricante anal desensibilizante."},
-{code:"ECL-005",name:"Lubricante Multiorgasmos x 30 ml",category:"lubricantes",price:41900,image:"images/lubricante-intimo-multiorgasmos-x-30-ml.jpg",description:"Lubricante íntimo diseñado para complementar la estimulación."},
-{code:"ECL-006",name:"Lubricante Cappuccino Caliente x 30 ml",category:"lubricantes",price:31900,image:"images/lubricante-intimo-cappuccino-sensacion-caliente-x-30-ml.jpg",description:"Lubricante íntimo Cappuccino con sensación caliente."},
-{code:"ECL-007",name:"Lubricante Passion Fruit Caliente x 30 ml",category:"lubricantes",price:31900,image:"images/lubricante-intimo-passion-fruit-sensacion-caliente-x-30-ml.jpg",description:"Lubricante íntimo Passion Fruit con sensación caliente."},
-{code:"ECL-008",name:"Crema de Whisky Caliente Electrizante x 30 ml",category:"lubricantes",price:41900,image:"images/lubricante-intimo-crema-de-whisky-caliente-electrizante-x-30-ml.jpg",description:"Lubricante íntimo con sensación caliente electrizante."},
-{code:"ECL-009",name:"Lubricante Caramelo Caliente x 30 ml",category:"lubricantes",price:31900,image:"images/lubricante-intimo-caramelo-sensacion-caliente-x-30-ml.jpg",description:"Lubricante íntimo sabor caramelo con sensación caliente."},
-{code:"ECL-010",name:"Multiorgasmos Frío/Calor x 30 ml",category:"lubricantes",price:41900,image:"images/lubricante-intimo-multiorgasmos-frio-calor-x-30-ml.jpg",description:"Lubricante íntimo con combinación de sensaciones frío y calor."},
-{code:"ECL-011",name:"Anal Desensibilizante x 10 ml",category:"lubricantes",price:28900,image:"images/lubricante-intimo-anal-desensibilizante-x-10-ml.jpg",description:"Presentación compacta de lubricante anal desensibilizante."},
-{code:"ECL-012",name:"Crema de Whisky Caliente x 30 ml",category:"lubricantes",price:31900,image:"images/lubricante-intimo-crema-de-whisky-sensacion-caliente-x-30-ml.jpg",description:"Lubricante íntimo Crema de Whisky con sensación caliente."},
-{code:"ECL-013",name:"Mango Caliente Electrizante x 30 ml",category:"lubricantes",price:41900,image:"images/lubricante-intimo-mango-sensacion-caliente-electrizante-x-30-ml.jpg",description:"Lubricante íntimo Mango con sensación caliente electrizante."},
-{code:"ECL-014",name:"Multiorgasmos x 10 ml",category:"lubricantes",price:28900,image:"images/lubricante-intimo-multiorgasmos-x-10-ml.jpg",description:"Lubricante Multiorgasmos en presentación compacta."},
-{code:"ECL-015",name:"Lychee Caliente Electrizante x 30 ml",category:"lubricantes",price:41900,image:"images/lubricante-intimo-lychee-sensacion-caliente-electrizante-x-30-ml.jpg",description:"Lubricante íntimo Lychee con sensación electrizante."},
-{code:"ECL-016",name:"Chocolate Caliente x 30 ml",category:"lubricantes",price:31900,image:"images/lubricante-intimo-chocolate-sensacion-caliente-x-30-ml.jpg",description:"Lubricante íntimo Chocolate con sensación caliente."},
-{code:"ECL-017",name:"Menta Sensación Fría x 30 ml",category:"lubricantes",price:31900,image:"images/lubricante-intimo-menta-sensacion-fria-x-30-ml.jpg",description:"Lubricante íntimo de menta con sensación fría."},
-{code:"ECL-018",name:"Tequila Caliente Electrizante x 30 ml",category:"lubricantes",price:41900,image:"images/lubricante-intimo-tequila-sensacion-caliente-electrizante-x-30-ml.jpg",description:"Lubricante íntimo Tequila con sensación caliente electrizante."},
 
-{code:"ECL-019",name:"Vibrador Líquido Electrizante Frío x 5 ml",category:"juguetes",price:42900,image:"images/vibrador-liquido-electrizante-frio-x-5-ml.jpg",description:"Estimulante líquido con sensación electrizante fría."},
-{code:"ECL-020",name:"Vibrador Líquido Electrizante x 5 ml",category:"juguetes",price:41900,image:"images/vibrador-liquido-electrizante-x-5-ml.jpg",description:"Estimulante líquido electrizante."},
-{code:"ECL-021",name:"Multiorgasmos Euforia con CBD x 30 ml",category:"juguetes",price:40900,image:"images/multiorgasmos-euforia-con-cbd-x-30-ml.jpg",description:"Producto íntimo de la línea Multiorgasmos Euforia."},
+{
+code:"ECL-001",
+name:"Lubricante Íntimo Trío x 30 ml",
+category:"lubricantes",
+price:33900,
+image:"images/lubricante-intimo-trio-x-30-ml.jpg",
+description:"Lubricante íntimo Trío diseñado para complementar la experiencia y explorar nuevas sensaciones."
+},
 
-{code:"ECL-022",name:"Radiant Splash con Feromonas x 125 ml",category:"perfumeria",price:35900,image:"images/radiant-splash-con-feromonas-x-125-ml.jpg",description:"Splash corporal Radiant con feromonas."},
-{code:"ECL-023",name:"Crema Humectante x 125 ml",category:"cuidado",price:35900,image:"images/crema-humectante-x-125-ml.jpg",description:"Crema humectante corporal para complementar el cuidado personal."},
-{code:"ECL-024",name:"Brillo Labial Frutos Rojos x 10 ml",category:"cuidado",price:19000,image:"images/brillo-labial-frutos-rojos-x-10-ml.jpg",description:"Brillo labial sabor frutos rojos."},
-{code:"ECL-025",name:"Aceite Corporal Pheromonas x 250 ml",category:"cuidado",price:57900,image:"images/aceite-corporal-pheromonas-x-250-ml.jpg",description:"Aceite corporal para masaje y aromaterapia con feromonas."},
-{code:"ECL-026",name:"Perfume Pheromona Dama Gotero x 10 ml",category:"perfumeria",price:45900,image:"images/perfume-pheromona-dama-gotero-x-10-ml.jpg",description:"Perfume con feromonas para dama en presentación de gotero."},
-{code:"ECL-027",name:"Radiant Crema Humectante con Pheromonas",category:"cuidado",price:35900,image:"images/radiant-crema-humectante-con-pheromonas-x-125-ml.jpg",description:"Crema corporal Radiant con feromonas."},
-{code:"ECL-028",name:"Forever Perfume con Pheromonas x 10 ml",category:"perfumeria",price:35900,image:"images/forever-perfume-con-pheromonas-x-10-ml.jpg",description:"Perfume Forever con feromonas."},
-{code:"ECL-029",name:"Sexy Crema Humectante con Pheromonas",category:"cuidado",price:35900,image:"images/sexy-crema-humectante-con-pheromonas-x-125-ml.jpg",description:"Crema humectante Sexy con feromonas."},
-{code:"ECL-030",name:"Forever Crema Humectante con Pheromonas",category:"cuidado",price:35900,image:"images/forever-crema-humectante-con-pheromonas-x-125-ml.jpg",description:"Crema corporal Forever con feromonas."},
-{code:"ECL-031",name:"Seduction Crema Humectante con Feromonas",category:"cuidado",price:35900,image:"images/seduction-crema-humectante-con-feromonas-x-125-ml.jpg",description:"Crema corporal Seduction con feromonas."},
-{code:"ECL-032",name:"Brillo Labial Frutos Rojos x 20 ml",category:"cuidado",price:29500,image:"images/brillo-labial-frutos-rojos-x-20-ml.jpg",description:"Brillo labial sabor frutos rojos."},
+{
+code:"ECL-002",
+name:"Lubricante Íntimo Anal Desensibilizante x 30 ml",
+category:"lubricantes",
+price:41900,
+image:"images/lubricante-intimo-anal-desensibilizante-x-30-ml.jpg",
+description:"Lubricante íntimo anal con efecto desensibilizante."
+},
 
-{code:"ECL-033",name:"Anillo Vibrador Sen Íntimo",category:"anillos",price:21000,image:"images/anillo-vibrador-sen-intimo.jpg",description:"Anillo vibrador para complementar experiencias en pareja."},
+{
+code:"ECL-003",
+name:"Lubricante Íntimo Caliente Tropical x 30 ml",
+category:"lubricantes",
+price:31900,
+image:"images/lubricante-intimo-caliente-tropical-x-30-ml.jpg",
+description:"Lubricante íntimo sabor tropical con sensación caliente."
+},
 
-{code:"ECL-034",name:"Sexy Perfume con Pheromonas x 10 ml",category:"perfumeria",price:35900,image:"images/sexy-perfume-con-pheromonas-x-10-ml.jpg",description:"Perfume Sexy con feromonas."},
-{code:"ECL-035",name:"Seduction Perfume con Pheromonas x 10 ml",category:"perfumeria",price:35900,image:"images/seduction-perfume-con-pheromonas-x-10-ml.jpg",description:"Perfume Seduction con feromonas."},
-{code:"ECL-036",name:"Splash x 125 ml Sen Íntimo",category:"perfumeria",price:35900,image:"images/splash-x-125-ml-sen-intimo.jpg",description:"Splash corporal Sen Íntimo."},
-{code:"ECL-037",name:"Seduction",category:"perfumeria",price:42900,image:"images/seduction.jpg",description:"Fragancia Seduction."},
-{code:"ECL-038",name:"Pheromone Infused Parfum Titanium x 10 ml",category:"perfumeria",price:42900,image:"images/pheromone-infused-parfum-titanium-x-10-ml.jpg",description:"Perfume Titanium con feromonas."},
-{code:"ECL-039",name:"Sexy Perfume x 10 ml",category:"perfumeria",price:42900,image:"images/sexy-perfume-x-10-ml.jpg",description:"Perfume íntimo Sexy."},
-{code:"ECL-040",name:"Radiant Perfume x 10 ml",category:"perfumeria",price:42900,image:"images/radiant-perfume-x-10-ml.jpg",description:"Perfume íntimo Radiant."},
-{code:"ECL-041",name:"Perfume Pheromonas Dama Roll-On x 10 ml",category:"perfumeria",price:42900,image:"images/perfume-con-pheromonas-dama-roll-on-x-10-ml.jpg",description:"Perfume con feromonas para dama en formato roll-on."},
-{code:"ECL-042",name:"Perfume Pheromona Hombre Roll-On x 10 ml",category:"perfumeria",price:42900,image:"images/perfume-pheromona-hombre-roll-on-x-10-ml.jpg",description:"Perfume con feromonas para hombre."},
-{code:"ECL-043",name:"Pheromone Infused Parfum Vicious x 10 ml",category:"perfumeria",price:42900,image:"images/pheromone-infused-parfum-vicious-x-10-ml.jpg",description:"Perfume Vicious con feromonas."},
-{code:"ECL-044",name:"Titanium Perfume con Feromonas x 10 ml",category:"perfumeria",price:42900,image:"images/titanium-perfume-con-feromonas-x-10-ml.jpg",description:"Perfume Titanium con feromonas."},
-{code:"ECL-045",name:"Pheromone Infused Parfum Radiant x 10 ml",category:"perfumeria",price:42900,image:"images/pheromone-infused-parfum-radiant-x-10-ml.jpg",description:"Perfume Radiant con feromonas."},
+{
+code:"ECL-004",
+name:"Lubricante Anal Desensibilizante x 500 ml",
+category:"lubricantes",
+price:182900,
+image:"images/lubricante-intimo-anal-desensibilizante-x-500-ml.jpg",
+description:"Presentación de 500 ml de lubricante anal desensibilizante."
+},
 
-{code:"ECL-046",name:"Panty Vibrador",category:"juguetes",price:103000,image:"images/panty-vibrador.jpg",description:"Panty vibrador diseñado para complementar experiencias íntimas."},
-{code:"ECL-047",name:"Bunny Vibe",category:"juguetes",price:128900,image:"images/bunny-vibe.jpg",description:"Vibrador Bunny con estimulación múltiple."},
-{code:"ECL-048",name:"Cherry Pepper Extreme",category:"juguetes",price:35000,image:"images/cherry-pepper-extreme.jpg",description:"Producto estimulante de la línea Cherry Pepper."},
-{code:"ECL-049",name:"Huevo",category:"juguetes",price:51000,image:"images/huevo.jpg",description:"Vibrador tipo huevo compacto y discreto."},
-{code:"ECL-050",name:"Clitoral Lover",category:"juguetes",price:85000,image:"images/clitoral-lover.jpg",description:"Estimulador diseñado para estimulación externa."},
-{code:"ECL-051",name:"Pulsador de Succión Clitorial Kiss Love",category:"juguetes",price:137000,image:"images/pulsador-de-succion-clitorial-kiss-love.jpg",description:"Estimulador de succión con diseño en forma de corazón."},
+{
+code:"ECL-005",
+name:"Lubricante Multiorgasmos x 30 ml",
+category:"lubricantes",
+price:41900,
+image:"images/lubricante-intimo-multiorgasmos-x-30-ml.jpg",
+description:"Lubricante íntimo diseñado para complementar la estimulación."
+},
 
-{code:"ECL-052",name:"Hi Basic Sassy",category:"anal",price:30000,image:"images/hi-basic-sassy.jpg",description:"Accesorio para exploración anal progresiva."},
-{code:"ECL-053",name:"Jumping Rabbit",category:"anal",price:38000,image:"images/jumping-rabbit.jpg",description:"Plug anal compacto."},
-{code:"ECL-054",name:"Hidden Love",category:"anal",price:24000,image:"images/hidden-love.jpg",description:"Plug anal compacto y discreto."},
-{code:"ECL-055",name:"Jewelry Skin",category:"anal",price:43000,image:"images/jewelry-skin.jpg",description:"Plug anal con diseño decorativo."},
+{
+code:"ECL-006",
+name:"Lubricante Cappuccino Caliente x 30 ml",
+category:"lubricantes",
+price:31900,
+image:"images/lubricante-intimo-cappuccino-sensacion-caliente-x-30-ml.jpg",
+description:"Lubricante íntimo Cappuccino con sensación caliente."
+},
 
-{code:"ECL-056",name:"Energizante Black PW x 500 ml",category:"energizantes",price:58000,image:"images/energizante-black-pw-x-500-ml.jpg",description:"Energizante Black Power en presentación de 500 ml."},
-{code:"ECL-057",name:"Black PW Sachet x 15 ml",category:"energizantes",price:12000,image:"images/energizante-black-pw-sachet-x-15-ml.jpg",description:"Energizante Black Power en sachet."},
-{code:"ECL-058",name:"Black Power Pills x 2 + 1 Gratis",category:"energizantes",price:16000,image:"images/energizante-black-power-pills-x-2-1-gratis.jpg",description:"Presentación promocional Black Power Pills."},
-{code:"ECL-059",name:"Black PW x 30 ml",category:"energizantes",price:17000,image:"images/energizante-black-pw-x-30-ml.jpg",description:"Energizante Black Power x 30 ml."},
-{code:"ECL-060",name:"Black Power Pills x 5 + 1 Gratis",category:"energizantes",price:27000,image:"images/energizante-black-power-pills-x-5-1-gratis.jpg",description:"Presentación promocional Black Power Pills."},
-{code:"ECL-061",name:"Black PW x 60 ml",category:"energizantes",price:25000,image:"images/energizante-black-pw-x-60-ml.jpg",description:"Energizante Black Power x 60 ml."},
+{
+code:"ECL-007",
+name:"Lubricante Passion Fruit Caliente x 30 ml",
+category:"lubricantes",
+price:31900,
+image:"images/lubricante-intimo-passion-fruit-sensacion-caliente-x-30-ml.jpg",
+description:"Lubricante íntimo Passion Fruit con sensación caliente."
+},
 
-{code:"ECL-062",name:"Honeymoon - Dildo de Vidrio 8.6",category:"dildos",price:64000,image:"images/honeymoon-dildo-de-vidrio-8-6.jpg",description:"Dildo de vidrio para estimulación íntima."},
-{code:"ECL-063",name:"Sweet Littlet Bear - Dildo de Vidrio",category:"dildos",price:73000,image:"images/sweet-littlet-bear-dildo-de-vidrio.jpg",description:"Dildo de vidrio con diseño Sweet Little Bear."},
-{code:"ECL-064",name:"Griffin - Dildo Realista 8.6",category:"dildos",price:146000,image:"images/griffin-dildo-realista-8-6.jpg",description:"Dildo realista Griffin."},
+{
+code:"ECL-008",
+name:"Crema de Whisky Caliente Electrizante x 30 ml",
+category:"lubricantes",
+price:41900,
+image:"images/lubricante-intimo-crema-de-whisky-caliente-electrizante-x-30-ml.jpg",
+description:"Lubricante íntimo con sensación caliente electrizante."
+},
 
-{code:"ECL-065",name:"Candy Hollow Dildo Harness",category:"arneses",price:53000,image:"images/candy-hollow-dildo-harness.jpg",description:"Arnés íntimo para accesorios compatibles."},
+{
+code:"ECL-009",
+name:"Lubricante Caramelo Caliente x 30 ml",
+category:"lubricantes",
+price:31900,
+image:"images/lubricante-intimo-caramelo-sensacion-caliente-x-30-ml.jpg",
+description:"Lubricante íntimo sabor caramelo con sensación caliente."
+},
 
-{code:"ECL-066",name:"Dados Penitencia Luminosos x 3",category:"juegos",price:19000,image:"images/dados-penitencia-luminosos-x-3.jpg",description:"Juego de dados luminosos para parejas."},
-{code:"ECL-067",name:"Dados Penitencia x 3",category:"juegos",price:18000,image:"images/dados-penitencia-x-3.jpg",description:"Juego de dados para parejas."},
-{code:"ECL-068",name:"Dados Eróticos x 2 - Línea Gay",category:"juegos",price:16000,image:"images/dados-eroticos-x-2-linea-gay.jpg",description:"Juego de dados eróticos de la línea Gay."},
+{
+code:"ECL-010",
+name:"Multiorgasmos Frío/Calor x 30 ml",
+category:"lubricantes",
+price:41900,
+image:"images/lubricante-intimo-multiorgasmos-frio-calor-x-30-ml.jpg",
+description:"Lubricante íntimo con combinación de sensaciones frío y calor."
+},
 
-{code:"ECL-069",name:"Kit Enciende Llama",category:"kits",price:48000,image:"images/kit-enciende-llama.jpg",description:"Kit diseñado para complementar momentos en pareja."},
-{code:"ECL-070",name:"Kit de Lubricantes Salva Vidas",category:"kits",price:45000,image:"images/kit-de-lubricantes-salva-vidas.jpg",description:"Kit con diferentes lubricantes íntimos."},
+{
+code:"ECL-011",
+name:"Anal Desensibilizante x 10 ml",
+category:"lubricantes",
+price:28900,
+image:"images/lubricante-intimo-anal-desensibilizante-x-10-ml.jpg",
+description:"Presentación compacta de lubricante anal desensibilizante."
+},
 
-{code:"ECL-071",name:"Anillo Vibrador Double Ring Black Power",category:"anillos",price:33000,image:"images/anillo-vibrador-double-ring-black-power.jpg",description:"Anillo vibrador Double Ring Black Power."}
+{
+code:"ECL-012",
+name:"Crema de Whisky Caliente x 30 ml",
+category:"lubricantes",
+price:31900,
+image:"images/lubricante-intimo-crema-de-whisky-sensacion-caliente-x-30-ml.jpg",
+description:"Lubricante íntimo Crema de Whisky con sensación caliente."
+},
+
+{
+code:"ECL-013",
+name:"Mango Caliente Electrizante x 30 ml",
+category:"lubricantes",
+price:41900,
+image:"images/lubricante-intimo-mango-sensacion-caliente-electrizante-x-30-ml.jpg",
+description:"Lubricante íntimo Mango con sensación caliente electrizante."
+},
+
+{
+code:"ECL-014",
+name:"Multiorgasmos x 10 ml",
+category:"lubricantes",
+price:28900,
+image:"images/lubricante-intimo-multiorgasmos-x-10-ml.jpg",
+description:"Lubricante Multiorgasmos en presentación compacta."
+},
+
+{
+code:"ECL-015",
+name:"Lychee Caliente Electrizante x 30 ml",
+category:"lubricantes",
+price:41900,
+image:"images/lubricante-intimo-lychee-sensacion-caliente-electrizante-x-30-ml.jpg",
+description:"Lubricante íntimo Lychee con sensación electrizante."
+},
+
+{
+code:"ECL-016",
+name:"Chocolate Caliente x 30 ml",
+category:"lubricantes",
+price:31900,
+image:"images/lubricante-intimo-chocolate-sensacion-caliente-x-30-ml.jpg",
+description:"Lubricante íntimo Chocolate con sensación caliente."
+},
+
+{
+code:"ECL-017",
+name:"Menta Sensación Fría x 30 ml",
+category:"lubricantes",
+price:31900,
+image:"images/lubricante-intimo-menta-sensacion-fria-x-30-ml.jpg",
+description:"Lubricante íntimo de menta con sensación fría."
+},
+
+{
+code:"ECL-018",
+name:"Tequila Caliente Electrizante x 30 ml",
+category:"lubricantes",
+price:41900,
+image:"images/lubricante-intimo-tequila-sensacion-caliente-electrizante-x-30-ml.jpg",
+description:"Lubricante íntimo Tequila con sensación caliente electrizante."
+},
+
+{
+code:"ECL-019",
+name:"Vibrador Líquido Electrizante Frío x 5 ml",
+category:"juguetes",
+price:42900,
+image:"images/vibrador-liquido-electrizante-frio-x-5-ml.jpg",
+description:"Estimulante líquido con sensación electrizante fría."
+},
+
+{
+code:"ECL-020",
+name:"Vibrador Líquido Electrizante x 5 ml",
+category:"juguetes",
+price:41900,
+image:"images/vibrador-liquido-electrizante-x-5-ml.jpg",
+description:"Estimulante líquido electrizante."
+},
+
+{
+code:"ECL-021",
+name:"Multiorgasmos Euforia con CBD x 30 ml",
+category:"juguetes",
+price:40900,
+image:"images/multiorgasmos-euforia-con-cbd-x-30-ml.jpg",
+description:"Producto íntimo de la línea Multiorgasmos Euforia."
+},
+
+{
+code:"ECL-022",
+name:"Radiant Splash con Feromonas x 125 ml",
+category:"perfumeria",
+price:35900,
+image:"images/radiant-splash-con-feromonas-x-125-ml.jpg",
+description:"Splash corporal Radiant con feromonas."
+},
+
+{
+code:"ECL-023",
+name:"Crema Humectante x 125 ml",
+category:"cuidado",
+price:35900,
+image:"images/crema-humectante-x-125-ml.jpg",
+description:"Crema humectante corporal para complementar el cuidado personal."
+},
+
+{
+code:"ECL-024",
+name:"Brillo Labial Frutos Rojos x 10 ml",
+category:"cuidado",
+price:19000,
+image:"images/brillo-labial-frutos-rojos-x-10-ml.jpg",
+description:"Brillo labial sabor frutos rojos."
+},
+
+{
+code:"ECL-025",
+name:"Aceite Corporal Pheromonas x 250 ml",
+category:"cuidado",
+price:57900,
+image:"images/aceite-corporal-pheromonas-x-250-ml.jpg",
+description:"Aceite corporal para masaje y aromaterapia con feromonas."
+},
+
+{
+code:"ECL-026",
+name:"Perfume Pheromona Dama Gotero x 10 ml",
+category:"perfumeria",
+price:45900,
+image:"images/perfume-pheromona-dama-gotero-x-10-ml.jpg",
+description:"Perfume con feromonas para dama en presentación de gotero."
+},
+
+{
+code:"ECL-027",
+name:"Radiant Crema Humectante con Pheromonas",
+category:"cuidado",
+price:35900,
+image:"images/radiant-crema-humectante-con-pheromonas-x-125-ml.jpg",
+description:"Crema corporal Radiant con feromonas."
+},
+
+{
+code:"ECL-028",
+name:"Forever Perfume con Pheromonas x 10 ml",
+category:"perfumeria",
+price:35900,
+image:"images/forever-perfume-con-pheromonas-x-10-ml.jpg",
+description:"Perfume Forever con feromonas."
+},
+
+{
+code:"ECL-029",
+name:"Sexy Crema Humectante con Pheromonas",
+category:"cuidado",
+price:35900,
+image:"images/sexy-crema-humectante-con-pheromonas-x-125-ml.jpg",
+description:"Crema humectante Sexy con feromonas."
+},
+
+{
+code:"ECL-030",
+name:"Forever Crema Humectante con Pheromonas",
+category:"cuidado",
+price:35900,
+image:"images/forever-crema-humectante-con-pheromonas-x-125-ml.jpg",
+description:"Crema corporal Forever con feromonas."
+},
+
+{
+code:"ECL-031",
+name:"Seduction Crema Humectante con Feromonas",
+category:"cuidado",
+price:35900,
+image:"images/seduction-crema-humectante-con-feromonas-x-125-ml.jpg",
+description:"Crema corporal Seduction con feromonas."
+},
+
+{
+code:"ECL-032",
+name:"Brillo Labial Frutos Rojos x 20 ml",
+category:"cuidado",
+price:29500,
+image:"images/brillo-labial-frutos-rojos-x-20-ml.jpg",
+description:"Brillo labial sabor frutos rojos."
+},
+
+{
+code:"ECL-033",
+name:"Anillo Vibrador Sen Íntimo",
+category:"anillos",
+price:21000,
+image:"images/anillo-vibrador-sen-intimo.jpg",
+description:"Anillo vibrador para complementar experiencias en pareja."
+},
+
+{
+code:"ECL-034",
+name:"Sexy Perfume con Pheromonas x 10 ml",
+category:"perfumeria",
+price:35900,
+image:"images/sexy-perfume-con-pheromonas-x-10-ml.jpg",
+description:"Perfume Sexy con feromonas."
+},
+
+{
+code:"ECL-035",
+name:"Seduction Perfume con Pheromonas x 10 ml",
+category:"perfumeria",
+price:35900,
+image:"images/seduction-perfume-con-pheromonas-x-10-ml.jpg",
+description:"Perfume Seduction con feromonas."
+},
+
+{
+code:"ECL-036",
+name:"Splash x 125 ml Sen Íntimo",
+category:"perfumeria",
+price:35900,
+image:"images/splash-x-125-ml-sen-intimo.jpg",
+description:"Splash corporal Sen Íntimo."
+}
+,
+{
+code:"ECL-037",
+name:"Seduction",
+category:"perfumeria",
+price:42900,
+image:"images/seduction.jpg",
+description:"Fragancia Seduction."
+},
+
+{
+code:"ECL-038",
+name:"Pheromone Infused Parfum Titanium x 10 ml",
+category:"perfumeria",
+price:42900,
+image:"images/pheromone-infused-parfum-titanium-x-10-ml.jpg",
+description:"Perfume Titanium con feromonas."
+},
+
+{
+code:"ECL-039",
+name:"Sexy Perfume x 10 ml",
+category:"perfumeria",
+price:42900,
+image:"images/sexy-perfume-x-10-ml.jpg",
+description:"Perfume íntimo Sexy."
+},
+
+{
+code:"ECL-040",
+name:"Radiant Perfume x 10 ml",
+category:"perfumeria",
+price:42900,
+image:"images/radiant-perfume-x-10-ml.jpg",
+description:"Perfume íntimo Radiant."
+},
+
+{
+code:"ECL-041",
+name:"Perfume con Pheromonas Dama Roll-On x 10 ml",
+category:"perfumeria",
+price:42900,
+image:"images/perfume-con-pheromonas-dama-roll-on-x-10-ml.jpg",
+description:"Perfume con feromonas para dama en formato roll-on."
+},
+
+{
+code:"ECL-042",
+name:"Perfume Pheromona Hombre Roll-On x 10 ml",
+category:"perfumeria",
+price:42900,
+image:"images/perfume-pheromona-hombre-roll-on-x-10-ml.jpg",
+description:"Perfume con feromonas para hombre en formato roll-on."
+},
+
+{
+code:"ECL-043",
+name:"Pheromone Infused Parfum Vicious x 10 ml",
+category:"perfumeria",
+price:42900,
+image:"images/pheromone-infused-parfum-vicious-x-10-ml.jpg",
+description:"Perfume Vicious con feromonas."
+},
+
+{
+code:"ECL-044",
+name:"Titanium Perfume con Feromonas x 10 ml",
+category:"perfumeria",
+price:42900,
+image:"images/titanium-perfume-con-feromonas-x-10-ml.jpg",
+description:"Perfume Titanium con feromonas."
+},
+
+{
+code:"ECL-045",
+name:"Pheromone Infused Parfum Radiant x 10 ml",
+category:"perfumeria",
+price:42900,
+image:"images/pheromone-infused-parfum-radiant-x-10-ml.jpg",
+description:"Perfume Radiant con feromonas."
+},
+
+{
+code:"ECL-046",
+name:"Panty Vibrador",
+category:"juguetes",
+price:103000,
+image:"images/panty-vibrador.jpg",
+description:"Panty vibrador diseñado para complementar experiencias íntimas."
+},
+
+{
+code:"ECL-047",
+name:"Bunny Vibe",
+category:"juguetes",
+price:128900,
+image:"images/bunny-vibe.jpg",
+description:"Vibrador tipo Bunny diseñado para estimulación íntima."
+},
+
+{
+code:"ECL-048",
+name:"Cherry Pepper Extreme",
+category:"juguetes",
+price:35000,
+image:"images/cherry-pepper-extreme.jpg",
+description:"Producto estimulante de la línea Cherry Pepper Extreme."
+},
+
+{
+code:"ECL-049",
+name:"Huevo",
+category:"juguetes",
+price:51000,
+image:"images/huevo.jpg",
+description:"Vibrador tipo huevo compacto y discreto."
+},
+
+{
+code:"ECL-050",
+name:"Clitoral Lover",
+category:"juguetes",
+price:85000,
+image:"images/clitoral-lover.jpg",
+description:"Estimulador diseñado para estimulación externa."
+},
+
+{
+code:"ECL-051",
+name:"Pulsador de Succión Clitorial Kiss Love",
+category:"juguetes",
+price:137000,
+image:"images/pulsador-de-succion-clitorial-kiss-love.jpg",
+description:"Estimulador de succión con diseño en forma de corazón."
+},
+
+{
+code:"ECL-052",
+name:"Hi Basic Sassy",
+category:"anal",
+price:30000,
+image:"images/hi-basic-sassy.jpg",
+description:"Accesorio íntimo para exploración anal progresiva."
+},
+
+{
+code:"ECL-053",
+name:"Jumping Rabbit",
+category:"anal",
+price:38000,
+image:"images/jumping-rabbit.jpg",
+description:"Plug anal compacto."
+},
+
+{
+code:"ECL-054",
+name:"Hidden Love",
+category:"anal",
+price:24000,
+image:"images/hidden-love.jpg",
+description:"Plug anal compacto y discreto."
+},
+
+{
+code:"ECL-055",
+name:"Jewelry Skin",
+category:"anal",
+price:43000,
+image:"images/jewelry-skin.jpg",
+description:"Plug anal con diseño decorativo."
+},
+
+{
+code:"ECL-056",
+name:"Energizante Black PW x 500 ml",
+category:"energizantes",
+price:58000,
+image:"images/energizante-black-pw-x-500-ml.jpg",
+description:"Energizante Black Power en presentación de 500 ml."
+},
+
+{
+code:"ECL-057",
+name:"Energizante Black PW Sachet x 15 ml",
+category:"energizantes",
+price:12000,
+image:"images/energizante-black-pw-sachet-x-15-ml.jpg",
+description:"Energizante Black Power en presentación sachet de 15 ml."
+},
+
+{
+code:"ECL-058",
+name:"Energizante Black Power Pills x 2 + 1 Gratis",
+category:"energizantes",
+price:16000,
+image:"images/energizante-black-power-pills-x-2-1-gratis.jpg",
+description:"Presentación promocional Black Power Pills."
+},
+
+{
+code:"ECL-059",
+name:"Energizante Black PW x 30 ml",
+category:"energizantes",
+price:17000,
+image:"images/energizante-black-pw-x-30-ml.jpg",
+description:"Energizante Black Power en presentación de 30 ml."
+},
+
+{
+code:"ECL-060",
+name:"Energizante Black Power Pills x 5 + 1 Gratis",
+category:"energizantes",
+price:27000,
+image:"images/energizante-black-power-pills-x-5-1-gratis.jpg",
+description:"Presentación promocional Black Power Pills."
+},
+
+{
+code:"ECL-061",
+name:"Energizante Black PW x 60 ml",
+category:"energizantes",
+price:25000,
+image:"images/energizante-black-pw-x-60-ml.jpg",
+description:"Energizante Black Power en presentación de 60 ml."
+},
+
+{
+code:"ECL-062",
+name:"Honeymoon - Dildo de Vidrio 8.6",
+category:"dildos",
+price:64000,
+image:"images/honeymoon-dildo-de-vidrio-8-6.jpg",
+description:"Dildo de vidrio diseñado para estimulación íntima."
+},
+
+{
+code:"ECL-063",
+name:"Sweet Littlet Bear - Dildo de Vidrio",
+category:"dildos",
+price:73000,
+image:"images/sweet-littlet-bear-dildo-de-vidrio.jpg",
+description:"Dildo de vidrio con diseño Sweet Little Bear."
+},
+
+{
+code:"ECL-064",
+name:"Griffin - Dildo Realista 8.6",
+category:"dildos",
+price:146000,
+image:"images/griffin-dildo-realista-8-6.jpg",
+description:"Dildo realista Griffin."
+},
+
+{
+code:"ECL-065",
+name:"Candy Hollow Dildo Harness",
+category:"arneses",
+price:53000,
+image:"images/candy-hollow-dildo-harness.jpg",
+description:"Arnés íntimo diseñado para accesorios compatibles."
+},
+
+{
+code:"ECL-066",
+name:"Dados Penitencia Luminosos x 3",
+category:"juegos",
+price:19000,
+image:"images/dados-penitencia-luminosos-x-3.jpg",
+description:"Juego de dados luminosos para parejas."
+},
+
+{
+code:"ECL-067",
+name:"Dados Penitencia x 3",
+category:"juegos",
+price:18000,
+image:"images/dados-penitencia-x-3.jpg",
+description:"Juego de dados para parejas."
+},
+
+{
+code:"ECL-068",
+name:"Dados Eróticos x 2 - Línea Gay",
+category:"juegos",
+price:16000,
+image:"images/dados-eroticos-x-2-linea-gay.jpg",
+description:"Juego de dados eróticos de la línea Gay."
+},
+
+{
+code:"ECL-069",
+name:"Kit Enciende Llama",
+category:"kits",
+price:48000,
+image:"images/kit-enciende-llama.jpg",
+description:"Kit diseñado para complementar momentos en pareja."
+},
+
+{
+code:"ECL-070",
+name:"Kit de Lubricantes Salva Vidas",
+category:"kits",
+price:45000,
+image:"images/kit-de-lubricantes-salva-vidas.jpg",
+description:"Kit con diferentes lubricantes íntimos."
+},
+
+{
+code:"ECL-071",
+name:"Anillo Vibrador Double Ring Black Power",
+category:"anillos",
+price:33000,
+image:"images/anillo-vibrador-double-ring-black-power.jpg",
+description:"Anillo vibrador Double Ring Black Power."
+}
+
 ];
+
+/* ===========================================
+   INFORMACIÓN DETALLADA
+=========================================== */
+
+const exactDetails = {
+
+"ECL-001":{
+description:"Lubricante íntimo Trío 3 en 1, diseñado para utilizarse en masajes, lubricación íntima y juegos orales.",
+features:"Fórmula base agua, de fácil limpieza y presentación de 30 ml.",
+usage:"Aplicar una pequeña cantidad sobre la zona deseada y distribuir suavemente. Reaplicar cuando sea necesario.",
+recommendations:"Uso externo. Evitar contacto con ojos y piel irritada. Suspender si produce molestia o irritación."
+},
+
+"ECL-004":{
+description:"Lubricante íntimo anal desensibilizante en presentación de 500 ml, diseñado para facilitar experiencias anales más cómodas.",
+features:"Presentación grande de 500 ml y fórmula diseñada para lubricación anal.",
+usage:"Aplicar una cantidad suficiente sobre la zona antes de la actividad. Reaplicar cuando sea necesario.",
+recommendations:"Usar de manera progresiva. Suspender ante irritación, dolor o incomodidad."
+}
+
+};
+
+function productDetails(p){
+
+if(exactDetails[p.code]){
+return exactDetails[p.code];
+}
+
+const details={
+
+lubricantes:{
+features:"Lubricante íntimo diseñado para complementar la experiencia y aportar diferentes sensaciones según la referencia.",
+usage:"Aplicar una pequeña cantidad sobre la zona deseada y distribuir suavemente. Reaplicar cuando sea necesario.",
+recommendations:"Uso externo. Evitar contacto con ojos y piel irritada. Suspender si produce irritación o molestia."
+},
+
+perfumeria:{
+features:"Fragancia de presentación práctica para complementar momentos especiales.",
+usage:"Aplicar una pequeña cantidad sobre la piel limpia, preferiblemente en puntos de pulso.",
+recommendations:"Uso externo. Evitar contacto con ojos, mucosas y piel irritada."
+},
+
+cuidado:{
+features:"Producto diseñado para complementar la rutina de cuidado corporal.",
+usage:"Aplicar una cantidad moderada sobre la piel limpia y distribuir suavemente.",
+recommendations:"Uso externo. Suspender ante cualquier reacción adversa."
+},
+
+juguetes:{
+features:"Juguete íntimo diseñado para estimulación personal o en pareja.",
+usage:"Utilizar de forma progresiva y cómoda. Seguir las instrucciones del fabricante para funcionamiento, carga o limpieza cuando corresponda.",
+recommendations:"Limpiar antes y después de cada uso. Secar completamente antes de guardar."
+},
+
+anal:{
+features:"Accesorio diseñado para exploración anal progresiva.",
+usage:"Utilizar lubricante compatible e introducir lentamente, sin forzar.",
+recommendations:"Usar de forma progresiva. Detener el uso ante dolor o incomodidad."
+},
+
+anillos:{
+features:"Accesorio íntimo diseñado para complementar experiencias en pareja.",
+usage:"Colocar cuidadosamente siguiendo la forma y funcionamiento del producto.",
+recommendations:"No utilizar durante periodos prolongados. Retirar si genera dolor, entumecimiento o incomodidad."
+},
+
+energizantes:{
+features:"Producto de la línea energizante en presentación líquida, sachet o cápsulas según la referencia.",
+usage:"Seguir exclusivamente las indicaciones y dosis señaladas en el empaque original.",
+recommendations:"No exceder la dosis recomendada. Revisar ingredientes y advertencias del fabricante antes del consumo."
+},
+
+dildos:{
+features:"Juguete íntimo diseñado para estimulación y exploración.",
+usage:"Utilizar progresivamente con lubricante compatible con el material.",
+recommendations:"Limpiar antes y después de cada uso. Revisar el estado del producto antes de utilizarlo."
+},
+
+arneses:{
+features:"Arnés íntimo ajustable diseñado para utilizar con accesorios compatibles.",
+usage:"Ajustar al cuerpo hasta conseguir firmeza sin generar incomodidad.",
+recommendations:"Revisar correas y puntos de ajuste antes de utilizar."
+},
+
+juegos:{
+features:"Juego diseñado para añadir variedad y diversión a momentos en pareja.",
+usage:"Seguir la dinámica indicada en el producto y adaptarla a los límites de quienes participan.",
+recommendations:"Todas las actividades deben realizarse con consentimiento mutuo."
+},
+
+kits:{
+features:"Kit compuesto por diferentes productos íntimos.",
+usage:"Utilizar cada elemento siguiendo sus instrucciones particulares.",
+recommendations:"Revisar las indicaciones individuales de cada componente."
+}
+
+};
+
+return details[p.category] || {
+features:"Producto seleccionado para el catálogo Eclipse.",
+usage:"Seguir las instrucciones específicas del fabricante.",
+recommendations:"Utilizar responsablemente."
+};
+
+}
+
+/* ===========================================
+   FORMATO DE PRECIO
+=========================================== */
 
 let currentCategory="all";
 
 function money(n){
-return "$"+Number(n).toLocaleString("es-CO");
+
+return "$" + Number(n).toLocaleString("es-CO");
+
 }
+
+/* ===========================================
+   WHATSAPP PRODUCTO INDIVIDUAL
+=========================================== */
 
 function whatsappLink(p){
 
 const text=
 `Hola Eclipse 🌑
+
 Quiero información sobre:
 
 ${p.name}
+
 Código: ${p.code}
 Precio: ${money(p.price)}`;
 
-return "https://wa.me/573123690775?text="+encodeURIComponent(text);
+return "https://wa.me/573123690775?text=" +
+encodeURIComponent(text);
 
 }
 
-/* MOSTRAR PRODUCTOS */
+/* ===========================================
+   MOSTRAR PRODUCTOS
+=========================================== */
 
 function renderProducts(){
 
 const search=
-(document.getElementById("searchInput").value||"")
-.toLowerCase();
+(document.getElementById("searchInput").value || "")
+.toLowerCase()
+.trim();
 
-const filtered=products.filter(p=>{
+const filtered=
+products.filter(p=>{
 
 const categoryMatch=
-currentCategory==="all"||
+currentCategory==="all" ||
 p.category===currentCategory;
 
-const searchMatch=
+const searchText=
 `${p.name} ${p.code} ${p.category}`
-.toLowerCase()
-.includes(search);
+.toLowerCase();
 
-return categoryMatch&&searchMatch;
+return categoryMatch &&
+searchText.includes(search);
 
 });
 
 document.getElementById("resultCount").textContent=
-`${filtered.length} productos encontrados`;
+`${filtered.length} producto${filtered.length===1 ? "" : "s"} encontrados`;
 
 document.getElementById("productGrid").innerHTML=
 filtered.map(p=>`
 
-<article class="product"
+<article
+class="product"
 onclick="openProductModal('${p.code}')">
 
 <div class="pic">
@@ -681,7 +2359,7 @@ alt="${p.name}"
 loading="lazy"
 onerror="
 this.style.display='none';
-this.parentElement.innerHTML='📷<br>Imagen próximamente';
+this.parentElement.innerHTML='<span>📷<br>Imagen próximamente</span>';
 ">
 
 </div>
@@ -692,7 +2370,9 @@ this.parentElement.innerHTML='📷<br>Imagen próximamente';
 <span>${p.code}</span>
 </div>
 
-<h3>${p.name}</h3>
+<h3>
+${p.name}
+</h3>
 
 <div class="description">
 ${p.description}
@@ -706,7 +2386,8 @@ ${money(p.price)}
 ● DISPONIBLE
 </div>
 
-<button class="add-cart"
+<button
+class="add-cart"
 onclick="
 event.stopPropagation();
 addToCart('${p.code}');
@@ -720,6 +2401,7 @@ addToCart('${p.code}');
 class="buy"
 href="${whatsappLink(p)}"
 target="_blank"
+rel="noopener"
 onclick="event.stopPropagation()">
 
 ◉ COMPRAR SOLO ESTE
@@ -733,6 +2415,10 @@ onclick="event.stopPropagation()">
 `).join("");
 
 }
+
+/* ===========================================
+   FILTROS
+=========================================== */
 
 function filterProducts(category){
 
@@ -751,91 +2437,18 @@ btn.dataset.filter===category
 
 renderProducts();
 
-}
-
-/* INFORMACIÓN DE FICHAS */
-
-function productDetails(p){
-
-const details={
-
-lubricantes:{
-features:"Producto íntimo de uso tópico diseñado para complementar la experiencia y aportar diferentes sensaciones según la referencia.",
-usage:"Aplicar una pequeña cantidad en la zona deseada y distribuir suavemente. Reaplicar si es necesario. Revisar siempre las instrucciones del empaque.",
-recommendations:"Uso externo. Evitar contacto con ojos y piel irritada. Suspender si genera molestia o irritación. Conservar bien cerrado."
-},
-
-perfumeria:{
-features:"Fragancia íntima de presentación práctica para uso personal.",
-usage:"Aplicar una pequeña cantidad sobre la piel limpia, preferiblemente en puntos de pulso.",
-recommendations:"Evitar ojos, mucosas y piel irritada. Uso externo."
-},
-
-cuidado:{
-features:"Producto de cuidado corporal diseñado para complementar la rutina personal y sensorial.",
-usage:"Aplicar sobre la piel limpia y distribuir suavemente.",
-recommendations:"Uso externo. Suspender ante cualquier reacción adversa."
-},
-
-juguetes:{
-features:"Juguete íntimo diseñado para estimulación personal o en pareja.",
-usage:"Utilizar progresivamente y de manera cómoda. Seguir las instrucciones del fabricante para funcionamiento, carga y limpieza.",
-recommendations:"Limpiar antes y después de cada uso. Secar completamente antes de guardar."
-},
-
-anal:{
-features:"Accesorio diseñado para exploración anal progresiva.",
-usage:"Utilizar abundante lubricante compatible e introducir lentamente sin forzar.",
-recommendations:"Los accesorios anales deben utilizarse de forma progresiva. Detener el uso ante dolor o incomodidad."
-},
-
-anillos:{
-features:"Accesorio íntimo diseñado para complementar experiencias en pareja.",
-usage:"Colocar cuidadosamente siguiendo el diseño del producto.",
-recommendations:"No utilizar durante periodos prolongados. Retirar inmediatamente si genera dolor o entumecimiento."
-},
-
-energizantes:{
-features:"Producto de la línea energizante en presentación líquida, sachet o cápsulas.",
-usage:"Seguir exclusivamente las indicaciones y dosis señaladas en el empaque original.",
-recommendations:"No exceder la dosis recomendada. Revisar ingredientes y advertencias del fabricante."
-},
-
-dildos:{
-features:"Juguete íntimo diseñado para estimulación y exploración.",
-usage:"Utilizar progresivamente con lubricante compatible con el material.",
-recommendations:"Limpiar antes y después de cada uso. Revisar el producto antes de utilizarlo."
-},
-
-arneses:{
-features:"Arnés íntimo ajustable diseñado para accesorios compatibles.",
-usage:"Ajustar al cuerpo hasta conseguir firmeza sin incomodidad.",
-recommendations:"Revisar correas y puntos de ajuste antes de utilizar."
-},
-
-juegos:{
-features:"Juego pensado para añadir variedad y diversión a momentos en pareja.",
-usage:"Seguir las instrucciones del producto y adaptar las actividades a los límites de los participantes.",
-recommendations:"Todas las actividades deben realizarse con consentimiento mutuo."
-},
-
-kits:{
-features:"Kit compuesto por diferentes productos íntimos.",
-usage:"Utilizar cada elemento siguiendo sus instrucciones particulares.",
-recommendations:"Revisar las indicaciones individuales de cada componente."
-}
-
-};
-
-return details[p.category]||{
-features:"Producto seleccionado para el catálogo Eclipse.",
-usage:"Seguir las instrucciones del fabricante.",
-recommendations:"Usar responsablemente."
-};
+document
+.getElementById("productos")
+.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
 
 }
 
-/* ABRIR FICHA */
+/* ===========================================
+   ABRIR FICHA PRODUCTO
+=========================================== */
 
 function openProductModal(code){
 
@@ -844,7 +2457,8 @@ products.find(x=>x.code===code);
 
 if(!p)return;
 
-const details=productDetails(p);
+const details=
+productDetails(p);
 
 document.getElementById("modalCode").textContent=
 p.code;
@@ -856,7 +2470,7 @@ document.getElementById("modalPrice").textContent=
 money(p.price);
 
 document.getElementById("modalDescription").textContent=
-p.description;
+exactDetails[p.code]?.description || p.description;
 
 document.getElementById("modalFeatures").textContent=
 details.features;
@@ -874,7 +2488,7 @@ src="${p.image}"
 alt="${p.name}"
 onerror="
 this.style.display='none';
-this.parentElement.innerHTML='📷<br>Imagen próximamente';
+this.parentElement.innerHTML='<span>📷<br>Imagen próximamente</span>';
 ">
 `;
 
@@ -896,7 +2510,18 @@ document.body.style.overflow="hidden";
 
 }
 
-function closeProductModal(){
+/* ===========================================
+   CERRAR FICHA
+=========================================== */
+
+function closeProductModal(event){
+
+if(
+event &&
+event.target.id !== "productModalOverlay"
+){
+return;
+}
 
 document
 .getElementById("productModalOverlay")
@@ -906,13 +2531,16 @@ document.body.style.overflow="";
 
 }
 
-/* CARRITO */
+/* ===========================================
+   CARRITO
+=========================================== */
 
-const CART_KEY="eclipse_cart_v2";
+const CART_KEY=
+"eclipse_cart_v3";
 
 let cart=
 JSON.parse(
-localStorage.getItem(CART_KEY)||"{}"
+localStorage.getItem(CART_KEY) || "{}"
 );
 
 function saveCart(){
@@ -928,17 +2556,22 @@ updateCartUI();
 
 function addToCart(code){
 
-cart[code]=(cart[code]||0)+1;
+cart[code]=
+(cart[code] || 0) + 1;
 
 saveCart();
 
-closeProductModal();
+document
+.getElementById("productModalOverlay")
+.classList.remove("open");
 
 openCart();
 
 }
 
 function changeQty(code,change){
+
+if(!cart[code])return;
 
 cart[code]+=change;
 
@@ -996,6 +2629,10 @@ document.body.style.overflow="";
 
 }
 
+/* ===========================================
+   ACTUALIZAR CARRITO
+=========================================== */
+
 function updateCartUI(){
 
 const entries=
@@ -1008,8 +2645,9 @@ entries.reduce(
 0
 );
 
-document.getElementById("cartCount").textContent=
-count;
+document
+.getElementById("cartCount")
+.textContent=count;
 
 const container=
 document.getElementById("cartItems");
@@ -1019,13 +2657,19 @@ if(entries.length===0){
 container.innerHTML=
 `
 <div class="cart-empty">
-Tu carrito está vacío.<br><br>
-Agrega los productos que quieras.
+
+Tu carrito está vacío.
+
+<br><br>
+
+Agrega los productos que quieras y luego finaliza el pedido por WhatsApp.
+
 </div>
 `;
 
-document.getElementById("cartTotal").textContent=
-"$0";
+document
+.getElementById("cartTotal")
+.textContent="$0";
 
 return;
 
@@ -1039,7 +2683,7 @@ entries.map(([code,qty])=>{
 const p=
 products.find(x=>x.code===code);
 
-if(!p)return"";
+if(!p)return "";
 
 const subtotal=
 p.price*qty;
@@ -1053,21 +2697,30 @@ return`
 <img
 class="cart-thumb"
 src="${p.image}"
-onerror="this.style.visibility='hidden'"
->
+alt="${p.name}"
+onerror="
+this.style.visibility='hidden';
+">
 
 <div>
 
-<h4>${p.name}</h4>
+<h4>
+${p.name}
+</h4>
 
 <div class="cart-item-code">
 ${p.code}
 </div>
 
 <div class="cart-item-price">
+
 ${money(p.price)} c/u
+
 <br>
-Subtotal: ${money(subtotal)}
+
+Subtotal:
+${money(subtotal)}
+
 </div>
 
 <div class="qty-row">
@@ -1099,19 +2752,22 @@ Eliminar
 </div>
 
 </div>
-
 </div>
 
 `;
 
 }).join("");
 
-document.getElementById("cartTotal").textContent=
+document
+.getElementById("cartTotal")
+.textContent=
 money(total);
 
 }
 
-/* FINALIZAR WHATSAPP */
+/* ===========================================
+   FINALIZAR PEDIDO POR WHATSAPP
+=========================================== */
 
 function checkoutWhatsApp(){
 
@@ -1122,12 +2778,14 @@ Object.entries(cart)
 const phone=
 document
 .getElementById("customerPhone")
-.value.trim();
+.value
+.trim();
 
 const location=
 document
 .getElementById("customerLocation")
-.value.trim();
+.value
+.trim();
 
 const payment=
 document
@@ -1141,20 +2799,24 @@ document
 if(entries.length===0){
 
 error.textContent=
-"Agrega al menos un producto.";
+"Agrega al menos un producto al carrito.";
 
-error.style.display="block";
+error.style.display=
+"block";
 
 return;
 
 }
 
-if(phone.replace(/\D/g,"").length<7){
+if(
+phone.replace(/\D/g,"").length < 7
+){
 
 error.textContent=
 "Escribe un número de teléfono válido.";
 
-error.style.display="block";
+error.style.display=
+"block";
 
 return;
 
@@ -1163,9 +2825,10 @@ return;
 if(!location){
 
 error.textContent=
-"Escribe la ubicación.";
+"Escribe la ubicación para la entrega.";
 
-error.style.display="block";
+error.style.display=
+"block";
 
 return;
 
@@ -1174,15 +2837,17 @@ return;
 if(!payment){
 
 error.textContent=
-"Selecciona efectivo o transferencia.";
+"Selecciona pago en efectivo o transferencia.";
 
-error.style.display="block";
+error.style.display=
+"block";
 
 return;
 
 }
 
-error.style.display="none";
+error.style.display=
+"none";
 
 let total=0;
 
@@ -1197,20 +2862,16 @@ p.price*qty;
 
 total+=subtotal;
 
-return
-`${qty} x ${p.name}
-${p.code}
-Subtotal: ${money(subtotal)}`;
+return `• ${qty} x ${p.name} (${p.code}) - ${money(subtotal)}`;
 
 });
 
 const message=
-
 `Hola Eclipse 🌑
 
 Quiero realizar este pedido:
 
-${lines.join("\n\n")}
+${lines.join("\n")}
 
 TOTAL: ${money(total)}
 
@@ -1227,16 +2888,20 @@ ${payment}
 
 Quedo pendiente para coordinar la entrega.`;
 
+const url=
+"https://wa.me/573123690775?text=" +
+encodeURIComponent(message);
+
 window.open(
-
-"https://wa.me/573123690775?text="+
-encodeURIComponent(message),
-
+url,
 "_blank"
-
 );
 
 }
+
+/* ===========================================
+   TECLA ESC
+=========================================== */
 
 document.addEventListener(
 "keydown",
@@ -1244,7 +2909,10 @@ event=>{
 
 if(event.key==="Escape"){
 
-closeProductModal();
+document
+.getElementById("productModalOverlay")
+.classList.remove("open");
+
 closeCart();
 
 }
@@ -1252,10 +2920,14 @@ closeCart();
 }
 );
 
+/* INICIAR */
+
 updateCartUI();
+
 renderProducts();
 
 </script>
 
 </body>
+
 </html>
