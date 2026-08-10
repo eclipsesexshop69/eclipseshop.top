@@ -2354,7 +2354,7 @@ onclick="openProductModal('${p.code}')">
 <div class="pic">
 
 <img
-src="${p.image}"
+src="${p.image}?v=2"
 alt="${p.name}"
 loading="lazy"
 onerror="
@@ -2484,7 +2484,7 @@ details.recommendations;
 document.getElementById("modalImageWrap").innerHTML=
 `
 <img
-src="${p.image}"
+src="${p.image}?v=2"
 alt="${p.name}"
 onerror="
 this.style.display='none';
@@ -2696,7 +2696,7 @@ return`
 
 <img
 class="cart-thumb"
-src="${p.image}"
+src="${p.image}?v=2"
 alt="${p.name}"
 onerror="
 this.style.visibility='hidden';
